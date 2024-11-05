@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Assuming full condo 2 BD, Liv, Din, Hall etc. Use lowest price between this and Est. Cost --></help>
+    <label><!-- 2BD Apt/Condo --></label>
+    <name>Apt_2bd_hall_liv_rm1__c</name>
+</CustomFieldTranslation>

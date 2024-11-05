@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomSite xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <allowGuestPaymentsApi>false</allowGuestPaymentsApi>
+    <allowHomePage>false</allowHomePage>
+    <allowStandardAnswersPages>false</allowStandardAnswersPages>
+    <allowStandardIdeasPages>false</allowStandardIdeasPages>
+    <allowStandardLookups>false</allowStandardLookups>
+    <allowStandardPortalPages>true</allowStandardPortalPages>
+    <allowStandardSearch>false</allowStandardSearch>
+    <authorizationRequiredPage>CommunitiesLogin</authorizationRequiredPage>
+    <bandwidthExceededPage>BandwidthExceeded</bandwidthExceededPage>
+    <browserXssProtection>false</browserXssProtection>
+    <cachePublicVisualforcePagesInProxyServers>true</cachePublicVisualforcePagesInProxyServers>
+    <clickjackProtectionLevel>SameOriginOnly</clickjackProtectionLevel>
+    <contentSniffingProtection>false</contentSniffingProtection>
+    <enableAuraRequests>true</enableAuraRequests>
+    <fileNotFoundPage>FileNotFound</fileNotFoundPage>
+    <genericErrorPage>Exception</genericErrorPage>
+    <inMaintenancePage>CommunitiesLogin</inMaintenancePage>
+    <inactiveIndexPage>CommunitiesLogin</inactiveIndexPage>
+    <indexPage>Calendar_Page_Franchise</indexPage>
+    <masterLabel>Smart Franchise Owner</masterLabel>
+    <redirectToCustomDomain>false</redirectToCustomDomain>
+    <referrerPolicyOriginWhenCrossOrigin>false</referrerPolicyOriginWhenCrossOrigin>
+    <selfRegPage>CommunitiesSelfReg</selfRegPage>
+    <serverIsDown>SNA_Smart_Franchise_Owner1_sf_default_cdn_xxp69</serverIsDown>
+    <siteAdmin>rv@smartcarpetcare.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>rv@smartcarpetcare.com</siteGuestRecordDefaultOwner>
+    <siteType>ChatterNetwork</siteType>
+    <subdomain>smartcarpetcare</subdomain>
+</CustomSite>

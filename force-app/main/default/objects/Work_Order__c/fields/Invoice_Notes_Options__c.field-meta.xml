@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invoice_Notes_Options__c</fullName>
+    <externalId>false</externalId>
+    <label>Invoice Notes Options</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Carpet Roll</fullName>
+                <default>false</default>
+                <label>Carpet Roll</label>
+            </value>
+            <value>
+                <fullName>Wear That Looks Like Soil</fullName>
+                <default>false</default>
+                <label>Wear That Looks Like Soil</label>
+            </value>
+            <value>
+                <fullName>Banding</fullName>
+                <default>false</default>
+                <label>Banding</label>
+            </value>
+            <value>
+                <fullName>Bleaching</fullName>
+                <default>false</default>
+                <label>Bleaching</label>
+            </value>
+            <value>
+                <fullName>Pivot Wear</fullName>
+                <default>false</default>
+                <label>Pivot Wear</label>
+            </value>
+            <value>
+                <fullName>Residual Urine Smell</fullName>
+                <default>false</default>
+                <label>Residual Urine Smell</label>
+            </value>
+            <value>
+                <fullName>Stain Magic</fullName>
+                <default>false</default>
+                <label>Stain Magic</label>
+            </value>
+            <value>
+                <fullName>High Levels Of Pet Hair</fullName>
+                <default>false</default>
+                <label>High Levels Of Pet Hair</label>
+            </value>
+            <value>
+                <fullName>Carpet Illusions After Cleaning</fullName>
+                <default>false</default>
+                <label>Carpet Illusions After Cleaning</label>
+            </value>
+            <value>
+                <fullName>Furniture Divots</fullName>
+                <default>false</default>
+                <label>Furniture Divots</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>6</visibleLines>
+</CustomField>

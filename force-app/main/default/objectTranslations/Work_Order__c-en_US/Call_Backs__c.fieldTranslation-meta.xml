@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- If customer calls back due to job not being done in a satisfactory way. Date of callback, Team member initials, Determination- Justified or Unjustified, nature of complaint, return visit date and time, who was present, describe issues, remedies, outcome --></help>
+    <label><!-- Call Backs --></label>
+    <name>Call_Backs__c</name>
+</CustomFieldTranslation>

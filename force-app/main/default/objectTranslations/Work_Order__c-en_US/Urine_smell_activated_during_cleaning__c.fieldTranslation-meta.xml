@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Indicate location and degree of smell. --></help>
+    <label><!-- Urine smell activated during cleaning --></label>
+    <name>Urine_smell_activated_during_cleaning__c</name>
+</CustomFieldTranslation>

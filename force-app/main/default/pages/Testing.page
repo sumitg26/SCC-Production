@@ -1,0 +1,94 @@
+<apex:page standardController="Work_Order__c" recordSetVar="Work_Order__c" tabStyle="My_Work_Orders__tab" sidebar="false">
+    <!--sortable table scripts-->
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" />
+    <apex:includeScript value="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.17.8/js/jquery.tablesorter.min.js" />
+    <apex:stylesheet value="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.17.8/css/theme.blue.css" />
+      <script>
+      function tablesort(){
+        jQuery("[id$='workOrderTable']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy", sortList: [[3,1]]});
+     }
+      
+      $(document).ready(function()
+      {
+        $("[id$='workOrderTable']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy", sortList: [[3,1]]});
+      });
+      </script>
+  <!-- Begin Default Content REMOVE THIS -->
+  <!--<br/><h1>My Work Orders</h1><br/><br/><br/>-->
+  <apex:form >
+      <apex:pageBlock id="work_orders" title="Hello {!$User.FirstName}!">
+        <apex:selectList value="{! filterId }" size="1">
+            <apex:selectOptions value="{! listViewOptions }"/>
+            <apex:actionSupport event="onchange" reRender="work_orders" oncomplete="tablesort();"/>
+        </apex:selectList>
+    
+        <table width="700">
+        <tr>
+            <td valign="top">
+              Below are your current outstanding Work Orders   
+            </td>
+            <td align="center"> 
+              <apex:outputLink value="https://smartcarpetcare.force.com/clients/a0n/e?"><apex:image id="NewOrderImage" value="/servlet/servlet.FileDownload?file=0151a000000AMXJ"/><BR/>New Order</apex:outputLink>
+            </td>
+            <td align="right"> 
+              <apex:outputLink value="mailto:SmartAccountMgmt@smartcarpetcare.com"><apex:image id="EmailImage" value="/servlet/servlet.FileDownload?file=0151a000000AMZc"/><BR/>Email</apex:outputLink>
+            </td>
+            <td align="left" valign="middle"> 
+              <apex:outputLink title="Use this to make changes to an existing work order. Please first Copy then Paste the Property Address into the Subject line of the email."><B>?</B></apex:outputLink>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4"><b>Key:</b> <font color="#CC0000"><b>Pending</B></font> - <font color="#009933"><b>Scheduled</B></font> - <font color="0000FF"><b>Completed</B></font> - <font color="#996633"><b>Invoiced</B></font> - <font color="#CCCC00"><b>Invoiced Paid</B></font></td>
+        </TR>
+        </table>
+        <apex:pageBlockTable value="{!Work_Order__c}" id="workOrderTable" var="wo">
+         
+          <apex:column headerValue="Invoice Number">
+              <apex:outputLink value="https://smartcarpetcare.force.com/clients/{!wo.ID}" style="{!IF(wo.Status__c = 'Invoice Paid','color: rgb(204, 204, 0); font-weight: bold;', IF(wo.Status__c = 'Pending','color: rgb(204, 0, 0);font-weight: bold;', IF(wo.Status__c = 'Completed','color: rgb(0,0,255);font-weight: bold;', IF(wo.Status__c = 'Scheduled','color: rgb(0, 153, 51);font-weight: bold;', IF(wo.Status__c = 'Invoiced','color: rgb(153, 102, 51);font-weight: bold;', '')))))}">{!wo.name}</apex:outputLink>
+          </apex:column>
+          <apex:column value="{!wo.Property_Address__c}" style="{!IF(wo.Status__c = 'Invoice Paid','color: rgb(204, 204, 0); font-weight: bold;', IF(wo.Status__c = 'Pending','color: rgb(204, 0, 0);font-weight: bold;', IF(wo.Status__c = 'Completed','color: rgb(0,0,255);font-weight: bold;', IF(wo.Status__c = 'Scheduled','color: rgb(0, 153 ,51);font-weight: bold;', IF(wo.Status__c = 'Invoiced','color: rgb(153, 102, 51);font-weight: bold;', '')))))}"/>
+          <apex:column value="{!wo.Status__c}"/>
+          <apex:column value="{!wo.Start_Date__c}"/>
+          <apex:column value="{!wo.Completion_Date__c}"/> <apex:column value="{!wo.Time_Frame__c}"/>
+          </apex:pageBlockTable>
+          <table style="width: 100%"><tr>
+        <td>
+            Page: <apex:outputText value=" {!PageNumber} of {! CEILING(ResultSize / PageSize) }"/>
+        </td>            
+    
+        <td align="center">
+            <!-- Previous page -->
+            <!-- active -->
+            <apex:commandLink action="{! Previous }" value="« Previous"
+                 rendered="{! HasPrevious }" />
+            <!-- inactive (no earlier pages) -->
+            <apex:outputText style="color: #ccc;" value="« Previous"
+                 rendered="{! NOT(HasPrevious) }"/>
+            &nbsp;&nbsp;&nbsp;
+            <!-- Next page -->
+            <!-- active -->
+            <apex:commandLink action="{! Next }" value="Next »"
+                 rendered="{! HasNext }"/>
+            <!-- inactive (no more pages) -->
+            <apex:outputText style="color: #ccc;" value="Next »"
+                 rendered="{! NOT(HasNext) }"/>
+        </td>
+        
+        <td align="right">
+            Records per page:&nbsp;
+            <apex:selectList value="{! PageSize }" size="1">
+                <apex:selectOption itemValue="5" itemLabel="5"/>
+                <apex:selectOption itemValue="20" itemLabel="20"/>
+                <apex:selectOption itemValue="50" itemLabel="50"/>
+                <apex:selectOption itemValue="100" itemLabel="100"/>
+                <apex:actionSupport event="onchange" reRender="work_orders" oncomplete="tablesort();"/>
+            </apex:selectList>
+
+        </td>
+    
+    </tr></table>
+
+        </apex:pageBlock>
+    </apex:form>
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

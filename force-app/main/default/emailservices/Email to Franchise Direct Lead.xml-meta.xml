@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailServicesFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apexClass>parseEmailToFranchiseDirectLeadSource</apexClass>
+    <attachmentOption>All</attachmentOption>
+    <authenticationFailureAction>Discard</authenticationFailureAction>
+    <authorizationFailureAction>Discard</authorizationFailureAction>
+    <emailServicesAddresses>
+        <developerName>franchise_direct</developerName>
+        <isActive>true</isActive>
+        <localPart>franchise_direct</localPart>
+        <runAsUser>leov@scc.com</runAsUser>
+    </emailServicesAddresses>
+    <errorRoutingAddress>niteshk1@damcogroup.com</errorRoutingAddress>
+    <functionInactiveAction>Discard</functionInactiveAction>
+    <functionName>Email to Franchise Direct Lead</functionName>
+    <isActive>true</isActive>
+    <isAuthenticationRequired>false</isAuthenticationRequired>
+    <isErrorRoutingEnabled>true</isErrorRoutingEnabled>
+    <isTextAttachmentsAsBinary>false</isTextAttachmentsAsBinary>
+    <isTlsRequired>false</isTlsRequired>
+    <overLimitAction>Discard</overLimitAction>
+</EmailServicesFunction>

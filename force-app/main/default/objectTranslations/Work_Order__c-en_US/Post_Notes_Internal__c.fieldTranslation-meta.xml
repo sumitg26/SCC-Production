@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Include click on times for operators, anything CYA, including banding, and if you used heat transfer (include # of attempts &amp; duration of longest attempt), and any customer communications --></help>
+    <label><!-- Post Notes Internal --></label>
+    <name>Post_Notes_Internal__c</name>
+</CustomFieldTranslation>

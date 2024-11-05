@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Has the vendor been paid? --></help>
+    <label><!-- Order Paid --></label>
+    <name>Order_Paid__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Location, Size, Quantity, Severity, and Lighting Conditions if poor --></help>
+    <label><!-- Blacklight findings: --></label>
+    <name>Blacklight_findings__c</name>
+</CustomFieldTranslation>

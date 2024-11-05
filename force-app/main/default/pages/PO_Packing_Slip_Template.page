@@ -1,0 +1,83 @@
+<apex:page controller="POController" sidebar="false" showHeader="false" renderAs="pdf" applyHtmlTag="false" applyBodyTag="false">
+    <head>
+        <style>
+            .headercolor{
+                color:#73bed6;
+            }
+        </style>
+    </head>
+    
+    <apex:form >
+        <apex:pageBlock ><br/>
+            <div style="border:10px solid #E3E6E5;">
+                <apex:image value="{!URLFOR($Resource.POInvoiceTemplate)}" width="25%" height="25%"/>
+                <p style="float:right;margin-right:10%;font-style:Calisto MT;font-size:12px;color:#4d4d4d">{!$Organization.Street}<br/>
+                    {!$Organization.City} &nbsp;&nbsp;{!$Organization.PostalCode}<br/>
+                    Phone: {!$Organization.Phone}<br/>
+                    E-Mail: Rfortunate@comcast.net<br/>
+                    Web: smartcarpetcare.com</p>
+            </div>
+            
+            <div style="float:right;margin-right:5%;font-style:Calisto MT;font-size:40px;color:#4d4d4d">Packing Slip</div><br/><br/><br/>
+            
+            <apex:pageBlockTable value="{!poList}" var="po" width="100%" style="font-size:14px;" headerClass="headercolor">
+                <apex:column headerValue="Bill To:" width="34%">
+                    {!po.Account_Name__r.Name}<br/>
+                    <apex:outputText value="{!po.Account_Address__c}" escape="false"/>
+                </apex:column>
+                <apex:column headerValue="Ship To:" width="33%">
+                    {!po.Shipping_Address__c}
+                </apex:column> 
+                <apex:column headerValue="P.O. #" value="{!po.Name}" width="33%"/>
+            </apex:pageBlockTable><br/><br/>
+            
+            <apex:outputPanel >
+                <table style="width:70%;border-collapse:collapse;font-style:Times New Roman;font-size:13px;" cellpadding="8">
+                    <tr style="background-color:#f2f2f2;">
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;width:18%;">Date</th>
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;width:10%;">PO #</th>
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;width:30%;">Ship Via</th>
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;border-right:1px solid #E3E6E5;width:13%;">Terms</th>
+                    </tr>
+                    <tr>
+                        <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;">{!dateTimeValue}</td>
+                        <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;">{!poList[0].Name}</td>
+                        <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;">{!poList[0].Ship_Via__c}</td>
+                        <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-right:1px solid #E3E6E5;border-left:1px solid #E3E6E5">{!poList[0].Payment_Terms__c}</td>
+                    </tr>
+                </table>
+            </apex:outputPanel><br/><br/><br/><br/>
+            
+            <apex:outputPanel >
+                <table style="width:100%;border-collapse:collapse;font-style:Times New Roman;font-size:13px;" cellpadding="8">
+                    <tr style="background-color:#f2f2f2;">
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;width:15%;">Item</th>
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;width:35%;">Description</th>
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;width:35%;">Supplier Co</th>
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;width:10%;">Qty Ordered</th>
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;width:18%;">Qty Back Ordered</th>
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;border-right:1px solid #E3E6E5;width:20%;">Qty Shipped</th>
+                    </tr>
+                    <apex:repeat value="{!poLinesList}" var="pol">
+                        <tr>
+                            <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;">{!pol.Item__c}</td>
+                            <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;">{!pol.Product__r.Name}</td>
+                            <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;">{!pol.Product__r.Supplier_Manufacturer__r.Name}</td>
+                            <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;">{!pol.Quantity__c}</td>
+                            <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;"></td>
+                            <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-right:1px solid #E3E6E5;border-left:1px solid #E3E6E5"></td>
+                        </tr>
+                    </apex:repeat>
+                </table>
+            </apex:outputPanel>
+            <br/><br/>
+            
+            <p style="font-size:12px">
+            Important Note:<br/>
+            Prior to signing for the delivery of your product, please be sure to thoroughly inspect it for any potential freight damage or shortages.  Please note any potential or visible damage or shortages on the freight carrier’s bill of lading before the driver leaves your facility.  Please keep all packaging until the claim is complete.
+
+            <br/><br/>It is the policy of many carriers to deliver all shipments, even if damaged or short items.  The receiver must either note the damage and accept the shipment or refuse the shipment.  If the shipment is signed for free and clear, the carrier has completed their contract and will not honor a freight claim and the consignee will be responsible for any damages or shortages.
+            </p>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Territory Coverage Type --></label>
+    <name>Territory_Coverage_Type__c</name>
+    <picklistValues>
+        <masterLabel>City</masterLabel>
+        <translation><!-- City --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>County</masterLabel>
+        <translation><!-- County --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>State</masterLabel>
+        <translation><!-- State --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Zip Code</masterLabel>
+        <translation><!-- Zip Code --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

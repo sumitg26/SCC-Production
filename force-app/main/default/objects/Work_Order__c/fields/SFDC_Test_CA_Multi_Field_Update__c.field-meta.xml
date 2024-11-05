@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SFDC_Test_CA_Multi_Field_Update__c</fullName>
+    <description>SFDC test of Multi-field field update with icons and page breaks</description>
+    <externalId>false</externalId>
+    <formula>IF(NOT(ISBLANK(HT__c )),&quot; HT &quot; &amp; &quot; &quot; &amp; HT__c &amp;&quot;,&quot;, NULL) 
+&amp; BR() &amp;
+IF(NOT(ISBLANK(CA__c )),IMAGE(&quot;https://c.na24.content.force.com/servlet/servlet.ImageServer?id=0151a000000tHd0&amp;oid=00D1a000000IiC1&amp;lastMod=1458840542000&quot;, &quot;phone icon&quot;, 30, 30) &amp; &quot; &quot; &amp; CA__c &amp;&quot;,&quot;, NULL) 
+&amp; BR() &amp;
+IF(NOT(ISBLANK(Time_Frame__c)), IMAGE(&quot;https://c.na24.content.force.com/servlet/servlet.ImageServer?id=0151a000000tHcv&amp;oid=00D1a000000IiC1&amp;lastMod=1458840400000&quot;, &quot;clock icon&quot;, 30, 30) &amp; &quot; &quot; &amp; Time_Frame__c&amp;&quot;,&quot; , NULL) 
+&amp; BR() &amp;
+IF(NOT(ISBLANK(Name)),&quot; Inv. # &quot; &amp; &quot; &quot; &amp; Name &amp;&quot;,&quot; , NULL) &amp;
+IF(NOT(ISBLANK(Man_Hrs__c)),&quot; Est. Hrs&quot; &amp; &quot; &quot;&amp; Man_Hrs__c &amp;&quot;,&quot;, NULL) 
+&amp; BR() &amp;
+IF(NOT(ISBLANK( Unit_Number__c )), IMAGE(&quot;https://c.na24.content.force.com/servlet/servlet.ImageServer?id=0151a000000tHcl&amp;oid=00D1a000000IiC1&amp;lastMod=1458840139000&quot;, &quot;home icon&quot;, 30, 30) &amp; &quot; Unit &quot; &amp; Unit_Number__c  &amp; &quot;,&quot;, NULL) 
+&amp; BR() &amp;
+IF(NOT(ISBLANK( Property_Address__c)),&quot;&quot; &amp; &quot; &quot; &amp; Property_Address__c &amp;&quot;,&quot;, NULL) 
+&amp; BR() &amp;
+IF(NOT(ISBLANK(Property_City__c)),&quot;&quot; &amp; &quot; &quot; &amp; Property_City__c , NULL)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>SFDC Test CA-Multi-Field Update</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,60 @@
+<apex:page controller="AddPOLines" showHeader="false" sidebar="false" docType="HTML-5.0">
+    <apex:form >
+        <head>
+        <apex:includescript value="//code.jquery.com/jquery-1.11.1.min.js"/>
+        <!--<apex:includescript value="//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"/>-->
+         <apex:includeScript value="{!URLFOR($Resource.data_table)}" />
+        <apex:stylesheet value="//cdn.datatables.net/1.10.4/css/jquery.dataTables.css"/>
+        <script>
+        j$ = jQuery.noConflict();
+        j$(document).ready( function () {
+            var accTable = j$('[id$="accTable"]').DataTable({
+                'columnDefs': [ {
+        'targets': [0,3,7], // column index (start from 0)
+        'orderable': false, // set orderable false for selected columns
+     }]
+            });
+        });
+        </script>
+    </head>
+    <apex:pageMessages />
+        <apex:pageBlock title="Available Products">
+            <apex:pageBlockTable value="{!wrapperList}" var="p" id="accTable">
+                <apex:column >
+                    <apex:facet name="header">
+                        <apex:inputCheckbox onclick="selectAllCheckboxes(this,'inputId')" />
+                    </apex:facet>    
+                    <apex:inputCheckbox value="{!p.selected}" id="inputId">
+                    </apex:inputCheckbox>
+                </apex:column>   
+                <apex:column value="{!p.p.ProductCode}"/>
+                <apex:column value="{!p.p.Name}"/>
+                <apex:column value="{!p.p.Smart_Supply_Maintained_Inventory__c}"/>
+                <apex:column value="{!p.p.List_Price__c}"/>
+                <apex:column value="{!p.p.Supplier_Manufacturer__c}"/>
+                <apex:column value="{!p.p.Product_Type__c}"/>
+                <apex:column headerValue="Quantity">
+                    <apex:input type="number" value="{!p.Quantity}"/>
+                </apex:column>   
+            </apex:pageBlockTable>
+            <apex:pageBlockButtons ><div style="margin-left:20%">
+                <!--<apex:commandButton value="Save" onclick="return confirm('Your order is Saved in Pending State. Please click Submit to place your order.');" action="{!Save}"
+                disabled="{!IF(poObj.Status__c = 'Pending',false,true)}"/>-->
+                <apex:commandButton value="Submit" action="{!Submit}" disabled="{!IF((poObj.Status__c = 'Pending') || (UserType == 'PowerPartner' && poObj.Order_Status__c == 'Pending'),false,true)}"/>
+                <apex:commandButton value="Cancel" action="{!Cancel}"/></div>
+            </apex:pageBlockButtons> 
+        </apex:pageBlock>
+        
+    </apex:form>
+    
+    <script type="text/javascript">
+        function selectAllCheckboxes(obj,receivedInputID){
+            var inputCheckBox = document.getElementsByTagName("input");                  
+            for(var i=0; i<inputCheckBox.length; i++){          
+                if(inputCheckBox[i].id.indexOf(receivedInputID)!=-1){                                     
+                    inputCheckBox[i].checked = obj.checked;
+                }
+            }
+        }
+    </script>
+</apex:page>

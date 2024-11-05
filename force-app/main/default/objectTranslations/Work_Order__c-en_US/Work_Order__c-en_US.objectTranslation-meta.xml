@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Work Order</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Work Orders</value>
+    </caseValues>
+    <fieldSets>
+        <label><!-- Fields To Super Clone --></label>
+        <name>Fields_To_Super_Clone</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- WorkOrderFieldSet --></label>
+        <name>WorkOrderFieldSet</name>
+    </fieldSets>
+    <layouts>
+        <layout>Commercial I/C</layout>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Comments --></label>
+            <section>Comments</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Field Crew Check In Details --></label>
+            <section>Field Crew Check In Details</section>
+        </sections>
+        <sections>
+            <label><!-- Invoice Information --></label>
+            <section>Invoice Information</section>
+        </sections>
+        <sections>
+            <label><!-- Payment Information --></label>
+            <section>Payment Information</section>
+        </sections>
+        <sections>
+            <label><!-- Post Cleaning Information --></label>
+            <section>Post Cleaning Information</section>
+        </sections>
+        <sections>
+            <label><!-- Work Order Details --></label>
+            <section>Work Order Details</section>
+        </sections>
+        <sections>
+            <label><!-- Work Order Information --></label>
+            <section>Work Order Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Commercial I/C - Community Profile</layout>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Comments --></label>
+            <section>Comments</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Field Crew Check In Details --></label>
+            <section>Field Crew Check In Details</section>
+        </sections>
+        <sections>
+            <label><!-- Invoice Information --></label>
+            <section>Invoice Information</section>
+        </sections>
+        <sections>
+            <label><!-- Payment Information --></label>
+            <section>Payment Information</section>
+        </sections>
+        <sections>
+            <label><!-- Post Cleaning Information --></label>
+            <section>Post Cleaning Information</section>
+        </sections>
+        <sections>
+            <label><!-- Work Order Details --></label>
+            <section>Work Order Details</section>
+        </sections>
+        <sections>
+            <label><!-- Work Order Information --></label>
+            <section>Work Order Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Commercial/Residential</layout>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Blacklight Inspection Report --></label>
+            <section>Blacklight Inspection Report</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Field Crew Check In Details --></label>
+            <section>Field Crew Check In Details</section>
+        </sections>
+        <sections>
+            <label><!-- Invoice Information --></label>
+            <section>Invoice Information</section>
+        </sections>
+        <sections>
+            <label><!-- Payment Information --></label>
+            <section>Payment Information</section>
+        </sections>
+        <sections>
+            <label><!-- Post Cleaning Information --></label>
+            <section>Post Cleaning Information</section>
+        </sections>
+        <sections>
+            <label><!-- Work Detail Information --></label>
+            <section>Work Detail Information</section>
+        </sections>
+        <sections>
+            <label><!-- Work Order Information --></label>
+            <section>Work Order Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Customer Community</layout>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Community user Account detail --></label>
+            <section>Community user Account detail</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Work Detail Information --></label>
+            <section>Work Detail Information</section>
+        </sections>
+        <sections>
+            <label><!-- Work Order Information --></label>
+            <section>Work Order Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Customer Community - Community Profile</layout>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Community user Account detail --></label>
+            <section>Community user Account detail</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Work Detail Information --></label>
+            <section>Work Detail Information</section>
+        </sections>
+        <sections>
+            <label><!-- Work Order Information --></label>
+            <section>Work Order Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Field Service</layout>
+        <sections>
+            <label><!-- Blacklight Inspection Report --></label>
+            <section>Blacklight Inspection Report</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Field Crew Check In Details --></label>
+            <section>Field Crew Check In Details</section>
+        </sections>
+        <sections>
+            <label><!-- Invoice Information --></label>
+            <section>Invoice Information</section>
+        </sections>
+        <sections>
+            <label><!-- Payment Information --></label>
+            <section>Payment Information</section>
+        </sections>
+        <sections>
+            <label><!-- Post Cleaning Information --></label>
+            <section>Post Cleaning Information</section>
+        </sections>
+        <sections>
+            <label><!-- Team Member Assignments --></label>
+            <section>Team Member Assignments</section>
+        </sections>
+        <sections>
+            <label><!-- Work Detail Information --></label>
+            <section>Work Detail Information</section>
+        </sections>
+        <sections>
+            <label><!-- Work Order Information --></label>
+            <section>Work Order Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Check In --></label>
+        <name>Check_In</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Check Out --></label>
+        <name>Check_Out</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Commercial --></label>
+        <name>Commercial</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Commercial IC --></label>
+        <name>Commercial_IC</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- This record is for accounts who have committed to a regular cleaning cycle with little to no variation in timeframe --></description>
+        <label><!-- Commercial ICC --></label>
+        <name>Commercial_ICC</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Customer Community --></label>
+        <name>Customer_Community</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- This is the page the field crews will view on Force 1 when completing a wo --></description>
+        <label><!-- Field Crew View --></label>
+        <name>Field_Crew_View</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Residential --></label>
+        <name>Residential</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please add a value to the Discount field. --></errorMessage>
+        <name>Discount_Field_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Field Crew End Time Required --></errorMessage>
+        <name>End_Time_Field_Requirement</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Access denied.  Status must = Scheduled --></errorMessage>
+        <name>Force_1_field_service_wo_rule</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Completed Status, contact front office --></errorMessage>
+        <name>Restrict_Force_1_Users</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Clone --></label>
+        <name>Clone</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Create_Invoice --></label>
+        <name>Create_Invoice</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Create_Invoice_New --></label>
+        <name>Create_Invoice_New</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Field_Crew_End_Time --></label>
+        <name>Field_Crew_End_Time</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Field_Crew_Start_Time --></label>
+        <name>Field_Crew_Start_Time</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- No_Blacklight --></label>
+        <name>No_Blacklight</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Run_DDP --></label>
+        <name>Run_DDP</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Smart_Clone --></label>
+        <name>Smart_Clone</name>
+    </webLinks>
+    <workflowTasks>
+        <description><!-- Clone this IC for next scheduled clean, also add latest cleaning date into account record. --></description>
+        <name>Clone_IC</name>
+        <subject><!-- Clone IC --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>New_Tenants_Alert</name>
+        <subject><!-- New Tenants Alert --></subject>
+    </workflowTasks>
+</CustomObjectTranslation>

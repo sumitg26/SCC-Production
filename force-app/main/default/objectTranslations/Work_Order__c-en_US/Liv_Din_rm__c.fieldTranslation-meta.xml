@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Liv/Din rm --></label>
+    <name>Liv_Din_rm__c</name>
+    <picklistValues>
+        <masterLabel>Liv/Din rm</masterLabel>
+        <translation><!-- Liv/Din rm --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>None</masterLabel>
+        <translation><!-- None --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

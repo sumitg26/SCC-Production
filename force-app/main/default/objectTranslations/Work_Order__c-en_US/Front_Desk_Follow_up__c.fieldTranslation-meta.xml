@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Collect payment, reason job could not be completed, tips for crew members for next clean. --></help>
+    <label><!-- Front Desk Follow-up --></label>
+    <name>Front_Desk_Follow_up__c</name>
+</CustomFieldTranslation>

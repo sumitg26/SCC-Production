@@ -1,0 +1,9 @@
+<apex:page sidebar="false" title="Confidential Questionnaire" lightningStylesheets="false" showHeader="false">
+<body>
+<center>
+    <p style="font-size:40px;">
+        Thank You! Your Response is Submitted...
+      </p>
+</center>
+</body>
+</apex:page>

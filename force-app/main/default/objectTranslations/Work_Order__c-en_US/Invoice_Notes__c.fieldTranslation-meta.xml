@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Pulls options selected from Invoice Notes Options --></help>
+    <label><!-- Invoice Auto Notes --></label>
+    <name>Invoice_Notes__c</name>
+</CustomFieldTranslation>

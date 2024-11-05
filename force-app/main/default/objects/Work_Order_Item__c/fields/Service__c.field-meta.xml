@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Service</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Service must be active to appear in list</errorMessage>
+        <filterItems>
+            <field>Service__c.Active__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Service__c</referenceTo>
+    <relationshipLabel>Work Order Items</relationshipLabel>
+    <relationshipName>Work_Order_Items</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

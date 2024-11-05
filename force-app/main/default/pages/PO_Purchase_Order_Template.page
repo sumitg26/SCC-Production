@@ -1,0 +1,161 @@
+<apex:page controller="POController" sidebar="false" showHeader="false" renderAs="pdf" applyHtmlTag="false" applyBodyTag="false">
+    <head>
+        <style type="text/css">
+            .headercolor{
+            color:#73bed6;
+            }
+            @page {
+                                 @top-center {
+                                       content: element(header);
+                               }
+                               @bottom-left {
+                                     content: element(footer);
+                               }
+                            }
+                                     div.header {
+                                      padding: 10px;
+                                      position: running(header);
+                           }
+                       div.footer {
+                                display: block;
+                             padding: 5px;
+                               position: running(footer);
+                      }
+                                     .pagenumber:before {
+                                        content: counter(page);
+                       }
+                                   .pagecount:before {
+                             content: counter(pages);
+                        }
+        </style>
+    </head>
+    
+    <apex:form >
+        <apex:pageBlock ><br/>
+            <div style="border:10px solid #E3E6E5;">
+                <apex:image value="{!URLFOR($Resource.POInvoiceTemplate)}" width="25%" height="25%"/>
+                <p style="float:right;margin-right:10%;font-style:Calisto MT;font-size:12px;color:#4d4d4d">
+                    Phone: {!$Organization.Phone}<br/>
+                    E-Mail: supply@smartcarpetcare.com</p>
+            </div>
+            
+            <div style="float:right;margin-right:5%;font-style:Calisto MT;font-size:40px;color:#4d4d4d">Purchase Order</div><br/><br/><br/>
+            
+            <apex:pageBlockTable value="{!poList}" var="po" width="100%" style="font-size:14px;" headerClass="headercolor">
+                <apex:column headerValue="Bill To:" width="34%">
+                    <b>Smart Supply Co.</b><br/>
+                    <apex:outputText value="{!po.Account_Billing_Address__c}" escape="false"/>
+                </apex:column>
+                <apex:column headerValue="Ship To:" width="35%">
+                    <b>{!po.Franchise__r.Primary_Contact__c}</b><br/>
+                    <apex:outputText value="{!po.Franchise_Address__c}" escape="false"/>
+                </apex:column> 
+                <apex:column headerValue="P.O. #" value="{!po.Name}" width="33%"/>
+            </apex:pageBlockTable><br/><br/>
+            
+            <apex:outputPanel >
+                <table style="width:70%;border-collapse:collapse;font-style:Times New Roman;font-size:13px;" cellpadding="8">
+                    <tr style="background-color:#f2f2f2;">
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;width:18%;">Date</th>
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;width:10%;">PO #</th>
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;width:30%;">Ship Via</th>
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;border-right:1px solid #E3E6E5;width:13%;">Terms</th>
+                    </tr>
+                    <tr>
+                        <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;">{!dateTimeValue}</td>
+                        <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;">{!poList[0].Name}</td>
+                        <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;">{!poList[0].Ship_Via__c}</td>
+                        <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-right:1px solid #E3E6E5;border-left:1px solid #E3E6E5">{!poList[0].Payment_Terms__c}</td>
+                    </tr>
+                </table>
+            </apex:outputPanel><br/><br/>
+            
+            <apex:outputPanel >
+                <table style="width:100%;border-collapse:collapse;font-style:Times New Roman;font-size:13px;" cellpadding="8">
+                    <tr style="background-color:#f2f2f2;">
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;width:15%;">Supplier Product Code</th>
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;width:35%;">Product Name</th>
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;width:35%;">Supplier Co</th>
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;width:10%;">Quantity</th>
+                        <!--<th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;width:18%;">Unit Price</th>
+<th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;border-right:1px solid #E3E6E5;width:20%;">Total</th>-->
+                    </tr>
+                    <apex:repeat value="{!poLinesList}" var="pol">
+                        <tr>
+                            <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;">{!pol.Product__r.Supplier_Product_Code__c}</td>
+                            <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;">{!pol.Product__r.Name}</td>
+                            <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;">{!pol.Product__r.Supplier_Manufacturer__r.Name}</td>
+                            <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;">{!pol.Quantity__c}</td>
+                            <!--<td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;">{!pol.Act_Cost__c}</td>
+<td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-right:1px solid #E3E6E5;border-left:1px solid #E3E6E5">{!pol.Total_Price_Formula__c}</td>-->
+                        </tr>
+                    </apex:repeat>
+                    <tr><td/><td/><td/><td/><td/></tr>
+                    
+                    <!--<tr >
+<td/>
+<td/>
+<td/>
+<th scope="row" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;background-color:#f2f2f2;">Discount/Credit</th>
+<td style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;border-right:1px solid #E3E6E5;background-color:#f2f2f2;">{!poList[0].Discount_Credit__c}</td>
+</tr>
+
+<tr>
+<td/>
+<td/>
+<td/>
+<th scope="row" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;">Sub-Total</th>
+<td style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;border-right:1px solid #E3E6E5;">{!poList[0].Subtotal__c}</td>
+</tr>
+
+<tr >
+<td/>
+<td/>
+<td/>
+<th scope="row" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;">Tax</th>
+<td style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;border-right:1px solid #E3E6E5;">{!poList[0].Tax_Amount__c}</td>
+</tr>
+
+<tr>
+<td/>
+<td/>
+<td/>
+<th scope="row" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;">Shipping</th>
+<td style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;border-right:1px solid #E3E6E5;">{!poList[0].Shipping_Handling__c}</td>
+</tr>
+
+<tr>
+<td/>
+<td/>
+<td/>
+<th scope="row" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;background-color:#f2f2f2;">Balance Due</th>
+<td style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;border-right:1px solid #E3E6E5;background-color:#f2f2f2;">{!poList[0].Balance_Due__c}</td>
+</tr>-->
+                </table>
+                <table style="width:100%;border-collapse:collapse;font-style:Times New Roman;font-size:13px;" cellpadding="8">
+                    <tr style="background-color:#f2f2f2;">
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;width:15%;">Notes</th>
+                    </tr>
+                    <tr>
+                        <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;"><apex:outputText escape="false" value="{!SUBSTITUTE(JSENCODE(poList[0].Notes__c),'\r\n','<br>')}" style="white-space:pre;"></apex:outputText></td>
+                    </tr>
+                </table>
+            </apex:outputPanel>
+            <div class="footer">
+                <div>Page <span class="pagenumber"/> of <span class="pagecount"/></div>
+          </div>
+          <div class="content">
+               <p>Shipper Delivery Instructions: <br/></p>
+               <!-- <ul style="list-style-type: square;">
+                    <li>Call before delivery day Robert at cell 970-978-0793 and provide delivery date and time/widow for delivery.</li>
+                </ul>
+                <p>Boxes</p>
+                <ul style="list-style-type: square;">
+                    <li>Go to Smart Supply Co rear delivery door and enter code 2837 for lock box key and key pad.  Return key to lock box.</li>
+                    <li>Deliver boxes, close door, push in top key pad button and turn knob to left.</li>
+                </ul> -->
+              <apex:outputText escape="false" value="{!deliveryInstructions}" ></apex:outputText>
+          </div>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

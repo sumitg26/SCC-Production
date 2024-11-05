@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Site_Mgn__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>For work order with Team Van assigned (3+ crew members required), there will be a designated “Site Manager” who manages the team and the job. Add initials here</inlineHelpText>
+    <label>Site Mgr</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Family rm --></label>
+    <name>Family_rm__c</name>
+    <picklistValues>
+        <masterLabel>1 Family rm</masterLabel>
+        <translation><!-- 1 Family rm --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>2 Family rms</masterLabel>
+        <translation><!-- 2 Family rms --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

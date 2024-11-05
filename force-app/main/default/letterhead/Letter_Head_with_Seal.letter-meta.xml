@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Letterhead xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <backgroundColor>#CCCCCC</backgroundColor>
+    <bodyColor>#FFFFFF</bodyColor>
+    <bottomLine>
+        <color>#00CCCC</color>
+        <height>5</height>
+    </bottomLine>
+    <footer>
+        <backgroundColor>#FFFFFF</backgroundColor>
+        <height>100</height>
+        <horizontalAlignment>Left</horizontalAlignment>
+        <logo>SharedDocuments/Seal_of_Approval.png</logo>
+        <verticalAlignment>Top</verticalAlignment>
+    </footer>
+    <header>
+        <backgroundColor>#FFFFFF</backgroundColor>
+        <height>100</height>
+        <horizontalAlignment>Left</horizontalAlignment>
+        <logo>SharedDocuments/Smart_jpeg.jpeg</logo>
+        <verticalAlignment>Top</verticalAlignment>
+    </header>
+    <middleLine>
+        <color>#00CCCC</color>
+        <height>5</height>
+    </middleLine>
+    <name>Letter Head with Seal</name>
+    <topLine>
+        <color>#00CCCC</color>
+        <height>5</height>
+    </topLine>
+</Letterhead>

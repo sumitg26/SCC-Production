@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Account Layout</layout>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Comments --></label>
+            <section>Comments</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Next Step --></label>
+            <section>Next Step</section>
+        </sections>
+        <sections>
+            <label><!-- Work Detail Information --></label>
+            <section>Work Detail Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Commercial Accounts</layout>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Field Crew Information --></label>
+            <section>Field Crew Information</section>
+        </sections>
+        <sections>
+            <label><!-- Marketing Information --></label>
+            <section>Marketing Information</section>
+        </sections>
+        <sections>
+            <label><!-- Next Step --></label>
+            <section>Next Step</section>
+        </sections>
+        <sections>
+            <label><!-- Work Detail Information --></label>
+            <section>Work Detail Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Commercial I/C Accounts</layout>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Field Crew Information --></label>
+            <section>Field Crew Information</section>
+        </sections>
+        <sections>
+            <label><!-- Next Step --></label>
+            <section>Next Step</section>
+        </sections>
+        <sections>
+            <label><!-- Work Detail Information --></label>
+            <section>Work Detail Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Commercial ICC Accounts</layout>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Field Crew Information --></label>
+            <section>Field Crew Information</section>
+        </sections>
+        <sections>
+            <label><!-- Next Step --></label>
+            <section>Next Step</section>
+        </sections>
+        <sections>
+            <label><!-- Work Detail Information --></label>
+            <section>Work Detail Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Corporate Accounts</layout>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Comments --></label>
+            <section>Comments</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Next Step --></label>
+            <section>Next Step</section>
+        </sections>
+        <sections>
+            <label><!-- Work Detail Information --></label>
+            <section>Work Detail Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Franchise Accounts</layout>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Comments --></label>
+            <section>Comments</section>
+        </sections>
+        <sections>
+            <label><!-- Cost Information --></label>
+            <section>Cost Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Next Step --></label>
+            <section>Next Step</section>
+        </sections>
+        <sections>
+            <label><!-- Work Detail Information --></label>
+            <section>Work Detail Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Partner Account</layout>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Residential Accounts</layout>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Comments --></label>
+            <section>Comments</section>
+        </sections>
+        <sections>
+            <label><!-- Field Crew Information --></label>
+            <section>Field Crew Information</section>
+        </sections>
+        <sections>
+            <label><!-- Marketing Information --></label>
+            <section>Marketing Information</section>
+        </sections>
+        <sections>
+            <label><!-- Work Detail Information --></label>
+            <section>Work Detail Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Supplier/ Distributor</layout>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Cost Information --></label>
+            <section>Cost Information</section>
+        </sections>
+    </layouts>
+    <workflowTasks>
+        <name>Follow_up_Call</name>
+        <subject><!-- Follow up Call --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Follow_up_call_2</name>
+        <subject><!-- Follow up call 2 --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- This rule will remind JZ in Home - New Tasks of IC&apos;s that need scheduling --></description>
+        <name>IC_Reminder</name>
+        <subject><!-- IC Reminder --></subject>
+    </workflowTasks>
+</CustomObjectTranslation>

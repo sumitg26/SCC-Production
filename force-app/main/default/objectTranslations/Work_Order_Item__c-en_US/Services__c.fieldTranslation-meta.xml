@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Services --></label>
+    <name>Services__c</name>
+    <picklistValues>
+        <masterLabel>Black Light Inspection with Brief Report</masterLabel>
+        <translation><!-- Black Light Inspection with Brief Report --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Black Light Inspection with Full Report + Photos</masterLabel>
+        <translation><!-- Black Light Inspection with Full Report + Photos --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bright Color/Earthtone treatment</masterLabel>
+        <translation><!-- Bright Color/Earthtone treatment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Commercial</masterLabel>
+        <translation><!-- Commercial --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>High Soil/Spot Levels</masterLabel>
+        <translation><!-- High Soil/Spot Levels --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Minimum Service Charge</masterLabel>
+        <translation><!-- Minimum Service Charge --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>OCA Broad Based</masterLabel>
+        <translation><!-- OCA Broad Based --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>OCA Targeted</masterLabel>
+        <translation><!-- OCA Targeted --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation><!-- Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Smart Carpet Cleaning</masterLabel>
+        <translation><!-- Smart Carpet Cleaning --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

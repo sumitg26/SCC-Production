@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Billing info temp --></label>
+    <name>Billing_info_temp__c</name>
+</CustomFieldTranslation>

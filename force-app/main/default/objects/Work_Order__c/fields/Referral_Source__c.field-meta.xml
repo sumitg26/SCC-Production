@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Referral_Source__c</fullName>
+    <externalId>false</externalId>
+    <label>Referral Source</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Smart Website</fullName>
+                <default>false</default>
+                <label>Smart Website</label>
+            </value>
+            <value>
+                <fullName>Google Search</fullName>
+                <default>false</default>
+                <label>Google Search</label>
+            </value>
+            <value>
+                <fullName>Facebook</fullName>
+                <default>false</default>
+                <label>Facebook</label>
+            </value>
+            <value>
+                <fullName>Van Graphic</fullName>
+                <default>false</default>
+                <label>Van Graphic</label>
+            </value>
+            <value>
+                <fullName>Realtor</fullName>
+                <default>false</default>
+                <label>Realtor</label>
+            </value>
+            <value>
+                <fullName>PMC Renter</fullName>
+                <default>false</default>
+                <label>PMC Renter</label>
+            </value>
+            <value>
+                <fullName>Networking Group</fullName>
+                <default>false</default>
+                <label>Networking Group</label>
+            </value>
+            <value>
+                <fullName>Cold Call</fullName>
+                <default>false</default>
+                <label>Cold Call</label>
+            </value>
+            <value>
+                <fullName>Yelp</fullName>
+                <default>false</default>
+                <label>Yelp</label>
+            </value>
+            <value>
+                <fullName>Friend</fullName>
+                <default>false</default>
+                <label>Friend</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

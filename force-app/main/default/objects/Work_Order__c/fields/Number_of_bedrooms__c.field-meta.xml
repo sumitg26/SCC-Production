@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Number_of_bedrooms__c</fullName>
+    <description>Number of bedrooms excluding Master Bedroom</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Number of bedrooms excluding Master Bedroom</inlineHelpText>
+    <label>Bedrooms</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1 BD</fullName>
+                <default>false</default>
+                <label>1 BD</label>
+            </value>
+            <value>
+                <fullName>2 BD</fullName>
+                <default>false</default>
+                <label>2 BD</label>
+            </value>
+            <value>
+                <fullName>3 BD</fullName>
+                <default>false</default>
+                <label>3 BD</label>
+            </value>
+            <value>
+                <fullName>4 BD</fullName>
+                <default>false</default>
+                <label>4 BD</label>
+            </value>
+            <value>
+                <fullName>5 BD</fullName>
+                <default>false</default>
+                <label>5 BD</label>
+            </value>
+            <value>
+                <fullName>6 BD</fullName>
+                <default>false</default>
+                <label>6 BD</label>
+            </value>
+            <value>
+                <fullName>7 BD</fullName>
+                <default>false</default>
+                <label>7 BD</label>
+            </value>
+            <value>
+                <fullName>8 BD</fullName>
+                <default>false</default>
+                <label>8 BD</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

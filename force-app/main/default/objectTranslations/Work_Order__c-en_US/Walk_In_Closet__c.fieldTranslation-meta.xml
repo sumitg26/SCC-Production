@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Walk In Closet --></label>
+    <name>Walk_In_Closet__c</name>
+    <picklistValues>
+        <masterLabel>1 Walk in Closet</masterLabel>
+        <translation><!-- 1 Walk in Closet --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>2 Walk in Closet</masterLabel>
+        <translation><!-- 2 Walk in Closet --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>3 Walk in Closet</masterLabel>
+        <translation><!-- 3 Walk in Closet --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>4 Walk in Closet</masterLabel>
+        <translation><!-- 4 Walk in Closet --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1bd_hall_liv_din_rm_Apt_Condo__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Owner:User.ProfileId = &apos;00e1P000000Zli9&apos; , Owner:User.Contact.Account.X1_BD_Apt_Condo_cost__c, $CustomMetadata.C__mdt.D.X1BD_Apt_Condo_cost__c )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Assuming full condo 1 BD, Liv, Din, Hall etc. Use lowest price between this and Est. Cost</inlineHelpText>
+    <label>1BD Apt/Condo</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

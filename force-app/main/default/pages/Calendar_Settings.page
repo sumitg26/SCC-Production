@@ -1,0 +1,163 @@
+<apex:page controller="Calendar_Settings" id="thePage" sidebar="false" title="Calendar Settings">
+    <style>
+        /* This is for the full screen DIV */
+        .popupBackground {
+            /* Background color */
+            background-color:black;
+            opacity: 0.20;
+            filter: alpha(opacity = 20);
+        
+            /* Dimensions */
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 998;
+            position: absolute;
+            
+            /* Mouse */
+            cursor:wait;
+        }
+     
+        /* This is for the message DIV */
+        .PopupPanel {
+            /* Background color */
+            border: solid 2px #00CCFF;
+            background-color: white;
+     
+            /* Dimensions */
+            left: 50%;
+            width: 250px;
+            margin-left: -100px;
+            top: 50%;
+            height: 50px;
+            margin-top: -25px;
+            z-index: 999;
+            position: fixed;
+            
+            /* Mouse */
+            cursor:pointer;
+        }
+    </style>
+    <apex:actionStatus id="saveStatus" stopText="">
+        <apex:facet name="start">
+            <div>
+                <div class = "popupBackground"/>
+                <div class="PopupPanel">
+                    <table border="0" width="100%" height="100%">
+                        <tr>
+                            <td align="center"><b>Saving....Please Wait!!!</b></td>
+                        </tr>
+                       <!-- <tr>
+                            <td align="center"><img src="{!$Resource.ProgressBar}"/></td>
+                        </tr> -->
+                    </table>
+                </div>
+            </div>
+        </apex:facet>
+    </apex:actionStatus>
+
+    <apex:form id="theForm">
+    <script>
+         function saveNewvalues(object){
+            
+            var index;
+            var rightListValues;
+            var obj = []; 
+            var indexValue = [];
+            var label;
+            var value;
+            if(object == 'Work_Order__c'){
+                rightListValues = document.getElementById('thePage:theForm:campPageBlock:compCamp:theComponent:multiselectPanel:rightList');
+            }
+
+            else if(object == 'Task'){
+                rightListValues = document.getElementById('thePage:theForm:taskPageBlock:compTask:theComponent:multiselectPanel:rightList');
+            }
+
+             else if(object == 'Event'){
+                rightListValues = document.getElementById('thePage:theForm:eventPageBlock:compEvent:theComponent:multiselectPanel:rightList');
+            }
+
+            for (index = 0; index < rightListValues.length; ++index) {
+                label = rightListValues[index].label;
+                value = rightListValues[index].value;
+                obj.push(label + ':' + value);
+                indexValue.push(value + ':' + index.toString());
+            }
+
+            var rightListSelectedValues = obj.join(',');
+            var selectedValueIndexpair = indexValue.join(',');
+
+            if(object == 'Work_Order__c'){
+                rightSelectedListCampaign(rightListSelectedValues,selectedValueIndexpair);
+            }
+
+            else if(object == 'Task'){
+                rightSelectedListTask(rightListSelectedValues,selectedValueIndexpair);
+            }
+
+            if(object == 'Event'){
+                rightSelectedListEvent(rightListSelectedValues,selectedValueIndexpair);
+            }
+        }       
+    </script>
+    <apex:sectionHeader title="Calendar Settings"/>
+        <apex:actionFunction name="rightSelectedListCampaign" action="{!saveCampaignFields}" rerender="rightList,campCommandbutton,campaignMessagePanel" status="saveStatus">
+            <apex:param name="userSelectedValuesParam" value="" />
+            <apex:param name="userSelectedValuesParamSecond" value="" />
+        </apex:actionFunction>
+        <apex:actionFunction name="rightSelectedListTask" action="{!saveTaskFields}" rerender="rightList,taskCommandbutton,taskMessagePanel" status="saveStatus">
+            <apex:param name="userSelectedValuesParam" value="" />
+            <apex:param name="userSelectedValuesParamSecond" value="" />
+        </apex:actionFunction>
+        <apex:actionFunction name="rightSelectedListEvent" action="{!saveEventFields}" rerender="rightList,eventCommandbutton,eventMessagePanel" status="saveStatus">
+            <apex:param name="userSelectedValuesParam" value="" />
+            <apex:param name="userSelectedValuesParamSecond" value="" />
+        </apex:actionFunction>
+        <apex:pageBlock title="Enable Objects for Calendar" id="mainBlock">
+             <apex:pageBlockTable value="{!timeSlateProSettings}" var="settings" width="70%">
+                <apex:column >
+                    <apex:facet name="header">Salesforce Object</apex:facet>
+                    <apex:outputLabel value="{!settings.objectName}"></apex:outputLabel>
+                </apex:column> 
+                <apex:column >
+                    <apex:facet name="header">Enabled for Calendar?</apex:facet>
+                    <apex:commandLink action="{!toggleSettings}" value="{!settings.enabled}" rerender="mainBlock">
+                        <apex:param name="nickName" value="{!settings.APIName}" assignTo="{!selectedObjName}"/>
+                    </apex:commandLink>
+                </apex:column>
+            </apex:pageBlockTable>           
+        </apex:pageBlock>
+        <apex:pageBlock title="Select Work Order fields for display" id="campPageBlock">
+            <apex:outputPanel id="campaignMessagePanel">
+                <apex:pageMessages ></apex:pageMessages>
+            </apex:outputPanel>
+            <c:MultiselectPicklist leftLabel="Available Fields" leftOption="{!allCampaignFields}" rightLabel="Selected Fields"
+                rightOption="{!selectedCampaignFields}" size="10" width="300px" id="compCamp"/>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Save Work Order Fields" id="campCommandbutton" onclick="saveNewvalues('Work_Order__c');" rerender="none"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+        <apex:pageBlock title="Select Task fields for display" id="taskPageBlock">
+            <apex:outputPanel id="taskMessagePanel">
+                <apex:pageMessages ></apex:pageMessages>
+            </apex:outputPanel>
+            <c:MultiselectPicklist leftLabel="Available Fields" leftOption="{!allTaskFields}" rightLabel="Selected Fields"
+                rightOption="{!selectedTaskFields}" size="10" width="300px" id="compTask"/>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Save Task Fields" id="taskCommandbutton" onclick="saveNewvalues('Task');" rerender="none"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+        <apex:pageBlock title="Select Event fields for display" id="eventPageBlock">
+            <apex:outputPanel id="eventMessagePanel">
+                <apex:pageMessages ></apex:pageMessages>
+            </apex:outputPanel>
+            <c:MultiselectPicklist leftLabel="Available Fields" leftOption="{!allEventFields}" rightLabel="Selected Fields"
+                rightOption="{!selectedEventFields}" size="10" width="300px" id="compEvent"/>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Save Event Fields" id="eventCommandbutton" onclick="saveNewvalues('Event');" rerender="none"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>          
+    </apex:form>
+</apex:page>

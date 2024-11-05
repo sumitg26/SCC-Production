@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Total number of labor hours spent at a big box commercial property. --></help>
+    <label><!-- Total Labor Hours (OLD) --></label>
+    <name>Total_Labor_Hours_OLD__c</name>
+</CustomFieldTranslation>

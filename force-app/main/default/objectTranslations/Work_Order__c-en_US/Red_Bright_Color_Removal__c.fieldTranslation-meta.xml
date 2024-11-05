@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Red/Bright Color Removal --></label>
+    <name>Red_Bright_Color_Removal__c</name>
+    <picklistValues>
+        <masterLabel>None</masterLabel>
+        <translation><!-- None --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Yes</masterLabel>
+        <translation><!-- Yes --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>unknown</masterLabel>
+        <translation><!-- unknown --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

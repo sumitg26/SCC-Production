@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Key__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Select an option if there is a key to be picked up</inlineHelpText>
+    <label>Key</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pick  up key at Smart shop</fullName>
+                <default>false</default>
+                <label>Pick  up key at Smart shop</label>
+            </value>
+            <value>
+                <fullName>Pick up key from Office</fullName>
+                <default>false</default>
+                <label>Pick up key from Office</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

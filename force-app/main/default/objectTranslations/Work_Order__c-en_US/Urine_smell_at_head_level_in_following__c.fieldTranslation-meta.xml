@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Indicate location and degree of smell --></help>
+    <label><!-- Urine smell at head level in following --></label>
+    <name>Urine_smell_at_head_level_in_following__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Total Click on Time/ Balance Due * 100 --></help>
+    <label><!-- Soil Removal Rate per $100 --></label>
+    <name>Soil_Removal_Rate_per_100__c</name>
+</CustomFieldTranslation>

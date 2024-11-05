@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BD_LR_MBD_DR_LDR_cost__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(Number_of_bedrooms__c ,
+&quot;1 BD&quot; ,IF(Owner:User.ProfileId  = &apos;00e1P000000Zli9&apos;, Owner:User.Contact.Account.X1_BD_cost__c, $CustomMetadata.C__mdt.D.X1_BD_cost__c),
+&quot;2 BD&quot;, IF(Owner:User.ProfileId  = &apos;00e1P000000Zli9&apos;, Owner:User.Contact.Account.X2_BD_cost__c, $CustomMetadata.C__mdt.D.X2_BD_Cost__c),
+&quot;3 BD&quot;, IF(Owner:User.ProfileId  = &apos;00e1P000000Zli9&apos;, Owner:User.Contact.Account.X3_BD_cost__c,$CustomMetadata.C__mdt.D.X3_BD_cost__c),
+&quot;4 BD&quot;, IF(Owner:User.ProfileId  = &apos;00e1P000000Zli9&apos;, Owner:User.Contact.Account.X4_BD_cost__c, $CustomMetadata.C__mdt.D.X4_BD_cost__c),
+&quot;5 BD&quot;, IF(Owner:User.ProfileId  = &apos;00e1P000000Zli9&apos;, Owner:User.Contact.Account.X5_BD_cost__c, $CustomMetadata.C__mdt.D.X5_BD_cost__c),
+&quot;6 BD&quot;, IF(Owner:User.ProfileId  = &apos;00e1P000000Zli9&apos;, Owner:User.Contact.Account.X6_BD_cost__c, $CustomMetadata.C__mdt.D.X6_BD_cost__c),
+&quot;7 BD&quot;, IF(Owner:User.ProfileId  = &apos;00e1P000000Zli9&apos;, Owner:User.Contact.Account.X7_BD_cost__c, $CustomMetadata.C__mdt.D.X7_BD_cost__c),
+&quot;8 BD&quot;, IF(Owner:User.ProfileId  = &apos;00e1P000000Zli9&apos;, Owner:User.Contact.Account.X8_BD_cost__c, $CustomMetadata.C__mdt.D.X8_BD_cost__c),
+0)
++
+CASE(Living_rm__c ,
+&quot;1 Living rm&quot;, IF(Owner:User.ProfileId  = &apos;00e1P000000Zli9&apos;, Owner:User.Contact.Account.X1_Living_Room_cost__c, $CustomMetadata.C__mdt.D.X1_Living_Room_cost__c),
+&quot;2 Living rms&quot;,IF(Owner:User.ProfileId  = &apos;00e1P000000Zli9&apos;, Owner:User.Contact.Account.X2_Living_Room_cost__c, $CustomMetadata.C__mdt.D.X2_Living_Room_cost__c),
+&quot;3 living rms&quot;,IF(Owner:User.ProfileId  = &apos;00e1P000000Zli9&apos;, Owner:User.Contact.Account.X3_Living_Room_cost__c, $CustomMetadata.C__mdt.D.X3_Living_Room_cost__c),
+0)
++
+CASE(MBD__c,
+&quot;Master Bedroom&quot;,  IF(Owner:User.ProfileId  = &apos;00e1P000000Zli9&apos;, Owner:User.Contact.Account.MBD_cost__c, $CustomMetadata.C__mdt.D.MBD_cost__c),
+&quot;2 Master Bedroom&quot;,IF(Owner:User.ProfileId  = &apos;00e1P000000Zli9&apos;, Owner:User.Contact.Account.X2_MBD_cost__c, $CustomMetadata.C__mdt.D.X2_MBD_cost__c),
+0)
++
+CASE(Dining_rm__c,
+&quot;1 Dining rm&quot;,  IF(Owner:User.ProfileId  = &apos;00e1P000000Zli9&apos;, Owner:User.Contact.Account.X1_Dining_Room_cost__c, $CustomMetadata.C__mdt.D.X1_Dining_Room_cost__c),
+&quot;2 Dining rms&quot;, IF(Owner:User.ProfileId  = &apos;00e1P000000Zli9&apos;, Owner:User.Contact.Account.X2_Dining_Room_cost__c, $CustomMetadata.C__mdt.D.X2_Dining_Room_cost__c),
+0)
++
+CASE(Liv_Din_rm__c,
+&quot;Liv/Din rm&quot;, IF(Owner:User.ProfileId  = &apos;00e1P000000Zli9&apos; , Owner:User.Contact.Account.Liv_Din_Room_cost__c, $CustomMetadata.C__mdt.D.Liv_Din_Room_cost__c),
+0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>BD LR MBD DR LDR cost</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

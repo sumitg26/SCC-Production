@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BL_Cheat_Sheet1__c</fullName>
+    <externalId>false</externalId>
+    <formula>&quot;Location, Size, Quantity, Severity &amp; Lighting Conditions. Send photos to customer email and smartphoto@smartcarpetcare.com&quot;</formula>
+    <label>BL Cheat Sheet</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pads_Soiled_per_Labor_Hour__c</fullName>
+    <externalId>false</externalId>
+    <formula>Pad_Count__c  /  Total_Labor_Hours__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Pad Count/ Total Labor Hours</inlineHelpText>
+    <label>Pads Soiled per Labor Hour</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>1</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

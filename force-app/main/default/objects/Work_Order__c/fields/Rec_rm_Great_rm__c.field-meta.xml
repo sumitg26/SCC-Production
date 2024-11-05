@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rec_rm_Great_rm__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Very large living or family room, or a very large basement room or area.</inlineHelpText>
+    <label>Rec rm/Great rm</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Rec rm/Great rm</fullName>
+                <default>false</default>
+                <label>Rec rm/Great rm</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

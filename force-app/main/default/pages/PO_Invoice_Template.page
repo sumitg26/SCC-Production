@@ -1,0 +1,120 @@
+<apex:page controller="POInvoiceController" sidebar="false" showHeader="false" renderAs="pdf" applyHtmlTag="false" applyBodyTag="false">
+    <head>
+        <style>
+            .headercolor{
+                color:#73bed6;
+            }
+            @page{
+            	 margin:26mm;
+                <apex:outputPanel layout="none" rendered="{!poList[0].Status__c=='Order Completed'}">
+                    background: url("{!$Resource.Watermark}") no-repeat center;
+                </apex:outputPanel>
+            }
+        </style>
+    </head>
+    
+    <apex:form >
+        <apex:pageBlock ><br/>
+            <div style="border:10px solid #E3E6E5;">
+                <apex:image value="{!URLFOR($Resource.POInvoiceTemplate)}" width="25%" height="25%"/>
+                <p style="float:right;margin-right:10%;font-style:Calisto MT;font-size:12px;color:#4d4d4d">{!$Organization.Street}<br/>
+                    {!$Organization.City},&nbsp;CO &nbsp;{!$Organization.PostalCode}<br/>
+                    Phone: {!$Organization.Phone}<br/>
+                    E-Mail: Supply@smartcarpetcare.com<br/>
+                    </p>
+            </div>
+            
+            <div style="float:right;margin-right:5%;font-style:Calisto MT;font-size:40px;color:#4d4d4d">Invoice</div><br/><br/><br/>
+            <apex:pageBlockTable value="{!poList}" var="po" width="100%" style="font-size:14px;" headerClass="headercolor">
+                <apex:column headerValue="Bill To:" width="34%">
+                    {!po.Account_Name__r.Name}<br/>
+                    <apex:outputPanel >
+                        <apex:outputText value="{!po.Account_Address__c}" escape="false" rendered="{!NOT(franchiseBillingAddExists)}"/>
+                     <apex:outputText value="{!po.Franchise_Billing_Address__c}" rendered="{!franchiseBillingAddExists}" escape="false"/>
+                	</apex:outputPanel>
+                    </apex:column>
+                    
+                <apex:column headerValue="P.O. #" value="{!po.Name}" width="33%"/>
+
+            </apex:pageBlockTable><br/><br/>
+            
+            <apex:outputPanel >
+                <table style="width:70%;border-collapse:collapse;font-style:Times New Roman;font-size:13px;" cellpadding="8">
+                    <tr>
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;width:18%;">Date</th>
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;width:10%;">Due Date</th>
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;width:30%;">Ship Via</th>
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;border-right:1px solid #E3E6E5;width:13%;">Terms</th>
+                    </tr>
+                    <tr>
+                        <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;">{!dateTimeValue}</td>
+                        <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;">{!dueDate}</td>
+                        <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;">{!poList[0].Ship_Via__c}</td>
+                        <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-right:1px solid #E3E6E5;border-left:1px solid #E3E6E5">{!poList[0].Payment_Terms__c}</td>
+                    </tr>
+                </table>
+            </apex:outputPanel><br/><br/><br/><br/>
+            
+            <apex:outputPanel >
+                <table style="width:100%;border-collapse:collapse;font-style:Times New Roman;font-size:13px;" cellpadding="8">
+                    <tr >
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;width:15%;">Product Code</th>
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;width:35%;">Product Description</th>
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;width:10%;">Quantity</th>
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;width:18%;">Unit Price</th>
+                        <th scope="col" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;border-right:1px solid #E3E6E5;width:20%;">Total</th>
+                    </tr>
+                    <apex:repeat value="{!poLinesList}" var="pol">
+                        <tr>
+                            <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;">{!pol.Product__r.ProductCode}</td>
+                            <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;">{!pol.Product__r.Description}</td>
+                            <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;">{!pol.Quantity__c}</td>
+                            <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;">${!pol.Act_Cost__c}</td>
+                            <td style="color:#4d4d4d;border-bottom:1px solid #E3E6E5;border-right:1px solid #E3E6E5;border-left:1px solid #E3E6E5">${!pol.Total_Price_Formula__c}</td>
+                        </tr>
+                    </apex:repeat>
+                    <tr><td/><td/><td/><td/><td/></tr>
+                    <tr >
+                        <td/>
+                        <td/>
+                        <td/>
+                        <th scope="row" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;background-color:#f2f2f2;">Discount/Credit</th>
+                        <td style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;border-right:1px solid #E3E6E5;background-color:#f2f2f2;">{!poList[0].Discount_Credit__c}</td>
+                    </tr>
+                    
+                    <tr>
+                        <td/>
+                        <td/>
+                        <td/>
+                        <th scope="row" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;background-color:#f2f2f2;">Sub-Total</th>
+                        <td style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;border-right:1px solid #E3E6E5;background-color:#f2f2f2;">${!poList[0].Subtotal__c}</td>
+                    </tr>
+                    
+                    <tr >
+                        <td/>
+                        <td/>
+                        <td/>
+                        <th scope="row" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;background-color:#f2f2f2;">Tax</th>
+                        <td style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;border-right:1px solid #E3E6E5;background-color:#f2f2f2;">${!poList[0].Tax_Amount__c}</td>
+                    </tr>
+                    
+                    <tr>
+                        <td/>
+                        <td/>
+                        <td/>
+                        <th scope="row" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;background-color:#f2f2f2;">Shipping</th>
+                        <td style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;border-right:1px solid #E3E6E5;background-color:#f2f2f2;">${!poList[0].Shipping_Handling__c}</td>
+                    </tr>
+                    
+                     <tr>
+                        <td/>
+                        <td/>
+                        <td/>
+                        <th scope="row" style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;background-color:#f2f2f2;">Balance Due</th>
+                        <td style="color:#4d4d4d;border-top:1px solid #E3E6E5;border-bottom:1px solid #E3E6E5;border-left:1px solid #E3E6E5;border-right:1px solid #E3E6E5;background-color:#f2f2f2;">${!poList[0].Balance_Due__c}</td>
+                    </tr>
+                </table>
+            </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

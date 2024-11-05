@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>update</fullName>
+        <field>CompanyName</field>
+        <formula>Account__c</formula>
+        <name>update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Field Update for Company</fullName>
+        <actions>
+            <name>update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>User.FirstName</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>This Updates the Company name of Portal users - It gets the value from Account name from where it was created</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

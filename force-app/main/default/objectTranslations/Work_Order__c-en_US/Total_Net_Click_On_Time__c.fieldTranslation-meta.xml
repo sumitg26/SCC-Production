@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- calculates the sum of click on time of CM1 through CM10 --></help>
+    <label><!-- Total Net Click On Time --></label>
+    <name>Total_Net_Click_On_Time__c</name>
+</CustomFieldTranslation>

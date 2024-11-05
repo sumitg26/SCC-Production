@@ -1,0 +1,272 @@
+<apex:page controller="Calendar_Controller" tabStyle="Account" sidebar="false" title="Calendar" action="{!createDefaultColors}" standardStylesheets="false" docType="html-5.0" language="en-US">
+   <head>
+    <!-----test--->
+        <meta charset="UTF-8"/>
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+        
+        <apex:includeScript value="https://code.jquery.com/jquery-1.9.1.js" />
+        <apex:includeScript value="https://code.jquery.com/ui/1.10.3/jquery-ui.js" /> 
+        
+        <apex:includeScript value="{!URLFOR($Resource.Calendar_Resource, 'DamcoCalendar/fullCalendarScheduler/lib/moment.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.Calendar_Resource, 'DamcoCalendar/fullCalendarScheduler/lib/fullcalendar.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.Calendar_Resource, 'DamcoCalendar/fullCalendarScheduler/scheduler.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.Calendar_Resource, 'DamcoCalendar/js/html5shiv.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.Calendar_Resource, 'DamcoCalendar/js/main.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.Calendar_Resource, 'DamcoCalendar/js/jquery.mCustomScrollbar.concat.min.js')}"/>
+        
+        <apex:stylesheet value="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
+        <apex:stylesheet value="{!URLFOR($Resource.Calendar_Resource, 'DamcoCalendar/fullCalendarScheduler/lib/fullcalendar.css')}"/> 
+        <apex:stylesheet value="{!URLFOR($Resource.Calendar_Resource, 'DamcoCalendar/fullCalendarScheduler/scheduler.min.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.Calendar_Resource, 'DamcoCalendar/css/style.css')}"/> 
+        <apex:stylesheet value="{!URLFOR($Resource.Calendar_Resource, 'DamcoCalendar/css/jquery.mCustomScrollbar.css')}"/>
+        
+            <script type="text/javascript">
+                
+                $(document).ready(function() {
+                    loadJavaSript();
+                });
+              
+                function loadJavaSript(){
+                    
+                    $('#calendar').fullCalendar({
+                        header: {
+                            left: 'prev,next today',
+                            center: 'title',
+                            right: 'agendaDay,agendaWeek,month'
+                        },
+                       
+                        minTime: '06:00',
+                        maxTime: '22:30',
+                        editable: true,
+                        defaultView: "{!JSENCODE(defaultView)}",
+                        eventLimit: true,            
+                        events:{!EventData},
+                        resourceLabelText: 'Owners & Vans',
+                        resourceAreaWidth: "{!If(NOT(Salesforce1), '15%', '25%')}",
+                        resources:{!ResourceData},
+                        eventRender: function(event, element) {
+                            element.attr('title', event.title);
+                        },
+                        eventClick: function(event) {
+                            if (event.url) {
+                                var flag = {!Salesforce1};
+                                if(flag){
+                                    sforce.one.navigateToURL(event.url);
+                                }
+                                else{
+                                    window.open(event.url);
+                                }
+                            return false;
+                        }
+                        },
+                        /*
+                        windowResize: function(view) {
+                            if ($(window).width() < 514){
+                                $('#calendar').fullCalendar('changeView', 'agendaDay');
+                            } 
+                            else {
+                                $('#calendar').fullCalendar('changeView', 'agendaWeek');
+                            }
+                        },
+                        */
+                        eventDrop: function(event, revertFunc) {
+                                if(event.end == null){
+                                    var start = moment(event.start);                
+                                    var end = moment(start).add(2, 'hours');
+                                    start = moment(start).format('YYYY-MM-DD HH:mm:ss');
+                                    end = moment(end).format('YYYY-MM-DD HH:mm:ss'); 
+                                }             
+                                else{                
+                                    var start = moment(event.start).format('YYYY-MM-DD HH:mm:ss'); 
+                                    var end = moment(event.end).format('YYYY-MM-DD HH:mm:ss'); 
+                                }
+                            updateCurrentEvent(event.id, start, end, event.resourceId);
+
+                        }, 
+                        eventResize: function(event, revertFunc) {
+    
+                            var start = moment(event.start).format('YYYY-MM-DD HH:mm:ss'); 
+                            var end = moment(event.end).format('YYYY-MM-DD HH:mm:ss'); 
+                            updateCurrentEvent(event.id, start, end, event.resourceId);
+                        }
+                    });
+                    
+                    $('#datepicker').datepicker({
+                        inline: true,
+                        onSelect: function(dateText, inst) {
+                            var d = new Date(dateText);
+                            $('#calendar').fullCalendar('gotoDate', d);
+                            $('#calendar').fullCalendar('changeView', 'agendaDay');
+                        }
+                    }); 
+                }    
+            </script>
+    </head>
+    
+    <body>
+    <apex:form id="mainForm">
+        <apex:outputPanel id="msg" >
+            <apex:messages style="text-align:center;color:red;font-weight:600"/>
+        </apex:outputPanel>
+        
+    <apex:actionFunction name="updateCurrentEvent" action="{!updateEvent}" oncomplete="loadJavaSript();" reRender="msg">
+         <apex:param id="eventId" value="" name="eventId" assignTo="{!currentEventId}" /> 
+         <apex:param id="newStartTime" value="" name="startTime" assignTo="{!newStartTime}" />  
+         <apex:param id="newEndTime" value="" name="endTime" assignTo="{!newEndTime}" />
+         <apex:param id="newResourceId" value="" name="resourceId" assignTo="{!newResourceId}" />    
+    </apex:actionFunction>
+    <div class="calender-title">Calendar</div>
+    <div class="slide-arrow close"></div>
+    <section class="sidebar" id="main-nav">
+        <ul>
+            <li><a href="#">Options</a>
+                <div class="option-box">
+                    <div class="col select-box">
+                        <label>Select Objects for related Tasks and Events</label>
+                        <apex:selectList value="{!selectedObjects}" multiselect="true" styleClass="object-option" size="3"> 
+                            <apex:selectOptions value="{!ObjectOptions}"/>
+                        </apex:selectList>
+                    </div>
+                    <div class="col select-box">
+                        <label>Select Vans for related Work Orders</label>
+                        <apex:selectList value="{!selectedVans}" multiselect="true" styleClass="object-option" size="3"> 
+                            <apex:selectOptions value="{!CalendarVans}"/>
+                        </apex:selectList>
+                    </div>
+                     <div class="col select-box">
+                        <label>Select Users for related Tasks and Events</label>
+                        <apex:selectList value="{!selectedUsers}" multiselect="true" styleClass="object-option" size="3"> 
+                            <apex:selectOptions value="{!CalendarUsers}"/>
+                        </apex:selectList>
+                    </div>
+                    <div class="col select-box">
+                        <label>Select Default View</label>
+                        <apex:selectList value="{!defaultView}" multiselect="false" styleClass="object-option"> 
+                            <apex:selectOptions value="{!AvailableViews}"/>
+                        </apex:selectList>
+                    </div>
+                    <div class="other-option clearfix">
+                    <div class="col">
+                        <div class="toggle">
+                            <apex:inputCheckbox value="{!showWorkOrders}" id="workorders"/>
+                            <div class="toggle-group">
+                                <div class="toggle-on">Yes</div>
+                                <div class="toggle-off">No</div>
+                                <span class="toggle-handle"></span>
+                            </div>
+                        </div>
+                        <label for="workorders">Show Work Orders</label>
+                    </div>  
+                    <div class="col">
+                        <div class="toggle">
+                            <apex:inputCheckbox value="{!showScheduledWorkOrdersOnly}" id="scheduledWorkOrders"/>
+                            <div class="toggle-group">
+                                <div class="toggle-on">Yes</div>
+                                <div class="toggle-off">No</div>
+                                <span class="toggle-handle"></span>
+                            </div>
+                        </div>
+                        <label for="scheduledWorkOrders">Show Scheduled Work Orders Only</label>
+                    </div>                    
+                    <div class="col">
+                        <div class="toggle">
+                            <apex:inputCheckbox value="{!showEvents}" id="showEvents"/>
+                            <div class="toggle-group">
+                                <div class="toggle-on">Yes</div>
+                                <div class="toggle-off">No</div>
+                                <span class="toggle-handle"></span>
+                            </div>
+                        </div>
+                        <label for="showEvents">Show Events</label>
+                    </div>
+                    <div class="col">
+                        <div class="toggle">
+                            <apex:inputCheckbox value="{!showTodaysEvents}" id="todayEvent"/>
+                            <div class="toggle-group">
+                                <div class="toggle-on">Yes</div>
+                                <div class="toggle-off">No</div>
+                                <span class="toggle-handle"></span>
+                            </div>
+                        </div>
+                        <label for="todayEvent">Show Todays Events Only</label>
+                    </div>                    
+                    <div class="col">
+                        <div class="toggle">
+                            <apex:inputCheckbox value="{!showTasks}" id="showTasks"/>
+                            <div class="toggle-group">
+                                <div class="toggle-on">Yes</div>
+                                <div class="toggle-off">No</div>
+                                <span class="toggle-handle"></span>
+                            </div>
+                        </div>
+                        <label for="showTasks">Show Tasks</label>
+                    </div>
+                    <div class="col">
+                        <div class="toggle">
+                            <apex:inputCheckbox value="{!showOpenTasksOnly}" id="openTask"/>
+                            <div class="toggle-group">
+                                <div class="toggle-on">Yes</div>
+                                <div class="toggle-off">No</div>
+                                <span class="toggle-handle"></span>
+                            </div>
+                        </div>
+                        <label for="openTask">Show Open Tasks Only</label>
+                    </div>                    
+                    <!-- <div class="col">
+                        <div class="clearfix time">
+                            <label for="todayEvent" class="fl">Day Start Time</label>
+                            <div class="fr">
+                                <apex:inputText value="{!startTimeHrs}" styleClass="time-input" maxlength="2"/>
+                                <div class="colon">:</div>
+                                <apex:inputText value="{!startTimeMins}" styleClass="time-input" maxlength="2"/>
+                            </div>
+                        </div>
+                    </div>                    
+                   <div class="col">
+                        <div class="clearfix mt5 time">
+                            <label for="todayEvent" class="fl">Day End Time</label>
+                            <div class="fr">
+                                <apex:inputText value="{!endTimeHrs}" styleClass="time-input" maxlength="2"/>
+                                <div class="colon">:</div>
+                                <apex:inputText value="{!endTimeMins}" styleClass="time-input" maxlength="2"/>
+                                <div class="error-msg"></div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="col btn-sec clearfix">
+                        <apex:commandButton styleClass="schedule" action="{!getSchedule}" title="Get Schedule"/> 
+                        <apex:commandbutton styleClass="event" rendered="{!NOT(Salesforce1)}" onclick="if({!Salesforce1} == true){
+                                                                          window.open('s/00U/e');
+                                                                         }else{
+                                                                             window.open('s/00U/e'); 
+                                                                           }" title="Create New Event"/>  
+                        <apex:commandbutton styleClass="task" onclick="if({!Salesforce1} == true){
+                                                                        window.open('/s/recordlist/Task/Default'); 
+                                                                       }else{
+                                                                         window.open('s/00T/e'); 
+                                                                         }" title="Create New Task"/>  
+                      <!--- <apex:commandButton styleClass="event" title="New Event" action="{!URLFOR($Action.Event.NewEvent)}" /> --->
+                       <apex:commandButton styleClass="color" rendered="{!NOT(Salesforce1)}" onclick="window.open('/apex/Calender_Colors');" title="Configure Colors"/>
+                        <apex:commandButton styleClass="save" title="Save Defaults" action="{!saveDefaults}"/>
+                        <apex:commandButton styleClass="print" title="Print" rendered="{!NOT(Salesforce1)}" onclick="window.print();"/>
+                    </div>               
+                </div>
+                </div>
+            </li>
+         <!--   <apex:outputPanel rendered="{!NOT(Salesforce1)}">
+            <li><a href="#">Pick a Date</a>
+                <div class="option-box">
+                    <div class="col txt-center">
+                    <input type="text" id="datepicker" maxlength="10" size="10"/>
+                    </div>
+                </div>                    
+            </li>
+            </apex:outputPanel> -->
+        </ul>
+    </section>
+    <section class="calender-sec">
+        <div id="calendar" style="background-color: white;"></div>
+    </section>
+</apex:form>
+</body>
+</apex:page>

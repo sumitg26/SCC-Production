@@ -1,0 +1,403 @@
+<apex:page sidebar="false" applyHtmlTag="true" showHeader="false" applyBodyTag="true" controller="PaymentController">
+    <html>
+      <head>
+        <title>Checkout</title>
+        <!-- link to the SqPaymentForm library -->
+         <!--<script type="text/javascript" src="https://js.squareupsandbox.com/v2/paymentform"></script> -->
+        <!-- <script type="text/javascript" src="https://js.squareup.com/v2/paymentform"></script> -->
+        <link href="/app.css" rel="stylesheet" />
+         <script
+           type="text/javascript"
+           src="https://web.squarecdn.com/v1/square.js"
+         ></script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+        <!-- link to the local custom styles for SqPaymentForm -->
+        <style type="text/css">
+            * {
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale;
+            }
+
+            body, html {
+              //background-color: #F7F8F9;
+              background-color: rgba(0,0,0,0);
+              color: #373F4A;
+              font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+              font-weight: normal;
+              height: 100%;
+            }
+
+            button {
+              border: 0;
+              font-weight: 500;
+            }
+
+            fieldset {
+              margin: 0;
+              padding: 0;
+              border: 0;
+            }
+
+            #form-container {
+              //position: relative;
+              width: 380px;
+              margin: 0 auto;
+              //top: 50%;
+              //transform: translateY(-50%);
+            }
+
+            .third {
+              float: left;
+              width: calc((100% - 32px) / 3);
+              padding: 0;
+              margin: 0 16px 16px 0;
+            }
+
+            .third:last-of-type {
+              margin-right: 0;
+            }
+
+            /* Define how SqPaymentForm iframes should look */
+            .sq-input {
+              height: 45px;
+              box-sizing: border-box;
+              border: 1px solid #E0E2E3;
+              background-color: white;
+              border-radius: 6px;
+              display: inline-block;
+              -webkit-transition: border-color .2s ease-in-out;
+                 -moz-transition: border-color .2s ease-in-out;
+                  -ms-transition: border-color .2s ease-in-out;
+                      transition: border-color .2s ease-in-out;
+            }
+
+            /* Define how SqPaymentForm iframes should look when they have focus */
+            .sq-input--focus {
+              border: 1px solid #4A90E2;
+            }
+
+            /* Define how SqPaymentForm iframes should look when they contain invalid values */
+            .sq-input--error {
+              border: 1px solid #E02F2F;
+            }
+
+            #sq-card-number {
+              margin-bottom: 16px;
+            }
+
+            /* Customize the "Pay with Credit Card" button */
+            .button-credit-card {
+              width: 100%;
+              height: 45px;
+              margin-top: 10px;
+              background: #4A90E2;
+              border-radius: 6px;
+              cursor: pointer;
+              display: block;
+              color: #FFFFFF;
+              font-size: 16px;
+              line-height: 24px;
+              font-weight: 700;
+              letter-spacing: 0;
+              text-align: center;
+              -webkit-transition: background .2s ease-in-out;
+                 -moz-transition: background .2s ease-in-out;
+                  -ms-transition: background .2s ease-in-out;
+                      transition: background .2s ease-in-out;
+            }
+
+            .button-credit-card:hover {
+              background-color: #4281CB;
+            }
+            
+            .creditCardForm {
+                max-width: 700px;
+                background-color: white;
+                margin: 50px auto;
+                overflow: hidden;
+                padding: 20px;
+                color: #4c4e56;
+            }
+            
+            .isa_error {
+                margin: 10px 0px;
+                padding:12px;        
+            }
+            
+            .cover-spin {
+                position:fixed;
+                width:100%;
+                left:0;right:0;top:0;bottom:0;
+                background-color: rgba(255,255,255,0.7);
+                z-index:9999;
+                display:none;
+            }
+            
+            @-webkit-keyframes spin {
+                from {-webkit-transform:rotate(0deg);}
+                to {-webkit-transform:rotate(360deg);}
+            }
+            
+            @keyframes spin {
+                from {transform:rotate(0deg);}
+                to {transform:rotate(360deg);}
+            }
+            
+            .cover-spin::after {
+                content:'';
+                display:block;
+                position:absolute;
+                left:48%;top:40%;
+                width:40px;height:40px;
+                border-style:solid;
+                border-color:black;
+                border-top-color:transparent;
+                border-width: 4px;
+                border-radius:50%;
+                -webkit-animation: spin .8s linear infinite;
+                animation: spin .8s linear infinite;
+            }
+        </style>
+        </head>
+        <!-- <body style="background-color: white">  
+            <header style="text-align:center">            
+                <br/><img src="{!$Resource.SmartSoakedLogo}" height="90px" id="logo" />
+            </header>
+            <div class="cover-spin" id="divLoader"></div>
+            <div class="creditCardForm" style="background-color: rgb(238, 238, 238)">                
+                <apex:outputPanel id="paymentDetailMainPnl">
+                    <apex:outputPanel id="paymentDetailPnl" rendered="{!if(paymentSuccess==false,true,false)}">
+                        <div style="text-align:center;">
+                            <h2 style="font-size:22px">Make Payment</h2>
+                        </div>
+                        <div class="alert alert-danger" id="errorMesage"></div> 
+                        <div id="form-container" style="text-align:center;font-size:16px !important;margin-bottom:50px;margin-top:50px;">                            
+                            <span style="float:left;text-align:left !important"><b>Invoice number</b> - {!workOrderObj.Name}</span><span style="float:right"><b>Amount</b> - ${!payabletAmt}</span><br/><br/>
+                            
+                            <label for="creditCard" style="float:left;font-size:14px;font-weight:normal;margin-right: 5px;">Credit Card</label>
+                            <input type="radio" name="cardType" id="creditCard" checked="checked" style="padding-right:30px;float:left;margin-right: 15px;" />
+                            
+                            <label for="creditCard" style="float:left;font-weight:normal;font-size:14px;margin-right: 5px;">Debit Card</label>
+                            <input type="radio" name="cardType" id="debitCard" style="margin-bottom:16px;float:left" /><br/>
+        
+                            <input type="text" placeholder="Card Number" class="sq-input"  id="sq-card-number" />
+                           
+                            <input type="text" placeholder="MM/YY" class="third sq-input" id="sq-expiration-date" />
+                           
+                            <input type="text" placeholder="CVV" class="third sq-input" id="sq-cvv" />
+                           
+                            <input type="text" placeholder="Postal" class="third sq-input" id="sq-postal-code" />
+                            
+                            <button id="sq-creditcard" class="button-credit-card" onclick="onGetCardNonce(event)">Pay ${!payabletAmt }</button>                            
+                        </div>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+                <apex:outputPanel id="paymentResPnl">
+                    <apex:outputPanel id="paymentResDetailPnl" layout="block"  style="text-align:center;margin-top:10%;font-size:18px;margin-bottom: 10%;" rendered="{!if(paymentSuccess==true,true,false)}">
+                            {!paymentResponse}
+                    </apex:outputPanel>
+                </apex:outputPanel>
+                <apex:form >
+                    <apex:actionFunction immediate="true" action="{!makePayment}" name="makePaymentFunc" id="makePaymentFunc" oncomplete="hideLoader();" reRender="paymentDetailPnl,paymentResPnl,paymentResDetailPnl,paymentDetailMainPnl">
+                        <apex:param assignTo="{!paymentCode}" name="paymentCodeParam" id="paymentCodeParam" value=""/>
+                    </apex:actionFunction>
+                </apex:form>
+            </div>
+            
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+            <script type="text/javascript">
+                document.getElementById("errorMesage").style.display = 'none';
+                document.getElementById("errorMesage").innerHTML = '';
+                const paymentForm = new SqPaymentForm({
+                //applicationId: "{!$Setup.SquareAPI__c.ApplicationId__c}",
+                applicationId: "{!applicationID }",
+                inputClass: 'sq-input',
+                autoBuild: false,
+                inputStyles: [{
+                   fontSize: '14px',
+                   lineHeight: '24px',
+                   padding: '12px',
+                   placeholderColor: 'black', //#a0a0a0
+                   backgroundColor: 'transparent',
+                }],
+                cardNumber: {
+                   elementId: 'sq-card-number',
+                   placeholder: 'Card Number'
+                },
+                cvv: {
+                   elementId: 'sq-cvv',
+                   placeholder: 'CVV'
+                },
+                expirationDate: {
+                   elementId: 'sq-expiration-date',
+                   placeholder: 'MM/YY'
+                },
+                postalCode: {
+                   elementId: 'sq-postal-code',
+                   placeholder: 'Postal'
+                },
+                callbacks: {
+                    cardNonceResponseReceived: function (errors, nonce, cardData) {
+                        if (errors) {
+                            document.getElementById("errorMesage").style.display = 'block';
+                            console.error('Encountered errors:');
+                            errors.forEach(function (error) {
+                               console.error('  ' + error.message);
+                               document.getElementById("errorMesage").innerHTML += error.message + '  ';
+                            });
+                            return false;
+                        }
+                        console.log('nonce......' + nonce);
+                        if(nonce != null)
+                        {
+                            showLoader();
+                            makePaymentFunc(nonce);
+                        }
+                    }
+                }
+                });
+                paymentForm.build();
+                function onGetCardNonce(event) {
+                    document.getElementById("errorMesage").style.display = 'none';
+                    document.getElementById("errorMesage").innerHTML = '';
+                    event.preventDefault();
+                    paymentForm.requestCardNonce();
+                }
+                function hideLoader()
+                {
+                    document.getElementById("divLoader").style.display = 'none';
+                }
+                
+                function showLoader()
+                {                    
+                    document.getElementById("divLoader").style.display = 'block';
+                }
+            </script>
+      </body> -->
+      <body style="background-color: white">  
+          <header style="text-align:center">            
+              <!-- <img src="{!$Resource.SmartCarpetCareLogo}" height="90px" id="logo" /> -->
+              <br/><img src="{!$Resource.SmartSoakedLogo}" height="90px" id="logo" />
+          </header>
+          <div class="cover-spin" id="divLoader"></div>
+          <div class="creditCardForm" style="background-color: rgb(238, 238, 238)">                
+              <apex:outputPanel id="paymentDetailMainPnl">
+                  <apex:outputPanel id="paymentDetailPnl" rendered="{!if(paymentSuccess==false,true,false)}">
+                      <div style="text-align:center;">
+                          <h2 style="font-size:22px">Make Payment</h2>
+                      </div>
+                      <!-- <div class="alert alert-danger" id="errorMesage"></div> -->
+                      <div id="form-container" style="text-align:center;font-size:16px !important;margin-bottom:50px;margin-top:50px;">                            
+                          <span style="float:left;text-align:left !important"><b>Invoice number</b> - {!workOrderObj.Name}</span><span style="float:right"><b>Amount</b> - ${!payabletAmt}</span><br/><br/>
+                          
+                          <label for="creditCard" style="float:left;font-size:14px;font-weight:normal;margin-right: 5px;">Credit Card</label>
+                          <input type="radio" name="cardType" id="creditCard" checked="checked" style="padding-right:30px;float:left;margin-right: 15px;" />
+                          
+                          <label for="creditCard" style="float:left;font-weight:normal;font-size:14px;margin-right: 5px;">&nbsp;Debit Card</label>
+                          <input type="radio" name="cardType" id="debitCard" style="margin-bottom:16px;float:left" />
+      
+                          <!-- <input type="text" placeholder="Card Number" class="sq-input"  id="sq-card-number" />
+                        
+                          <input type="text" placeholder="MM/YY" class="third sq-input" id="sq-expiration-date" />
+                        
+                          <input type="text" placeholder="CVV" class="third sq-input" id="sq-cvv" />
+                        
+                          <input type="text" placeholder="Postal" class="third sq-input" id="sq-postal-code" />
+                          
+                          <button id="sq-creditcard" class="button-credit-card" onclick="onGetCardNonce(event)">Pay ${!payabletAmt }</button>   -->                       
+                      </div> 
+                      <div id="card-container"></div>
+                      <button id="card-button" class="button-credit-card" type="button">Pay ${!payabletAmt }</button>
+                      <!-- <div id="payment-status-container"></div> -->
+                  </apex:outputPanel>
+              </apex:outputPanel>
+              <apex:outputPanel id="paymentResPnl">
+                  <apex:outputPanel id="paymentResDetailPnl" layout="block"  style="text-align:center;margin-top:10%;font-size:18px;margin-bottom: 10%;" rendered="{!if(paymentSuccess==true,true,false)}">
+                          {!paymentResponse}
+                  </apex:outputPanel>
+              </apex:outputPanel>
+              <apex:form >
+                  <apex:actionFunction immediate="true" action="{!makePayment}" name="makePaymentFunc" id="makePaymentFunc" oncomplete="hideLoader();" reRender="paymentDetailPnl,paymentResPnl,paymentResDetailPnl,paymentDetailMainPnl">
+                      <apex:param assignTo="{!paymentCode}" name="paymentCodeParam" id="paymentCodeParam" value=""/>
+                  </apex:actionFunction>
+              </apex:form>
+          </div>
+          
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+          <script type="text/javascript">
+
+            //Application Id and Location Id..
+            const appId = '{!applicationID}';
+            const locationId = '{!locationID}';
+
+            let card;
+
+            //Function to initialize card..
+            async function initializeCard(payments) {
+              const card = await payments.card();
+              await card.attach('#card-container');
+
+              return card;
+            }
+
+            //Function to get the token..
+            async function tokenize(paymentMethod) {
+              const tokenResult = await paymentMethod.tokenize();
+              if (tokenResult.status === 'OK') {
+                return tokenResult;
+              } else {
+                throw new Error(
+                  `Tokenization errors: ${JSON.stringify(tokenResult.errors)}`
+                );
+              }
+            }
+            
+            document.addEventListener('DOMContentLoaded', async function () {
+
+              let payments;
+              payments = window.Square.payments(appId, locationId);
+
+              card = await initializeCard(payments);
+
+            });
+            
+            let finaltokenResult;
+            const cardbutton = document.getElementById('card-button');
+            cardbutton.addEventListener('click', async function (event) {
+
+                event.preventDefault();
+                finaltokenResult = await tokenize(card);
+                console.log('@@tokenResult');
+                console.log(finaltokenResult);
+
+                if(finaltokenResult.status === 'OK') //getting successful token..
+                {
+                  //alert('Token Successful');
+                  console.log('@@Nonce : ' + finaltokenResult.token);
+                  showLoader();
+                  makePaymentFunc(finaltokenResult.token);
+                }
+                else //on token generation failure..
+                {
+                  console.log('Token Generation Failure');
+                  console.log(finaltokenResult);
+                }
+
+            });
+
+            function hideLoader()
+            {
+                document.getElementById("divLoader").style.display = 'none';
+            }
+            
+            function showLoader()
+            {                    
+                document.getElementById("divLoader").style.display = 'block';
+            }
+          </script>
+    </body>
+    </html>
+    </apex:page>

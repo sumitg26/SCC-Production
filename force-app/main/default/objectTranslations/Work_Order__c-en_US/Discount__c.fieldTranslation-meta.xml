@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- If you have a % that does not appear in the drop down list, select custom at the bottom and then fill in the Discount % field with the percentage you want to apply. --></help>
+    <label><!-- Discount --></label>
+    <name>Discount__c</name>
+    <picklistValues>
+        <masterLabel>5% Discount</masterLabel>
+        <translation><!-- 5% Discount --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Custom</masterLabel>
+        <translation><!-- Custom --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>First Time Customer 10% Discount</masterLabel>
+        <translation><!-- First Time Customer 10% Discount --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Golden Customer 50% Discount</masterLabel>
+        <translation><!-- Golden Customer 50% Discount --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Preferred Customer 10% Discount</masterLabel>
+        <translation><!-- Preferred Customer 10% Discount --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Special Appreciation 25% Discount</masterLabel>
+        <translation><!-- Special Appreciation 25% Discount --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

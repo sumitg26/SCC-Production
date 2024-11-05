@@ -1,0 +1,262 @@
+<apex:page docType="html-5.0" id="pg" controller="CaptureContractSignatureController" title="Smart Interval Cleaning Agreement" showheader="false" sidebar="false" standardStylesheets="false" >
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Script for checking screen resolution --->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <apex:includeScript value="/soap/ajax/28.0/connection.js"/>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"></link>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script>
+      var $ = jQuery.noConflict();
+    </script>
+    <apex:stylesheet value="{!URLFOR($Resource.jquerymobile144,'jquery.mobile-1.4.4/jquery.mobile-1.4.4.css')}"/>
+
+  </head>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+    body {padding: 25px;font-family: 'Open Sans', sans-serif;text-align: justify;}
+    .ui-page.ui-page-theme-a.ui-page-active {height: auto;padding: 15px 25px;box-sizing: border-box;position: relative;border: 1px solid #e6e6e6;background-color: #fff; border-radius: 5px;margin-bottom: 25px;}
+    .centerButton {float: left;width: 100%;text-align: center;}
+    .container {text-align: center;color: #026694;font-weight: 500;font-size: 14px;}
+    .Agreementcontent  {letter-spacing: 1px; line-height: 1.5rem;}
+    .agreeBtn .button {border-radius: 8px;background-color: #026694;color: azure;border: 0; width: 116px; padding: 8px; margin: 8px 5px;}
+    .canvasDiv {float: left;width: 100%;text-align: center;}
+    .canvasAreas {position: fixed;top: 50px;}
+    .canvasAreasInner {display:none;}
+    .canvasAreasInner.show {display:block;background-color: #f9f9f9;border: 1px solid #e4e4e4;border-radius: 5px;float: left; width: 100%;}
+    .openBtn small {background-color: #026694;color: #fff;padding: 1px 5px 5px;cursor: pointer;}
+    .addSig {display: inline-block;background-color: #c5c5c5;padding: 5px 10px;border-radius: 3px;font-weight: bold;margin: 10px auto; cursor: pointer;}
+    ul {padding-left: 15px;}
+    .ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset {width: 66%;margin: 0 auto 5px;border-radius: 0;box-shadow: none;border: 1px solid #b8c1c5;}
+    @media (max-width:767px) {
+      body {font-size: 0.9em;}
+      .canvasAreas {width: 85%;left: 30px;padding: 8px; top:30px;}
+      .canvasAreas canvas {width: 98%;}
+      .mobCont {margin-top: 5%;}
+    }
+    
+  </style>
+  <script>
+    function saveSignature() {
+      var strDataURI = canvas.toDataURL();
+      strDataURI = strDataURI.replace(/^data:image\/(png|jpg);base64,/, "");
+      var accId = location.href.split('=')[1];
+      accountId = accId;
+      jQuery('[id$=myHiddenField]').val(strDataURI);
+      if (sigOnload != strDataURI) {
+        getpdf();
+      }else {
+        alert('Please sign the agreement');
+        location.reload();
+      }
+          
+    }
+    function savePdf() {
+      saveSign();
+    }
+
+    function processResult(result) {
+      alert('result=' + JSON.stringify(result));
+      if (JSON.stringify(result) == '"Agreement Signed Successfully"') {
+        alert('This window will be closed');
+        // window.close(); window.location.href = '/'+accountId;
+      }
+    }
+
+    function Checktext(){
+      //$(".").click(function(){
+        console.log($(".openBtn").text());
+        if ($(".openBtn").text() != 'Close') {
+          $(".openBtn").html("<small>Close</small>");
+        }
+        else {
+          $(".openBtn").html("<small>Signature</small>");
+        }
+      //});
+    }
+
+  $(document).ready(function() {
+    $(".openBtn").click(function(){
+      $(".canvasAreasInner").toggleClass("show");
+      $(window).scrollTop(0);
+      //$(this).text("X");
+    });
+    $(".addSig").click(function(){
+      $(window).scrollTop(0);
+      $(".canvasAreasInner").addClass("show");
+      $(this).hide();
+    });
+  });
+  </script>
+
+  <apex:form id="pbform" styleClass="agreeBtn">
+    <apex:pageMessages id="msg"/>
+    <apex:inputHidden value="{!imageUrl}" id="myHiddenField"/>
+    <apex:actionFunction name="getpdf" action="{!saveCustomerSignature}" oncomplete="savePdf();" reRender="temp"/>
+    <apex:actionFunction name="saveSign" action="{!generatePdfWithSign}"/>
+    <div class="container mobCont">
+      <h1 class="labelCol vfLabelColTextWrap ">Smart Interval Cleaning Agreement</h1>
+    </div>
+    <div class="Agreementcontent">
+      <apex:outputText value="{!updatedTemplateLine}" escape="false" id="temp" />
+    </div>
+
+    <!--<div class="addSig" onclick="Checktext();" style="display:{if({!AttachCount} == 0,'block','none')};" >Add Signature</div>-->
+    <apex:image url="{!$Resource[DynamicSignature]}" style="width: 22%;" />
+    <apex:outputPanel id="sig">
+      <apex:repeat value="{!FinalAttach}" var="photo">
+        <apex:image url="{!URLFOR($Action.Attachment.Download, photo)}" style="float: right;width: 22%;" />
+      </apex:repeat>
+    </apex:outputPanel>
+
+    <div class="canvasAreas">
+      <div class="openBtn" onclick="Checktext();"> <small>Signature</small> </div>
+      <!-- <div class="openBtn" style="display:{if({!AttachCount} == 0,'block','none')};" onclick="Checktext();"> <small>Signature</small> </div> -->
+
+      <div class="canvasAreasInner">
+        <!-- <apex:outputPanel id="signature" rendered="{!IF(AttachCount == 0 ,true,false)}"> -->
+        <apex:outputPanel id="signature">
+          <apex:outputPanel styleClass="canvasDiv">
+            <div style="display:{!if(AccSignObj.Agreement_Signed__c = false,'block','none')};">
+            <div class="container">
+                <h1 class="labelCol vfLabelColTextWrap">Customer Signature:</h1>
+            </div>
+             <apex:inputText value="{!signedBy}" required="true" html-placeholder="Type your Name here and Sign with the mouse in the box below"  label="Customer Name" id="Cust" />
+              <canvas id="myCanvas" width="500" height="200" title="Sign with mouse here" style="border:1px solid #b8c1c5;"></canvas>
+            </div>
+          </apex:outputPanel>
+          
+
+          <div class="centerButton">
+            <apex:commandButton value="I Agree" onclick="saveSignature();" styleClass="button" />
+            <apex:commandButton value="Clear" onclick="clearArea();return false;" styleClass="button" />
+          </div>
+        </apex:outputPanel>
+      </div>
+    </div>
+  </apex:form>
+
+  <script>
+    window.onload = function () {
+      if ({!AccSignObj.Agreement_Signed__c} == false) {
+        sigOnload = canvas.toDataURL();
+        sigOnload = sigOnload.replace(/^data:image\/(png|jpg);base64,/, "");
+      }
+      else {
+        //$(".addSig").css("display","none");
+        $(".openBtn").css("display","none");
+      }
+      $(".ui-btn.ui-input-btn.ui-corner-all.ui-shadow").text("");
+    }
+    
+    var wid = $(window).width();
+    if (wid > 1000) {
+      var mousePressed = false;
+      var lastX, lastY;
+      var canvas;
+      var ctx;
+      var canSave = false;
+
+      $(document).ready(function () {
+        //if ({!AttachCount} == 0) 
+        {
+          canvas = document.getElementById('myCanvas');
+          ctx = canvas.getContext("2d");
+          $('#myCanvas').mousedown(function (e) {
+            mousePressed = true;
+            Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
+          });
+
+          $('#myCanvas').mousemove(function (e) {
+            if (mousePressed) {
+              var canSave = true;
+              Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, true);
+            }
+          });
+
+          $('#myCanvas').mouseup(function (e) {
+            mousePressed = false;
+          });
+          $('#myCanvas').mouseleave(function (e) {
+            mousePressed = false;
+          });
+        }
+      });
+
+      function Draw(x, y, isDown) {
+        if (isDown) {
+          ctx.beginPath();
+          ctx.strokeStyle = $('#selColor').val();
+          ctx.lineWidth = $('#selWidth').val();
+          ctx.lineJoin = "round";
+          ctx.moveTo(lastX, lastY);
+          ctx.lineTo(x, y);
+          ctx.closePath();
+          ctx.stroke();
+        }
+        lastX = x;
+        lastY = y;
+      }
+        function clearArea() {
+        // Use the identity matrix while clearing the canvas
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        }
+      
+      // new script for Mobile sig
+
+    } else {
+      // script for mobile var wid = $(window).width() ;
+      console.log('else');
+      // if(wid < 1000)
+      var canvas;
+      var context;
+      var drawingUtil;
+      var isDrawing = false;
+      var accountId = '';
+      function DrawingUtil() {
+        isDrawing = false;
+        canvas.addEventListener("touchstart", start, false);
+        canvas.addEventListener("touchmove", draw, false);
+        canvas.addEventListener("touchend", stop, false);
+        context.strokeStyle = "#000";
+      }
+      //Start Event for Signature Captuare on HTML5 Canvas
+      function start(event) {
+        isDrawing = true;
+        canvas = document.getElementById("myCanvas");
+        context = canvas.getContext("2d");
+        context.strokeStyle = "rgba(155,0,0,0.5)";
+        context.beginPath();
+        //context.moveTo(event.touches[0].pageX-canvas.getBoundingClientRect().left,event.touches[0].pageY -canvas.getBoundingClientRect().top);
+      }
+      //Event while someone is drawing to caputre the path while they draw....
+      function draw(event) {
+        event.preventDefault();
+        if (isDrawing) {
+          context.lineTo(event.touches[0].pageX - canvas.getBoundingClientRect().left, event.touches[0].pageY - canvas.getBoundingClientRect().top);
+          context.stroke();
+        }
+      }
+      //Event when someone stops drawing their signature line
+      function stop(event) {
+        if (isDrawing) {
+          context.stroke();
+          context.closePath();
+          isDrawing = false;
+        }
+      }
+      function clearArea() {
+        // Use the identity matrix while clearing the canvas
+        location.reload();
+        }
+      canvas = document.getElementById("myCanvas");
+      context = canvas.getContext("2d");
+      drawingUtil = new DrawingUtil(canvas);
+    }
+  </script>
+    
+</apex:page>

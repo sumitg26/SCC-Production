@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Discount_2__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(TEXT(Discount__c),
+&quot;Discount 5%&quot;, 0.05, &quot;First Time Customer Discount 10%&quot;, 0.10,
+&quot;Preferred Customer Discount 10%&quot;,0.10,
+&quot;Special Appreciation Discount 25%&quot;,0.25,
+ &quot;Golden Customer Discount 50%&quot;,0.5,
+NULL)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Discount % 2</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

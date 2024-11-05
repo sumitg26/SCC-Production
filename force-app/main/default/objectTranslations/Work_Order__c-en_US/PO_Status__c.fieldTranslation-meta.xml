@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- PO Status --></label>
+    <name>PO_Status__c</name>
+    <picklistValues>
+        <masterLabel>Fulfilled</masterLabel>
+        <translation><!-- Fulfilled --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending</masterLabel>
+        <translation><!-- Pending --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Processing</masterLabel>
+        <translation><!-- Processing --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Received</masterLabel>
+        <translation><!-- Received --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Shipped</masterLabel>
+        <translation><!-- Shipped --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

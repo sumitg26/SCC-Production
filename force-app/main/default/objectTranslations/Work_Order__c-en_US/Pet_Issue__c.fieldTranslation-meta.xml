@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Smell Issue --></label>
+    <name>Pet_Issue__c</name>
+    <picklistValues>
+        <masterLabel>Other Foul Smell</masterLabel>
+        <translation><!-- Other Foul Smell --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Smoke Smell</masterLabel>
+        <translation><!-- Smoke Smell --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Unknown</masterLabel>
+        <translation><!-- Unknown --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Urine Smell</masterLabel>
+        <translation><!-- Urine Smell --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

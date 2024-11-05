@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SFDC_Test_2_CA_Multi_Field_Update_2__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(NOT(ISBLANK(HT__c )),&quot; HT&quot; &amp; &quot; &quot; &amp; HT__c &amp;&quot;,&quot;, NULL) &amp; 
+IF(NOT(ISBLANK(CA__c)), &quot; CA&quot; &amp; &quot; &quot; &amp; CA__c &amp;&quot;,&quot;, NULL) &amp; 
+IF(NOT(ISBLANK(Time_Frame__c)), &quot;Time Frame&quot; &amp; &quot; &quot; &amp; Time_Frame__c&amp;&quot;,&quot; , NULL) &amp; 
+IF(NOT(ISBLANK(Name)),&quot; Inv. #&quot; &amp; &quot; &quot; &amp; Name &amp;&quot;,&quot; , NULL) &amp; 
+IF(NOT(ISBLANK(Man_Hrs__c)),&quot; Est. Hrs&quot; &amp; &quot; &quot; &amp; Man_Hrs__c &amp;&quot;,&quot;, NULL) &amp; 
+IF(NOT(ISBLANK( Unit_Number__c )), &quot; Unit&quot; &amp; &quot; &quot; &amp; Unit_Number__c &amp; &quot;,&quot;, NULL) &amp; 
+IF(NOT(ISBLANK( Property_Address__c)),&quot; Address&quot; &amp; &quot; &quot; &amp; Property_Address__c &amp;&quot;,&quot;, NULL) &amp; 
+IF(NOT(ISBLANK(Property_City__c)),&quot;&quot; &amp; &quot; &quot; &amp; Property_City__c , NULL)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>SFDC Test 2 CA-Multi-Field Update 2</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

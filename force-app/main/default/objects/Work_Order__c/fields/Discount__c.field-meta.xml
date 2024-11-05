@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Discount__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>If you have a % that does not appear in the drop down list, select custom at the bottom and then fill in the Discount % field with the percentage you want to apply.</inlineHelpText>
+    <label>Discount</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>5% Discount</fullName>
+                <default>false</default>
+                <label>5% Discount</label>
+            </value>
+            <value>
+                <fullName>First Time Customer 10% Discount</fullName>
+                <default>false</default>
+                <label>First Time Customer 10% Discount</label>
+            </value>
+            <value>
+                <fullName>Preferred Customer 10% Discount</fullName>
+                <default>false</default>
+                <label>Preferred Customer 10% Discount</label>
+            </value>
+            <value>
+                <fullName>Special Appreciation 25% Discount</fullName>
+                <default>false</default>
+                <label>Special Appreciation 25% Discount</label>
+            </value>
+            <value>
+                <fullName>Golden Customer 50% Discount</fullName>
+                <default>false</default>
+                <label>Golden Customer 50% Discount</label>
+            </value>
+            <value>
+                <fullName>Custom</fullName>
+                <default>false</default>
+                <label>Custom</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

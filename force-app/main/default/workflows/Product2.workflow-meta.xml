@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Product_reorder_Intimation</fullName>
+        <ccEmails>supply@smartcarpetcare.com</ccEmails>
+        <description>Product reorder Intimation</description>
+        <protected>false</protected>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>Internal_Operations/Template_for_Product_reorder_Intimation</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Update_List_Price</fullName>
+        <field>List_Price__c</field>
+        <formula>Cost_Price__c *  List_Price_Markup__c</formula>
+        <name>Update List Price</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Update List Price</fullName>
+        <actions>
+            <name>Update_List_Price</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>true</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

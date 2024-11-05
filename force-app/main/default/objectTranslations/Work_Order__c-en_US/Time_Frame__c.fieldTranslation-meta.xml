@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Indicates earliest start time and may indicate latest completion date/time.  For appointments use HT for Hard Time.  Bandwidth examples:  Start 12 Noon, Complete by 5PM, or June 30 2PM, Complete July 1 9AM, or June 3-5. --></help>
+    <label><!-- Time Frame --></label>
+    <name>Time_Frame__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Banding</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Banding</shortDescription>
+        <value>Banding
+Refers to a thin 1/4&quot;-1/2&quot; gray “band” tone that occurs around perimeters of rooms along baseboards and at the outer edges of stairs.  If the dark band is caused by airborne dust it can be removed using a crevice tool and vacuum, but most often it caused by the steam cleaning method when the injected water is not fully recovered or sucked up. This water, mixed in with soil and residue, dries up leaving a gray band. Once this has occurred, there is very little that can be done to eliminate it.</value>
+    </labels>
+    <labels>
+        <fullName>Bleaching</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Bleaching</shortDescription>
+        <value>Bleaching
+Bleaching is the removal of color which causes the carpet to look lighter in tone than the surrounding carpet.  Strong oxidizers as well as optical brighteners can also change the appearance of the carpet.  All are irreversible and cannot be improved with any cleaning process.</value>
+    </labels>
+    <labels>
+        <fullName>Carpet_Illusions_After_Cleaning</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Carpet Illusions After Cleaning</shortDescription>
+        <value>Carpet Illusions After Cleaning
+You may notice the carpet has lighter and darker areas after our cleaning even though the carpet is actually clean.  This is the result of carpet fiber strands laying in different directions, causing the light to reflect off of it differently and appearing lighter or darker.  This occurs with any carpet cleaning process and will disappear with normal foot traffic over time.</value>
+    </labels>
+    <labels>
+        <fullName>Carpet_Roll</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Carpet Roll</shortDescription>
+        <value>Carpet Roll
+Slack in the carpet is most often caused by the water in the steam cleaning method reaching and saturating the latex backing of the carpet.  When wet, the backing becomes soft and will result in up to 90% loss of strength. If the carpet is walked on during the many hours of drying it will cause damage including stretching which will result in slack. Smart’s process eliminates this completely because our cleaning solution never gets to the back of the carpet.  If you have carpet roll it can be removed by engaging a carpet installation company who will use stretching equipment to take out the slack.</value>
+    </labels>
+    <labels>
+        <fullName>Furniture_Divots</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Furniture Divots</shortDescription>
+        <value>Furniture Divots
+When furniture is removed from carpet, often you will see small circular or squares where the legs rested on the carpet. This is called a divot and is caused by compression which is very severe because all the weight of the furniture is on just a few square inches of the carpet.  It not only compresses the carpet fiber, but also reforms the shape of the carpet backing and pad underneath.  When cleaning carpet we make best efforts to bring the fiber up as much as possible to minimize the divot appearance, and with additional time the divot should lessen.  Keep in mind most of these divot areas will no longer be visible once furnishings are in place.</value>
+    </labels>
+    <labels>
+        <fullName>GabbyEmailAddress</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>GabbyEmailAddress</shortDescription>
+        <value>admin@smartcarpetcare.com</value>
+    </labels>
+    <labels>
+        <fullName>High_Levels_Of_Pet_Hair</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>High Levels Of Pet Hair</shortDescription>
+        <value>High Levels Of Pet Hair
+Pets shed on average hundreds of pet hairs a day.  Daily vacuuming is often needed to prevent hair from accumulating in the carpet.  Extreme levels of pet hair occur in carpet when occupants do not vacuum frequently.  When Smart cleans carpet and we identify significant pet hair we will apply pre vacuuming, post vacuuming, and perimeter crevice vacuuming as needed.  When vacuuming has been neglected, such as when it would require 3X/per week vacuuming but is vacuumed only 1X/mo, in the course of a year only 12 vacuuming’s took place when 144 was needed, leaving literally millions of hair in the carpet.  Though our services provide comprehensive vacuuming, and we remove large quantities of hair, the remaining hair can only be addressed and removed over a period of time with subsequent vacuuming.</value>
+    </labels>
+    <labels>
+        <fullName>Pivot_Wear</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Pivot Wear</shortDescription>
+        <value>Pivot Wear
+Pivot wear is a physical alteration to the fiber, often appearing as a circular wear area of 3-4” caused by the ball of your foot when you pivot and change directions. Often found at the base of stairs, in front of elevators, or outside doorways, it can look like soil even when it is cleaned effectively.</value>
+    </labels>
+    <labels>
+        <fullName>Residual_Urine_Smell</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Residual Urine Smell</shortDescription>
+        <value>Urine Smell
+Results of our urine or foul smell remediation efforts can be assessed after 24 hours by turning ventilation on for one hour then turning off and closing windows and doors to the treated area.  To test the area for smell, allow four hours for the smell to go airborne and concentrate in the airspace, then walk into the treated area and check for smells.  If urine smell persists the most likely next step will require pad replacement, sealing of subfloor, or possible carpet replacement.  If contamination is less severe sometimes a second application of our treatment can offer improvement and can be done at a nominal cost.</value>
+    </labels>
+    <labels>
+        <fullName>Stain_Magic</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Stain Magic</shortDescription>
+        <value>Stain Magic
+This product uses the most aggressive approach in resolving challenging earth tone stains, often from coffee, tea, or pet accidents. If no improvement occurs the stain is said to be “set”.</value>
+    </labels>
+    <labels>
+        <fullName>Wear_That_Looks_Like_Soil</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Wear That Looks Like Soil</shortDescription>
+        <value>Wear That Looks Like Soil
+Dark areas or traffic lane grey can be caused by scratches or distortions. Scratches are caused by soil containing silicates which have razor-sharp edges that etch the fiber. Scratches on the fiber surface causes light to reflect at different degrees and angles instead of uniformly, thus heightening the visual perception of soiling. Fiber distortion due to wear will also cause matting, flaring, or tip compression. The loss of tip definition causes appearance changes and looks dramatically different from un-trafficked areas such as along walls. Smart makes best efforts to make sure any remaining gray tones were not due to soil by doing repeat passes until there is no gray soil tones appearing in our transfer pads.</value>
+    </labels>
+    <labels>
+        <fullName>Work_Order_Tax</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Work Order Tax %</shortDescription>
+        <value>0</value>
+    </labels>
+</CustomLabels>

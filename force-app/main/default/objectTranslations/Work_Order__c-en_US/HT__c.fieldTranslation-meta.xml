@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Hard Time.  Customer needs service to start at a specific time. --></help>
+    <label><!-- HT --></label>
+    <name>HT__c</name>
+</CustomFieldTranslation>

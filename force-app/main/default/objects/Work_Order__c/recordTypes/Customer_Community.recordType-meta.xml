@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Community</fullName>
+    <active>true</active>
+    <label>Customer Community</label>
+    <picklistValues>
+        <picklist>Blacklight_Inspection__c</picklist>
+        <values>
+            <fullName>Blacklight Inspection with Brief Report</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blacklight Inspection with Full Report %2B Photos</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Cleaning_products_or_air_frag_present__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Commercial_IC__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Condition__c</picklist>
+        <values>
+            <fullName>Average</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Heavily Soiled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trashed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unknown</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Dining_rm__c</picklist>
+        <values>
+            <fullName>1 Dining rm</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2 Dining rms</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Discount__c</picklist>
+        <values>
+            <fullName>5%25 Discount</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Custom</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>First Time Customer 10%25 Discount</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Golden Customer 50%25 Discount</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Preferred Customer 10%25 Discount</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Special Appreciation 25%25 Discount</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Door_Windows_open__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Family_rm__c</picklist>
+        <values>
+            <fullName>1 Family rm</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2 Family rms</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Forecast_Category__c</picklist>
+        <values>
+            <fullName>Best Case</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pipeline</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Hall__c</picklist>
+        <values>
+            <fullName>1 Hall</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2 Halls</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Invoice_Frequency__c</picklist>
+        <values>
+            <fullName>Monthly</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Single</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Invoice_Notes_Options__c</picklist>
+        <values>
+            <fullName>Banding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bleaching</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Carpet Illusions After Cleaning</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Carpet Roll</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Furniture Divots</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>High Levels Of Pet Hair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pivot Wear</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Residual Urine Smell</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stain Magic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wear That Looks Like Soil</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Key__c</picklist>
+        <values>
+            <fullName>Pick  up key at Smart shop</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pick up key from Office</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Liv_Din_rm__c</picklist>
+        <values>
+            <fullName>Liv%2FDin rm</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>None</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LivingRm_DiningRm__c</picklist>
+        <values>
+            <fullName>LivingRm%2FDiningRm</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Living_rm__c</picklist>
+        <values>
+            <fullName>1 Living rm</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2 Living rms</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Loft__c</picklist>
+        <values>
+            <fullName>Loft</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MBD__c</picklist>
+        <values>
+            <fullName>Master Bedroom</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Method_of_Payment__c</picklist>
+        <values>
+            <fullName>Cash</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Check</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credit Card</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Direct Deposit</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>New_Customer__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Number_of_bedrooms__c</picklist>
+        <values>
+            <fullName>1 BD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2 BD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3 BD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4 BD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5 BD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>6 BD</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Office__c</picklist>
+        <values>
+            <fullName>Office</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PO_Status__c</picklist>
+        <values>
+            <fullName>Fulfilled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Processing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Received</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shipped</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Paid_CC__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>None</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Paid_Cash__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>None</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Pay_Period__c</picklist>
+        <values>
+            <fullName>1%2F25%2F2022</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Pet_Issue__c</picklist>
+        <values>
+            <fullName>Other Foul Smell</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Smoke Smell</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unknown</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Urine Smell</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Rec_rm_Great_rm__c</picklist>
+        <values>
+            <fullName>Rec rm%2FGreat rm</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Red_Bright_Color_Removal__c</picklist>
+        <values>
+            <fullName>None</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Referral_Source__c</picklist>
+        <values>
+            <fullName>Facebook</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Google Search</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Networking Group</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PMC Renter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Realtor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Smart Website</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Van Graphic</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Rugs__c</picklist>
+        <values>
+            <fullName>3X5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5X7</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>8X10</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>9X12</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Stairs__c</picklist>
+        <values>
+            <fullName>1 flight stairs</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Invoice Paid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Invoiced</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Pending IC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Scheduled</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Unit_Type__c</picklist>
+        <values>
+            <fullName>Apt%2FCondo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Duplex</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SFH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Studio APT</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Urine_Smell_at_entry__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Van_assignment__c</picklist>
+        <values>
+            <fullName>Team Van</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Van 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Van 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Van 3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Van 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Van 5</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Ventilation_on__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Walk_In_Closet__c</picklist>
+        <values>
+            <fullName>1 Walk in Closet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2 Walk in Closet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3 Walk in Closet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4 Walk in Closet</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

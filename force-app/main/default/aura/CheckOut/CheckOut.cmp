@@ -1,0 +1,13 @@
+<aura:component controller="GeoLocController" implements="force:hasRecordId,force:hasSObjectName,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+
+    <!-- captures the latitude and longitude of the current user for Check Out -->
+    
+        <!-- // Comment out for temporarily deactivate the GPS functionality and have only the timestamp captured.
+            Dt - 20/08/2024 // -->
+    
+  <!--  <aura:attribute name="lat" type="String" />
+    	<aura:attribute name="lon" type="String" /> -->
+    
+    <aura:attribute name="recordId" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+</aura:component>

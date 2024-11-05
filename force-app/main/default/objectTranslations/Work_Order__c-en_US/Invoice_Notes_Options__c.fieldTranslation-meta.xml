@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Invoice Notes Options --></label>
+    <name>Invoice_Notes_Options__c</name>
+    <picklistValues>
+        <masterLabel>Banding</masterLabel>
+        <translation><!-- Banding --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bleaching</masterLabel>
+        <translation><!-- Bleaching --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Carpet Illusions After Cleaning</masterLabel>
+        <translation><!-- Carpet Illusions After Cleaning --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Carpet Roll</masterLabel>
+        <translation><!-- Carpet Roll --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Furniture Divots</masterLabel>
+        <translation><!-- Furniture Divots --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>High Levels Of Pet Hair</masterLabel>
+        <translation><!-- High Levels Of Pet Hair --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pivot Wear</masterLabel>
+        <translation><!-- Pivot Wear --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Residual Urine Smell</masterLabel>
+        <translation><!-- Residual Urine Smell --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Stain Magic</masterLabel>
+        <translation><!-- Stain Magic --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Wear That Looks Like Soil</masterLabel>
+        <translation><!-- Wear That Looks Like Soil --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

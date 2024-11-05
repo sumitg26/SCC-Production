@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_Force_1_Users</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND ( PRIORVALUE(Status__c) = &quot;Completed&quot;,
+ $Profile.Id = &quot;00e1a000000F3S5&quot;)</errorConditionFormula>
+    <errorMessage>Completed Status, contact front office</errorMessage>
+</ValidationRule>

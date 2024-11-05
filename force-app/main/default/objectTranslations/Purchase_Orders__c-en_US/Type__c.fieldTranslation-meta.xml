@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Outbound = Orders for Smart Supply Inventory. Inbound = Orders received from franchise owners --></help>
+    <label><!-- Order Type --></label>
+    <name>Type__c</name>
+    <picklistValues>
+        <masterLabel>Inbound</masterLabel>
+        <translation><!-- Inbound --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Outbound</masterLabel>
+        <translation><!-- Outbound --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

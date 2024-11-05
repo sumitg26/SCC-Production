@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Blacklight Inspection --></label>
+    <name>Blacklight_Inspection__c</name>
+    <picklistValues>
+        <masterLabel>Blacklight Inspection with Brief Report</masterLabel>
+        <translation><!-- Blacklight Inspection with Brief Report --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Blacklight Inspection with Full Report + Photos</masterLabel>
+        <translation><!-- Blacklight Inspection with Full Report + Photos --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

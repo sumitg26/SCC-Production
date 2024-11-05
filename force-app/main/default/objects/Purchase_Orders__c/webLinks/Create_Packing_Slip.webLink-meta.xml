@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Create_Packing_Slip</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Create Packing Slip</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/apex/PO_Purchase_Order_Page?id={!Purchase_Orders__c.Id}&amp;type=slip</url>
+</WebLink>

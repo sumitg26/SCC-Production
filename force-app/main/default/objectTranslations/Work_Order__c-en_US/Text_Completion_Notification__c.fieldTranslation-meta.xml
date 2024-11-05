@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Auto populates from account if customer has opted to get a text message when work is complete --></help>
+    <label><!-- Text Completion Notfication --></label>
+    <name>Text_Completion_Notification__c</name>
+</CustomFieldTranslation>

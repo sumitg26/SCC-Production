@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>AccountType_Franchise2</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Franchise</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Account Type= 	Franchise</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Cell_Phone</fullName>
+        <field>Cell_Phone__c</field>
+        <formula>Account.Cell_Phone__c</formula>
+        <name>Update Cell Phone</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_City</fullName>
+        <field>City__c</field>
+        <formula>Account.BillingCity</formula>
+        <name>Update City</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Comments_Oppty</fullName>
+        <field>Comments__c</field>
+        <formula>Account.Lead_Comments__c</formula>
+        <name>Update Comments Oppty</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Email</fullName>
+        <field>Email__c</field>
+        <formula>Account.Email__c</formula>
+        <name>Update Email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Next_Step</fullName>
+        <field>Next_Step__c</field>
+        <formula>Account.Next_Step__c</formula>
+        <name>Update Next Step</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Phone</fullName>
+        <field>Phone__c</field>
+        <formula>Account.Phone</formula>
+        <name>Update Phone</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Primary_Contact</fullName>
+        <field>Primary_Contact__c</field>
+        <formula>Account.Primary_Contact__c</formula>
+        <name>Update Primary Contact</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Purpose</fullName>
+        <field>Purpose__c</field>
+        <formula>Account.Purpose__c</formula>
+        <name>Update Purpose</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_State_Province</fullName>
+        <field>State_Province__c</field>
+        <formula>Account.BillingState</formula>
+        <name>Update State Province</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Street</fullName>
+        <field>Street__c</field>
+        <formula>Account.BillingStreet</formula>
+        <name>Update Street</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Unit_Number</fullName>
+        <field>Unit_Number__c</field>
+        <formula>Account.Unit_Number__c</formula>
+        <name>Update Unit Number</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Who</fullName>
+        <field>Who__c</field>
+        <formula>Account.Who__c</formula>
+        <name>Update Who</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Who2</fullName>
+        <field>Who__c</field>
+        <formula>Account.Who__c</formula>
+        <name>Update Who</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Zip_Code</fullName>
+        <field>Zip_Postal_Code__c</field>
+        <formula>Account.BillingPostalCode</formula>
+        <name>Update Zip Code</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Account Comments</fullName>
+        <actions>
+            <name>Update_Comments_Oppty</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>!ISBLANK(Account.Lead_Comments__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Billing Address</fullName>
+        <active>false</active>
+        <formula>TRUE</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opportunity Account Type</fullName>
+        <actions>
+            <name>AccountType_Franchise2</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.Lead_Account_Type3__c</field>
+            <operation>equals</operation>
+            <value>Franchise</value>
+        </criteriaItems>
+        <description>This workflow updates the record type in opportunity</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Updat Account</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Closed-Won</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Who</fullName>
+        <actions>
+            <name>Update_Next_Step</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Who2</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>TRUE</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>test</fullName>
+        <active>false</active>
+        <formula>true</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>update Opportunity</fullName>
+        <actions>
+            <name>Update_Cell_Phone</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_City</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Email</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Phone</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Primary_Contact</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Purpose</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_State_Province</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Street</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Unit_Number</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Zip_Code</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>TRUE</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

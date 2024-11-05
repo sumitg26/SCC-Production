@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Referral Source --></label>
+    <name>Referral_Source__c</name>
+    <picklistValues>
+        <masterLabel>Cold Call</masterLabel>
+        <translation><!-- Cold Call --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Facebook</masterLabel>
+        <translation><!-- Facebook --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Friend</masterLabel>
+        <translation><!-- Friend --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Google Search</masterLabel>
+        <translation><!-- Google Search --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Networking Group</masterLabel>
+        <translation><!-- Networking Group --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PMC Renter</masterLabel>
+        <translation><!-- PMC Renter --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Realtor</masterLabel>
+        <translation><!-- Realtor --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Smart Website</masterLabel>
+        <translation><!-- Smart Website --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Van Graphic</masterLabel>
+        <translation><!-- Van Graphic --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Yelp</masterLabel>
+        <translation><!-- Yelp --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

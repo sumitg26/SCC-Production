@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- For work order with Team Van assigned (3+ crew members required), there will be a designated “Site Manager” who manages the team and the job. Add initials here --></help>
+    <label><!-- Site Mgr --></label>
+    <name>Site_Mgn__c</name>
+</CustomFieldTranslation>

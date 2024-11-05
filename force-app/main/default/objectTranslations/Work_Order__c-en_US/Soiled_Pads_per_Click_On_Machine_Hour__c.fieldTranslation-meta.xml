@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Pad Count divided by Total Net Click On Time --></help>
+    <label><!-- Soiled Pads per Click On Machine Hour --></label>
+    <name>Soiled_Pads_per_Click_On_Machine_Hour__c</name>
+</CustomFieldTranslation>

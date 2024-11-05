@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Master Bedroom.  Use only when there are more than 2 bedrooms. --></help>
+    <label><!-- Master Bedroom --></label>
+    <name>MBD__c</name>
+    <picklistValues>
+        <masterLabel>2 Master Bedroom</masterLabel>
+        <translation><!-- 2 Master Bedroom --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Master Bedroom</masterLabel>
+        <translation><!-- Master Bedroom --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

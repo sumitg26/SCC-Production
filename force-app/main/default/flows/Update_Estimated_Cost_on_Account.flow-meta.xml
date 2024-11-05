@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <environments>Default</environments>
+    <formulas>
+        <name>CalculateEstimatedCost</name>
+        <dataType>Number</dataType>
+        <expression>{!$Record.BD_LR_MBD_DR_LDR_cost__c}  
++
+CASE({!$Record.Hallway__c},
+&quot;1 Hall&quot;,  IF(({!$Record.Owner.ProfileId} = &apos;00e1P000000Zli9&apos;), {!$Record.Owner.Contact.Account.X1_Hall_cost__c},{!Get_Custom_metadata_records.X1_Hall_cost__c}),
+&quot;2 Halls&quot;, IF(({!$Record.Owner.ProfileId} = &apos;00e1P000000Zli9&apos;), {!$Record.Owner.Contact.Account.X2_Hall_cost__c}, {!Get_Custom_metadata_records.X2_Hall_cost__c}),
+&quot;3 Halls&quot;, IF(({!$Record.Owner.ProfileId} = &apos;00e1P000000Zli9&apos;), {!$Record.Owner.Contact.Account.X3_Hall_cost__c}, {!Get_Custom_metadata_records.X3_Hall_cost__c}),
+&quot;4 Halls&quot;, IF(({!$Record.Owner.ProfileId} = &apos;00e1P000000Zli9&apos;), {!$Record.Owner.Contact.Account.X4_Hall_cost__c}, {!Get_Custom_metadata_records.X4_Hall_cost__c}),
+0)
++
+CASE({!$Record.Walk_In_Closet__c},
+&quot;1&quot;,  IF(({!$Record.Owner.ProfileId} = &apos;00e1P000000Zli9&apos;), {!$Record.Owner.Contact.Account.X1_Walk_in_Closet__c},{!Get_Custom_metadata_records.X1_Walk_in_Closet__c}),
+&quot;2&quot;, IF(({!$Record.Owner.ProfileId} = &apos;00e1P000000Zli9&apos;), {!$Record.Owner.Contact.Account.X2_Walk_in_Closet__c}, {!Get_Custom_metadata_records.X2_Walk_in_Closet__c}),
+&quot;3&quot;, IF(({!$Record.Owner.ProfileId} = &apos;00e1P000000Zli9&apos;), {!$Record.Owner.Contact.Account.X3_Walk_in_Closet__c}, {!Get_Custom_metadata_records.X3_Walk_in_Closet__c}),
+&quot;4&quot;, IF(({!$Record.Owner.ProfileId} = &apos;00e1P000000Zli9&apos;), {!$Record.Owner.Contact.Account.X4_Walk_in_Closet__c}, {!Get_Custom_metadata_records.X4_Walk_in_Closet__c}),
+0)
++
+CASE({!$Record.Family_Room__c},
+&quot;1 Family rm&quot;,  IF(({!$Record.Owner.ProfileId} = &apos;00e1P000000Zli9&apos;), {!$Record.Owner.Contact.Account.X1_Family_Room_cost__c},{!Get_Custom_metadata_records.X1_Family_Room_cost__c}),
+&quot;2 Family rms&quot;, IF(({!$Record.Owner.ProfileId} = &apos;00e1P000000Zli9&apos;), {!$Record.Owner.Contact.Account.X2_Family_Room_cost__c}, {!Get_Custom_metadata_records.X2_Family_Room_cost__c}),
+0)
++
+CASE({!$Record.Stairs__c},
+&quot;1 flight stairs&quot;, IF(({!$Record.Owner.ProfileId} = &apos;00e1P000000Zli9&apos;), {!$Record.Owner.Contact.Account.X1_Flight_Stair_cost__c}, {!Get_Custom_metadata_records.X1_Flight_Stair_cost__c}),
+&quot;2 flight stairs&quot;, IF(({!$Record.Owner.ProfileId} = &apos;00e1P000000Zli9&apos;), {!$Record.Owner.Contact.Account.X2_Flight_Stair_cost__c}, {!Get_Custom_metadata_records.X2_Flight_Stair_cost__c}),
+&quot;3 flight stairs&quot;, IF(({!$Record.Owner.ProfileId} = &apos;00e1P000000Zli9&apos;), {!$Record.Owner.Contact.Account.X3_Flight_Stair_cost__c}, {!Get_Custom_metadata_records.X3_Flight_Stair_cost__c}),
+0)
++
+CASE({!$Record.Office__c},
+&quot;Office&quot;, IF(({!$Record.Owner.ProfileId} = &apos;00e1P000000Zli9&apos;), {!$Record.Owner.Contact.Account.Office_Cost__c}, {!Get_Custom_metadata_records.Office_cost__c})
+,0)
++
+CASE({!$Record.Rec_rm_Great_rm__c},
+&quot;Rec rm/Great rm&quot;, IF(({!$Record.Owner.ProfileId} = &apos;00e1P000000Zli9&apos;), {!$Record.Owner.Contact.Account.Rec_Room_Great_Room_cost__c}, {!Get_Custom_metadata_records.Rec_Room_Great_Room_cost__c})
+,0)
++
+CASE({!$Record.Loft__c},
+&quot;Loft&quot;, IF(({!$Record.Owner.ProfileId} = &apos;00e1P000000Zli9&apos;), {!$Record.Owner.Contact.Account.Loft_cost__c}, {!Get_Custom_metadata_records.Loft_cost__c}),0)
++
+IF(INCLUDES({!$Record.Rugs__c , &quot;3X5&quot;}), IF(({!$Record.Owner.ProfileId} = &apos;00e1P000000Zli9&apos;), {!$Record.Owner.Contact.Account.Rugs_3x5_cost__c}, {!Get_Custom_metadata_records.Rugs_3x5_cost__c}), 0) +
+IF(INCLUDES({!$Record.Rugs__c , &quot;5X7&quot;}), IF(({!$Record.Owner.ProfileId} = &apos;00e1P000000Zli9&apos;), {!$Record.Owner.Contact.Account.Rugs_5X7_cost__c}, {!Get_Custom_metadata_records.Rugs_5X7_cost__c}), 0) +
+IF(INCLUDES({!$Record.Rugs__c , &quot;8X10&quot;}), IF(({!$Record.Owner.ProfileId} = &apos;00e1P000000Zli9&apos;), {!$Record.Owner.Contact.Account.Rugs_8X10_cost__c}, {!Get_Custom_metadata_records.Rugs_8X10_cost__c}), 0) +
+IF(INCLUDES({!$Record.Rugs__c , &quot;9X12&quot;}), IF(({!$Record.Owner.ProfileId} = &apos;00e1P000000Zli9&apos;), {!$Record.Owner.Contact.Account.Rugs_9X12_cost__c}, {!Get_Custom_metadata_records.Rugs_9X12_cost__c}), 0)</expression>
+        <scale>2</scale>
+    </formulas>
+    <interviewLabel>Update Estimated Cost on Account {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update Estimated Cost on Account</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Custom_metadata_records</name>
+        <label>Get Custom metadata records</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Estimated_Cost_on_Account</targetReference>
+        </connector>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>C__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Estimated_Cost_on_Account</name>
+        <label>Update Estimated Cost on Account</label>
+        <locationX>176</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Lead_Estimated_Cost__c</field>
+            <value>
+                <elementReference>CalculateEstimatedCost</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Custom_metadata_records</targetReference>
+        </connector>
+        <object>Account</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

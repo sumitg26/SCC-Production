@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingGuestRules>
+        <fullName>Contracts_Sharing</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Contracts Sharing</label>
+        <sharedTo>
+            <guestUser>Smart_Carpet_Contracts</guestUser>
+        </sharedTo>
+        <criteriaItems>
+            <field>Is_Active__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <includeHVUOwnedRecords>false</includeHVUOwnedRecords>
+    </sharingGuestRules>
+</SharingRules>

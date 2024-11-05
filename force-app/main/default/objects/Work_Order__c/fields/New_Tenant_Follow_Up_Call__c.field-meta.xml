@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Tenant_Follow_Up_Call__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Include name and phone # and Smart make a courtesy service follow up call and let them know we can provide services during their occupancy such as selective area cleaning, pet issues, smells, etc.</inlineHelpText>
+    <label>New Tenant Follow Up Call</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

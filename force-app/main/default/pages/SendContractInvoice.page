@@ -1,0 +1,27 @@
+<apex:page controller="CreateContractController" lightningStylesheets="true" action="{!prepareEmail}" title="Send Email" sidebar="false" showHeader="false"  >
+    <apex:form >
+        <apex:pageBlock id="EmailTemp" >
+            <apex:pageBlockSection columns="1" id="pbSection" >
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="From" />
+                    <apex:selectList value="{!selectedFromEmail}" size="1" id="owa" >
+                        <apex:selectOptions value="{!OrgwideAddress}" />
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:inputText label="To " value="{!ToEmail}" style="width: inherit;" />
+                <apex:inputText label="CC " value="{!ccEmails}" style="width: inherit;" />
+                <apex:inputText label="BCC " value="{!bccEmails}" style="width: inherit;" />
+                <apex:selectList value="{!selectedEmailTemplate}" multiselect="false" label="Select Template" size="1"  title="Email Template">
+                    <apex:selectOptions value="{!EmailTemplates}"/>
+                    <apex:actionSupport event="onchange" action="{!onChangePrepareEmail}"  />
+                </apex:selectList>
+                    <apex:inputText label="Subject" value="{!templateSubject}" style="width: inherit;" />
+                    <apex:inputTextarea label="Body" value="{!templateBody}"  richText="true" rows="30" />
+            </apex:pageBlockSection>
+            <center>
+                <apex:commandButton value="Send Email" action="{!sendInvoiceEmail}"  />
+                <apex:commandButton value="Cancel" action="{!cancel}" />
+            </center>
+        </apex:pageBlock> 
+    </apex:form>
+</apex:page>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Completed_Work_Orders</fullName>
+    <columns>NAME</columns>
+    <columns>Start_Time__c</columns>
+    <columns>Account_Name__c</columns>
+    <columns>Property_Address__c</columns>
+    <columns>Unit_Number__c</columns>
+    <columns>Property_City__c</columns>
+    <columns>Balance_Due1__c</columns>
+    <columns>Blacklight_Inspection__c</columns>
+    <columns>Van_assignment__c</columns>
+    <columns>Front_Desk_Follow_up__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Completed</value>
+    </filters>
+    <filters>
+        <field>OWNER.FIRST_NAME</field>
+        <operation>notContain</operation>
+        <value>Jeff,Franchise</value>
+    </filters>
+    <label>Completed</label>
+    <sharedTo>
+        <group>Admins</group>
+    </sharedTo>
+</ListView>

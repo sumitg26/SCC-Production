@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Starting_Time__c</columns>
+    <columns>Ending_Time__c</columns>
+    <columns>Net_Time__c</columns>
+    <columns>OWNER.FIRST_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Starting_Time__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>10/11/2024 12:00 AM</value>
+    </filters>
+    <label>All</label>
+</ListView>

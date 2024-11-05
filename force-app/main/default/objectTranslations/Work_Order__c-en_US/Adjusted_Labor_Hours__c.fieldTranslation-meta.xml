@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- When total labor hours is incorrect and needs a manual adjustment, put positive or negative numbers here --></help>
+    <label><!-- Adjusted Labor Hours --></label>
+    <name>Adjusted_Labor_Hours__c</name>
+</CustomFieldTranslation>

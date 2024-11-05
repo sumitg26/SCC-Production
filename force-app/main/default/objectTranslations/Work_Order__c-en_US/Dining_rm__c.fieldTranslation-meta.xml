@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Dining rm --></label>
+    <name>Dining_rm__c</name>
+    <picklistValues>
+        <masterLabel>1 Dining rm</masterLabel>
+        <translation><!-- 1 Dining rm --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>2 Dining rms</masterLabel>
+        <translation><!-- 2 Dining rms --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

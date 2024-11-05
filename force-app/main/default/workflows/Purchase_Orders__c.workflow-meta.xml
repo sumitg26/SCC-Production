@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Email_to_ADMIN_when_order_is_shipped</fullName>
+        <description>Email to ADMIN when order is shipped</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>rv@smartcarpetcare.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>Internal_Operations/Email_to_ADMIN_when_an_order_is_Shipped</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_to_PARTNER_when_order_is_shipped</fullName>
+        <description>Email to PARTNER when order is shipped</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>Internal_Operations/Email_to_PARTNER_when_an_order_is_Shipped</template>
+    </alerts>
+    <alerts>
+        <fullName>Notification_to_RV_for_Balance_Due</fullName>
+        <description>Notification to RV for Balance Due</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>rv@smartcarpetcare.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Internal_Operations/Notification_to_RV_for_PO</template>
+    </alerts>
+    <alerts>
+        <fullName>Purchase_Order_placed_notification_to_Robert</fullName>
+        <ccEmails>supply@smartcarpetcare.com</ccEmails>
+        <description>Purchase Order placed notification to Robert</description>
+        <protected>false</protected>
+        <senderAddress>supply@smartcarpetcare.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Internal_Operations/Email_to_ADMIN_when_an_order_is_placed</template>
+    </alerts>
+    <alerts>
+        <fullName>Purchase_Order_placed_notification_to_franchise</fullName>
+        <description>Purchase Order placed notification to franchise</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>Internal_Operations/Email_to_PARTNER_when_an_order_is_placed</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Update_Payment_Terms</fullName>
+        <field>Payment_Terms__c</field>
+        <literalValue>Net 30</literalValue>
+        <name>Update Payment Terms</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Notification to RV for Balance Due</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Purchase_Orders__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Order Completed</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Notification_to_RV_for_Balance_Due</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Purchase_Orders__c.PO_Date__c</offsetFromField>
+            <timeLength>15</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Purchase Order Placed</fullName>
+        <actions>
+            <name>Purchase_Order_placed_notification_to_Robert</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Purchase_Order_placed_notification_to_franchise</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Purchase_Orders__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Order Placed</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Purchase Order Placed - Notify GM</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Purchase_Orders__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Order Placed</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Purchase Order Shipped</fullName>
+        <actions>
+            <name>Email_to_PARTNER_when_order_is_shipped</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Purchase_Orders__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Order Shipped</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set Account Name</fullName>
+        <active>false</active>
+        <formula>True</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update PO Payment Terms</fullName>
+        <actions>
+            <name>Update_Payment_Terms</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Purchase_Orders__c.Type__c</field>
+            <operation>equals</operation>
+            <value>Outbound</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Purchase Orders</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Purchase Orders</value>
+    </caseValues>
+    <layouts>
+        <layout>Partner Purchase Order Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Purchase Orders Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Add_Edit_Purchase_Order_Lines --></label>
+        <name>Add_Edit_Purchase_Order_Lines</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Add_Edit_Purchase_Order_Lines_Franchise --></label>
+        <name>Add_Edit_Purchase_Order_Lines_Franchise</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Create_Invoice --></label>
+        <name>Create_Invoice</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Create_Packing_Slip --></label>
+        <name>Create_Packing_Slip</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Create_Purchase_Order_Document --></label>
+        <name>Create_Purchase_Order_Document</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Create_Purchase_Order_Document_Franchise --></label>
+        <name>Create_Purchase_Order_Document_Franchise</name>
+    </webLinks>
+</CustomObjectTranslation>

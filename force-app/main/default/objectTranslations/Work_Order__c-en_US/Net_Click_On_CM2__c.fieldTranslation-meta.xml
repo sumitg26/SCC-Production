@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Tim --></help>
+    <label><!-- Net Click On CM2 --></label>
+    <name>Net_Click_On_CM2__c</name>
+</CustomFieldTranslation>

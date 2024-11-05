@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Contract_Signed_by_guest_user</fullName>
+        <description>Contract Signed by guest user</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <recipients>
+            <recipient>admin@scc.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>Internal_Operations/Contract_Signed_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>IC_Needs_Scheduling</fullName>
+        <description>IC Needs Scheduling</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>rv@smartcarpetcare.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Invoice</template>
+    </alerts>
+    <alerts>
+        <fullName>New_comment_added_to_Accounts</fullName>
+        <description>New comment added to Accounts</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>rv@smartcarpetcare.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>Internal_Operations/New_Comment_Added_on_Account_Comments</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Account_Type_Commercial</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Commercial_Accounts</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Account Type = Commercial</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Account_Type_Franchise2</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Franchise_Accounts</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Account Type= 	Franchise</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Account_Type_Residential</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Residential_Accounts</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Account Type = Residential</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Account_Type_Residential1</fullName>
+        <field>Account_Type__c</field>
+        <literalValue>Residential</literalValue>
+        <name>Account Type Residential</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Account_Type_Residential_Tag</fullName>
+        <field>Type</field>
+        <literalValue>Residential</literalValue>
+        <name>Account Type Residential</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Account_Type_TagCommercial</fullName>
+        <field>Type</field>
+        <literalValue>Commercial</literalValue>
+        <name>Account Type Commercial</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Copy_Unit_Number</fullName>
+        <field>Unit_Number_txt__c</field>
+        <formula>Unit_Number_txt__c</formula>
+        <name>Copy Unit Number</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MALatitude_c_Purge</fullName>
+        <field>MALatitude__c</field>
+        <name>Account.MALatitude_c_Purge</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MALongitude_c_Purge</fullName>
+        <field>MALongitude__c</field>
+        <name>Account.MALongitude_c_Purge</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Property_Address</fullName>
+        <field>Property_Address__c</field>
+        <formula>BillingStreet</formula>
+        <name>Property Address</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Property_City</fullName>
+        <field>Property_City__c</field>
+        <formula>BillingCity</formula>
+        <name>Property City</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Property_State</fullName>
+        <field>Property_State__c</field>
+        <formula>BillingState</formula>
+        <name>Property State</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Property_Zip</fullName>
+        <field>Property_Zip_Code__c</field>
+        <formula>BillingPostalCode</formula>
+        <name>Property Zip</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Test_SFDC</fullName>
+        <field>Field_Notes__c</field>
+        <formula>WorkOrder__r.Field_Notes__c</formula>
+        <name>Test SFDC</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Date_and_Time</fullName>
+        <field>Date_Time_Comment_Added__c</field>
+        <formula>LastModifiedDate</formula>
+        <name>Update Date and Time</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Lead_Estimated_Cost</fullName>
+        <field>Lead_Estimated_Cost__c</field>
+        <formula>CASE( Bedrooms__c , 
+&quot;1 BD&quot;, 55, 
+&quot;2 BD&quot;, 110, 
+&quot;3 BD&quot;, 165, 
+&quot;4 BD&quot;, 220, 
+&quot;5 BD&quot;, 275, 
+&quot;6 BD&quot;, 330, 
+&quot;7 BD&quot;, 385, 
+&quot;8 BD&quot;,440,0) 
++ 
+CASE( Living_Room__c , 
+&quot;1 Living rm&quot;, 105, 
+&quot;2 Living rms&quot;, 210, 
+&quot;3 living rms&quot;,315,0) 
++ 
+CASE( MBD__c, 
+&quot;MBD&quot;, 60, 
+&quot;2 MBD&quot;,120,0) 
++ 
+CASE( Dining_Room__c, 
+&quot;1 Dining rm&quot;, 55, 
+&quot;2 Dining rms&quot;, 110 
+,0) 
++ 
+CASE( Liv_Din_Rm__c , 
+&quot;Liv/Din rm&quot;, 120,0) 
++ 
+CASE( Hallway__c, 
+&quot;1 Hall&quot;, 30, 
+&quot;2 Halls&quot;, 60, 
+&quot;3 Halls&quot;,90, 
+&quot;4 Halls&quot;,120,0) 
++ 
+CASE( Family_Room__c, 
+&quot;1 Family rm&quot;, 105, 
+&quot;2 Family rms&quot;, 210 
+,0) 
++ 
+CASE( Stairs__c, 
+&quot;1 flight stairs&quot;, 50, 
+&quot;2 flight stairs&quot;, 100, 
+&quot;3 flight stairs&quot;,150,0) 
++ 
+CASE( Office__c, 
+&quot;Office&quot;, 50 
+,0) 
++ 
+CASE( Rec_rm_Great_rm__c, 
+&quot;Rec rm/Great rm&quot;, 120 
+,0) 
++ 
+CASE( Loft__c, 
+&quot;Loft&quot;, 40 
+,0) 
++ 
+IF(INCLUDES( Rugs__c , &quot;3X5&quot;), 25, 0) + 
+IF(INCLUDES( Rugs__c , &quot;5X7&quot;), 35, 0) + 
+IF(INCLUDES( Rugs__c , &quot;8X10&quot;), 45, 0) + 
+IF(INCLUDES( Rugs__c , &quot;9X12&quot;), 55, 0)</formula>
+        <name>Update Lead Estimated Cost</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Record_Type_Residential</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Residential_Accounts</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Update Record Type Residential</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>code</fullName>
+        <field>Unit_Number__c</field>
+        <formula>Unit_Number_txt__c</formula>
+        <name>code</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Account Type %3D Commercial</fullName>
+        <actions>
+            <name>Account_Type_Commercial</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Convert_Lead__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Account_Type__c</field>
+            <operation>equals</operation>
+            <value>Commercial</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Account Type %3D Residential</fullName>
+        <actions>
+            <name>Account_Type_Residential</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Convert_Lead__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Account_Type__c</field>
+            <operation>equals</operation>
+            <value>Residential</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Account Type Tagging 2</fullName>
+        <actions>
+            <name>Account_Type_TagCommercial</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 OR 2 OR 3</booleanFilter>
+        <criteriaItems>
+            <field>Account.Industry</field>
+            <operation>notEqual</operation>
+            <value>Owner Occupied</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Industry</field>
+            <operation>notEqual</operation>
+            <value>Other</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Industry</field>
+            <operation>notEqual</operation>
+            <value>Renter</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Account Type Tagging1</fullName>
+        <actions>
+            <name>Account_Type_Residential_Tag</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 OR 2 OR 3</booleanFilter>
+        <criteriaItems>
+            <field>Account.Industry</field>
+            <operation>equals</operation>
+            <value>Owner Occupied</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Industry</field>
+            <operation>equals</operation>
+            <value>Other</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Industry</field>
+            <operation>equals</operation>
+            <value>Renter</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Account Type%3D %09Franchise</fullName>
+        <actions>
+            <name>Account_Type_Franchise2</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Convert_Lead__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Account_Type__c</field>
+            <operation>equals</operation>
+            <value>Franchise</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Comments</fullName>
+        <actions>
+            <name>Update_Date_and_Time</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISCHANGED( Lead_Comments__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Copy Billing Information</fullName>
+        <actions>
+            <name>Property_Address</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Property_City</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Property_State</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Property_Zip</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>code</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Copy_Billing_Information__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Demo%2FMeasure%2FQuote Date Rules</fullName>
+        <active>false</active>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <criteriaItems>
+            <field>Account.Demo_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Measure_Quote_2_Day_Alert__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Follow_up_Call</name>
+                <type>Task</type>
+            </actions>
+            <offsetFromField>Account.Demo_Date__c</offsetFromField>
+            <timeLength>2</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Follow_up_call_2</name>
+                <type>Task</type>
+            </actions>
+            <offsetFromField>Account.Measure_Quote_2_Day_Alert__c</offsetFromField>
+            <timeLength>2</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Next Step IC</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Account.Next_Step__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>Reminder for IC</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>IC_Needs_Scheduling</name>
+                <type>Alert</type>
+            </actions>
+            <actions>
+                <name>IC_Reminder</name>
+                <type>Task</type>
+            </actions>
+            <offsetFromField>Account.Next_Step__c</offsetFromField>
+            <timeLength>-5</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Smart Agreement Signed</fullName>
+        <actions>
+            <name>Contract_Signed_by_guest_user</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Agreement_Signed__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Customer_Name__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Account Record Type Residential</fullName>
+        <actions>
+            <name>Update_Record_Type_Residential</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <formula>AND(
+NOT(ISPICKVAL( Account_Type__c,&quot;&quot; )),
+ISPICKVAL( Account_Type__c ,&quot;Residential&quot;))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Discount</fullName>
+        <active>false</active>
+        <formula>True</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Lead Estimated Cost</fullName>
+        <actions>
+            <name>Update_Lead_Estimated_Cost</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <formula>NOT(ISNEW())</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>a0K1a000000iYtXEAU_Purge</fullName>
+        <actions>
+            <name>MALatitude_c_Purge</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>MALongitude_c_Purge</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Account.a0K1a000000iYtXEAU_Purge</description>
+        <formula>OR(ISCHANGED(BillingStreet),ISCHANGED(BillingCity),ISCHANGED(BillingState),ISCHANGED(BillingPostalCode),ISCHANGED(BillingCountry))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <tasks>
+        <fullName>Follow_up_Call</fullName>
+        <assignedTo>rv@smartcarpetcare.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <offsetFromField>Account.Demo_Date__c</offsetFromField>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Follow up Call</subject>
+    </tasks>
+    <tasks>
+        <fullName>Follow_up_call_2</fullName>
+        <assignedTo>rv@smartcarpetcare.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <offsetFromField>Account.Measure_Quote_2_Day_Alert__c</offsetFromField>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Follow up call 2</subject>
+    </tasks>
+    <tasks>
+        <fullName>IC_Reminder</fullName>
+        <assignedTo>rv@smartcarpetcare.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>This rule will remind JZ in Home - New Tasks of IC&apos;s that need scheduling</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>IC Reminder</subject>
+    </tasks>
+</Workflow>

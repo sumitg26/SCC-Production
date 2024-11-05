@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- If the property has a lockbox, please enter the combo here --></help>
+    <label><!-- LB Combo --></label>
+    <name>LB_Combo__c</name>
+</CustomFieldTranslation>

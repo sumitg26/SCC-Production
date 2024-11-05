@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Default Cost per Item</label>
+    <protected>false</protected>
+    <values>
+        <field>Liv_Din_Room_cost__c</field>
+        <value xsi:type="xsd:double">120.0</value>
+    </values>
+    <values>
+        <field>Loft_cost__c</field>
+        <value xsi:type="xsd:double">40.0</value>
+    </values>
+    <values>
+        <field>MBD_cost__c</field>
+        <value xsi:type="xsd:double">60.0</value>
+    </values>
+    <values>
+        <field>Office_cost__c</field>
+        <value xsi:type="xsd:double">50.0</value>
+    </values>
+    <values>
+        <field>Rec_Room_Great_Room_cost__c</field>
+        <value xsi:type="xsd:double">120.0</value>
+    </values>
+    <values>
+        <field>Rugs_3x5_cost__c</field>
+        <value xsi:type="xsd:double">25.0</value>
+    </values>
+    <values>
+        <field>Rugs_5X7_cost__c</field>
+        <value xsi:type="xsd:double">35.0</value>
+    </values>
+    <values>
+        <field>Rugs_8X10_cost__c</field>
+        <value xsi:type="xsd:double">45.0</value>
+    </values>
+    <values>
+        <field>Rugs_9X12_cost__c</field>
+        <value xsi:type="xsd:double">55.0</value>
+    </values>
+    <values>
+        <field>X1BD_Apt_Condo_cost__c</field>
+        <value xsi:type="xsd:double">170.0</value>
+    </values>
+    <values>
+        <field>X1_BD_cost__c</field>
+        <value xsi:type="xsd:double">55.0</value>
+    </values>
+    <values>
+        <field>X1_Dining_Room_cost__c</field>
+        <value xsi:type="xsd:double">55.0</value>
+    </values>
+    <values>
+        <field>X1_Family_Room_cost__c</field>
+        <value xsi:type="xsd:double">105.0</value>
+    </values>
+    <values>
+        <field>X1_Flight_Stair_cost__c</field>
+        <value xsi:type="xsd:double">50.0</value>
+    </values>
+    <values>
+        <field>X1_Hall_cost__c</field>
+        <value xsi:type="xsd:double">30.0</value>
+    </values>
+    <values>
+        <field>X1_Living_Room_cost__c</field>
+        <value xsi:type="xsd:double">105.0</value>
+    </values>
+    <values>
+        <field>X1_Walk_in_Closet__c</field>
+        <value xsi:type="xsd:double">15.0</value>
+    </values>
+    <values>
+        <field>X2BD_Apt_Condo_cost__c</field>
+        <value xsi:type="xsd:double">195.0</value>
+    </values>
+    <values>
+        <field>X2_BD_Cost__c</field>
+        <value xsi:type="xsd:double">110.0</value>
+    </values>
+    <values>
+        <field>X2_Dining_Room_cost__c</field>
+        <value xsi:type="xsd:double">110.0</value>
+    </values>
+    <values>
+        <field>X2_Family_Room_cost__c</field>
+        <value xsi:type="xsd:double">210.0</value>
+    </values>
+    <values>
+        <field>X2_Flight_Stair_cost__c</field>
+        <value xsi:type="xsd:double">100.0</value>
+    </values>
+    <values>
+        <field>X2_Hall_cost__c</field>
+        <value xsi:type="xsd:double">60.0</value>
+    </values>
+    <values>
+        <field>X2_Living_Room_cost__c</field>
+        <value xsi:type="xsd:double">210.0</value>
+    </values>
+    <values>
+        <field>X2_MBD_cost__c</field>
+        <value xsi:type="xsd:double">120.0</value>
+    </values>
+    <values>
+        <field>X2_Walk_in_Closet__c</field>
+        <value xsi:type="xsd:double">30.0</value>
+    </values>
+    <values>
+        <field>X3BD_Apt_Condo_cost__c</field>
+        <value xsi:type="xsd:double">230.0</value>
+    </values>
+    <values>
+        <field>X3_BD_cost__c</field>
+        <value xsi:type="xsd:double">165.0</value>
+    </values>
+    <values>
+        <field>X3_Flight_Stair_cost__c</field>
+        <value xsi:type="xsd:double">150.0</value>
+    </values>
+    <values>
+        <field>X3_Hall_cost__c</field>
+        <value xsi:type="xsd:double">90.0</value>
+    </values>
+    <values>
+        <field>X3_Living_Room_cost__c</field>
+        <value xsi:type="xsd:double">315.0</value>
+    </values>
+    <values>
+        <field>X3_Walk_in_Closet__c</field>
+        <value xsi:type="xsd:double">45.0</value>
+    </values>
+    <values>
+        <field>X4_BD_cost__c</field>
+        <value xsi:type="xsd:double">220.0</value>
+    </values>
+    <values>
+        <field>X4_Hall_cost__c</field>
+        <value xsi:type="xsd:double">120.0</value>
+    </values>
+    <values>
+        <field>X4_Walk_in_Closet__c</field>
+        <value xsi:type="xsd:double">60.0</value>
+    </values>
+    <values>
+        <field>X5_BD_cost__c</field>
+        <value xsi:type="xsd:double">275.0</value>
+    </values>
+    <values>
+        <field>X6_BD_cost__c</field>
+        <value xsi:type="xsd:double">330.0</value>
+    </values>
+    <values>
+        <field>X7_BD_cost__c</field>
+        <value xsi:type="xsd:double">385.0</value>
+    </values>
+    <values>
+        <field>X8_BD_cost__c</field>
+        <value xsi:type="xsd:double">440.0</value>
+    </values>
+</CustomMetadata>

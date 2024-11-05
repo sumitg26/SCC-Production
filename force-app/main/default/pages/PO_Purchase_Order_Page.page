@@ -1,0 +1,47 @@
+<apex:page standardController="Purchase_Orders__c" extensions="POController" sidebar="false" showHeader="false" title="{!if(type != 'slip','Create Purchase Order Document','Create Packing Slip')}">
+
+    <apex:sectionHeader title="Purchase Orders" subtitle="Create Purchase Order Document" rendered="{!if(type != 'slip',true,false)}"/> 
+    <apex:sectionHeader title="Purchase Orders" subtitle="Create Packing Slip" rendered="{!if(type = 'slip',true,false)}"/> 
+    <apex:form id="allPanel">
+    <apex:outputPanel id="out">
+        <apex:messages id="msg" style="font-weight:600"/>
+    </apex:outputPanel>
+        <apex:pageBlock >
+        <apex:pageBlockSection title="Select Contact" collapsible="false">
+              
+              <c:MultiselectPicklist leftLabel="Available Contacts" leftOption="{!Contacts}" rightLabel="Selected Contacts" rightOption="{!selectedContacts}"
+              size="10" width="150px">
+              </c:MultiselectPicklist>  
+               
+            </apex:pageBlockSection> 
+            
+            <apex:pageBlockSection title="Select Template" collapsible="false">                 
+                <apex:selectList value="{!selectedTemplate}" size="1" multiselect="false">
+                    <apex:selectOptions value="{!Templates}"/>
+                </apex:selectList>  
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Choose a Delivery Method" collapsible="false">                   
+                <apex:outputPanel id="otherOption">
+                    <apex:selectRadio value="{!selectedMethod}">
+                        <apex:selectOption itemLabel="Email" itemValue="Email"/>
+                        <apex:selectOption itemLabel="Attach" itemValue="Attach"/>
+                    </apex:selectRadio>
+                </apex:outputPanel>
+            </apex:pageBlockSection>
+            
+             <apex:pageBlockSection title="Enable to attach Invoice" collapsible="false">
+                <apex:outputPanel id="section" layout="none">
+                    <apex:outputPanel >
+                        <apex:inputCheckbox value="{!attachment}" id="checkbox" selected="true"/>
+                        <apex:outputLabel value="Attach to Work Order" for="checkbox"/>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+            </apex:pageBlockSection>
+            
+            <center><apex:commandButton value="Run" action="{!saveAttachement}" reRender="out" />
+            <apex:commandButton value="Cancel" action="{!cancel}"/></center>
+            
+        </apex:pageBlock>
+        </apex:form> 
+</apex:page>

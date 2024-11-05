@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Line_Item_Cost__c</fullName>
+    <description>Black Light Inspection with Full Report and Photos $50.  Fill in all fields in &quot;Black Light Inspection Report&quot; and attach photos
+Black Light Inspection with Brief Report $30.  Include locations, quantity, severity of smell.
+Red/Bright Color Removal.  $30 4 iron prints, $50 8 iron prints, $75 12 iron prints
+High Soil/Spot levels  When it takes 50%+ greater than normal times for a given area, charge at the rate of  $80/hr for the extra time.
+OCA Broad Based.  $20-50 depending on size.
+OCA Targeted 10/1.  $20/discharged canister.  10/1 OCA saturation applied to targeted areas that fluoresced
+Commercial  This is used for commercial IC (interval cleans) or other commercial jobs.
+Other  Use for areas not listed in Work Detail Information. Examples: Large basement room, extra large family room, extra hall, partial rooms.
+$20/canister discharged.  
+Minimum Service Charge $85 Up to 30 minutes of work performed.
+Trip Charge $55 is added when when you could not start/complete job</description>
+    <externalId>false</externalId>
+    <label>Service Line Item Cost</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

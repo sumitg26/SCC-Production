@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Post cleaning describe any blemishes remain and include location.  Ex: colored stains, bleach, burns, banding.    AC/Heater on high setting. Extensive notes for work order items. --></help>
+    <label><!-- Invoice Notes --></label>
+    <name>Additional_Invoice_Notes__c</name>
+</CustomFieldTranslation>

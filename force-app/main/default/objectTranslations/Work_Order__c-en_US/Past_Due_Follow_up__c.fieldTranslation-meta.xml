@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Notes about past due follow up attempts made to client --></help>
+    <label><!-- Past Due Follow-up --></label>
+    <name>Past_Due_Follow_up__c</name>
+</CustomFieldTranslation>

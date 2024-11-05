@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Use this field only when you have selected &quot;Custom&quot; in Discount field above.  Then put in the % that you want to apply. --></help>
+    <label><!-- Discount % --></label>
+    <name>Discount_Percentage__c</name>
+</CustomFieldTranslation>

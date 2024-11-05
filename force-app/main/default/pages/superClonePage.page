@@ -1,0 +1,3 @@
+<apex:page standardController="Work_Order__c" extensions="superCloneController" tabStyle="Work_Order__c" LightningStylesheets="true" action="{!cloneRecord}">
+
+</apex:page>

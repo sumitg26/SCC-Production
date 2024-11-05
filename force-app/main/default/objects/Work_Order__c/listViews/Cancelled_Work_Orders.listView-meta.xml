@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cancelled_Work_Orders</fullName>
+    <columns>NAME</columns>
+    <columns>Account_Name__c</columns>
+    <columns>Property_Address__c</columns>
+    <columns>Property_City__c</columns>
+    <columns>Start_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Cancelled</value>
+    </filters>
+    <label>Cancelled</label>
+</ListView>

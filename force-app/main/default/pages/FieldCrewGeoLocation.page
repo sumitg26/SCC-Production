@@ -1,0 +1,28 @@
+<apex:page standardController="Work_Order__c" extensions="FieldCrewGeoLocation" docType="html-5.0"  >
+    <script> 
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        }else {
+            alert("Geolocation is not supported.");
+        } 
+
+        function showPosition(pos){
+            console.log("Latitude: " + pos.coords.latitude + "\nLongitude: " + pos.coords.longitude);
+            var latCordinates =  pos.coords.latitude;
+            var longCordinates = pos.coords.longitude;
+
+            if(latCordinates !='' && longCordinates != '' ){
+            	sendCordinates(pos.coords.latitude,pos.coords.longitude);
+            }
+        }
+	</script>
+    <apex:form id="formId">
+        <apex:actionFunction name="sendCordinates" action="{!saveCordinates}" reRender="formId" >
+            <apex:param name="LatParam"  value="" />
+            <apex:param name="LongParam" value="" />
+        </apex:actionFunction>
+        <apex:inputHidden id="latId" value="{!latt}" />
+        <apex:inputHidden id="longId" value="{!longt}" />
+    </apex:form>
+
+</apex:page>

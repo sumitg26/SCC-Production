@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Purchase Order Lines</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Purchase Order Lines</value>
+    </caseValues>
+    <layouts>
+        <layout>Partner Purchase Order Lines Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Purchase Order Lines Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Add_Purchase_Order_Lines --></label>
+        <name>Add_Purchase_Order_Lines</name>
+    </webLinks>
+</CustomObjectTranslation>

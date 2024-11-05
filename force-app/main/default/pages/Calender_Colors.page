@@ -1,0 +1,102 @@
+<apex:page id="color" sidebar="false" controller="Calendar_Colors_Controller" title="Configure Calendar Colors">
+    <apex:includeScript value="{!URLFOR($Resource.TSPro__JSColor, 'jscolor/jscolor.js')}"/>
+    
+    <apex:form id="colorform">    
+    <apex:sectionHeader title="Configure Calendar Colors"/>
+    <apex:pageMessages ></apex:pageMessages>
+    <apex:pageBlock id="colorblock">
+        <apex:outputPanel id="calendarColorTable">
+            <apex:pageBlockTable value="{!colorRowsList}" var="row" id="rowTable" width="100%">
+            <apex:column >
+                    <apex:commandLink action="{!deleteSelectedRows}" rerender="calendarColorTable">
+                        <apex:image width="20px" height="20px" value="{!$Resource.TSPro__delete_icon}"/>
+                        <apex:param name="seq" value="{!row.sequence}" assignTo="{!selectedColorRow}"/>
+                    </apex:commandLink>
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header">Seq#</apex:facet>
+                    <apex:outputLabel value="{!row.sequence}" />                          
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header">Enable User Color</apex:facet>
+                    <apex:actionRegion >
+                        <apex:inputCheckbox id="user" value="{!row.userEnabled}">
+                             <apex:actionSupport event="onchange" action="{!disableVanCheckBox}"  rerender="calendarColorTable">
+                                 <apex:param name="seq" value="{!row.sequence}" assignTo="{!selectedColorRow}"/>
+                             </apex:actionSupport>
+                        </apex:inputCheckbox>
+                    </apex:actionRegion>                       
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header">Enable Van Color</apex:facet>
+                    <apex:actionRegion >
+                        <apex:inputCheckbox id="van" value="{!row.vanEnabled}">
+                             <apex:actionSupport event="onchange" action="{!disableUserCheckBox}" rerender="calendarColorTable">
+                                 <apex:param name="seq" value="{!row.sequence}" assignTo="{!selectedColorRow}"/>
+                             </apex:actionSupport>
+                        </apex:inputCheckbox>
+                    </apex:actionRegion>                        
+                </apex:column>
+                <apex:column id="userlist">
+                    <apex:facet name="header">Users</apex:facet>
+                    <apex:selectList id="chooseUser" value="{!row.selectedUser}" disabled="{!NOT(row.userEnabled)}" size="1">
+                        <apex:selectOptions value="{!row.userOption}"/>
+                    </apex:selectList>                        
+                </apex:column>
+                <apex:column id="vanlist">
+                    <apex:facet name="header">Vans</apex:facet>
+                    <apex:selectList id="chooseVan" value="{!row.selectedVan}" disabled="{!NOT(row.vanEnabled)}" size="1">
+                        <apex:selectOptions value="{!row.vanOption}"/>
+                    </apex:selectList>                        
+                </apex:column>
+                <apex:column id="calendarItem">
+                    <apex:facet name="header">Calendar Item</apex:facet>
+                    <apex:selectList value="{!row.selectedType}" multiselect="false" size="1" disabled="{!OR(row.vanEnabled,row.userEnabled)}">
+                        <apex:selectOptions value="{!row.typeOption}"/>
+                        <apex:actionSupport event="onchange" action="{!displayUpdatedStatus}" reRender="calendarColorTable"></apex:actionSupport>
+                    </apex:selectList>  
+                </apex:column>
+                <apex:column id="salesforceObject">
+                    <apex:facet name="header">Salesforce Object</apex:facet>
+                    <apex:selectList value="{!row.selectedObject}" disabled="{!OR(row.selectedType == 'Work_Order__c', row.selectedType == 'All',row.vanEnabled, row.userEnabled)}" multiselect="false" size="1">
+                        <apex:selectOptions value="{!row.objectOption}"/>
+                    </apex:selectList>  
+                </apex:column>               
+                <apex:column id="status" >
+                    <apex:facet name="header">Status</apex:facet>
+                    <apex:outputPanel id="statusSelection">
+                        <apex:selectList value="{!row.selectedStatus}" disabled="{!OR(row.selectedType == 'Event', row.selectedType == 'All',row.vanEnabled, row.userEnabled)}" multiselect="false" size="1">
+                            <apex:selectOptions value="{!row.statusOption}"/>
+                        </apex:selectList>
+                    </apex:outputPanel>
+                </apex:column>
+                
+                <apex:column id="subject" >
+                    <apex:facet name="header">Subject</apex:facet>
+                    <apex:outputPanel id="subjectSelection">
+                        <apex:selectList value="{!row.selectedSubject}" disabled="{!OR(row.selectedType == 'Task', row.selectedType == 'Work_Order__c', row.selectedType == 'All',row.vanEnabled, row.userEnabled)}" multiselect="false" size="1">
+                            <apex:selectOptions value="{!row.subjectOption}"/>
+                        </apex:selectList>
+                    </apex:outputPanel>
+                </apex:column>
+                
+                <apex:column >
+                    <script>jscolor.init();</script>
+                    <apex:facet name="header">Background Color</apex:facet>
+                    <apex:inputtext styleClass="color" value="{!row.backColor}"/>
+                </apex:column>
+                <apex:column >
+                    <script>jscolor.init();</script>
+                    <apex:facet name="header">Text Color</apex:facet>
+                    <apex:inputtext styleClass="color" value="{!row.textColor}"/>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:outputPanel>
+        <apex:commandLink action="{!addRows}">
+            <apex:image width="30px" height="30px" value="{!$Resource.TSPro__add_icon}"/>
+        </apex:commandLink>
+        <center><apex:commandButton action="{!Save}" value="Save Color Mapping"/>&nbsp;&nbsp;
+        <apex:commandButton onClick="window.close();" value="Close"/></center>
+     </apex:pageBlock>   
+    </apex:form>
+</apex:page>

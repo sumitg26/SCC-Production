@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SCC_Line_Item_Description__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( 
+NOT(ISPICKVAL(Status__c, &quot;&quot;)) , 
+&quot;Unit &quot; &amp; 
+CASE((Unit_Number__c),&quot;&quot;,&quot;&quot;, Unit_Number__c+ &quot;, &quot;) &amp; 
+
+CASE((TEXT (Unit_Type__c )),&quot;&quot;,&quot;&quot;, TEXT (Unit_Type__c )+&quot;, &quot; )&amp; 
+CASE((TEXT (Number_of_bedrooms__c)),&quot;&quot;, &quot;&quot;,TEXT (Number_of_bedrooms__c)+&quot;, &quot;)&amp; 
+CASE((TEXT (MBD__c)), &quot;&quot;,&quot;&quot;, TEXT (MBD__c)+&quot;, &quot;)&amp; 
+CASE((TEXT (Living_rm__c )),&quot;&quot; ,&quot;&quot;,TEXT (Living_rm__c )+&quot;, &quot;)&amp; 
+CASE((TEXT (Dining_rm__c )),&quot;&quot;,&quot;&quot;,TEXT (Dining_rm__c ) +&quot;, &quot; )&amp; 
+CASE((TEXT (Hall__c )),&quot;&quot;,&quot;&quot;,TEXT (Hall__c )+&quot;, &quot; )&amp; 
+CASE((TEXT (Family_rm__c )),&quot;&quot;,&quot;&quot;,TEXT (Family_rm__c )+&quot;, &quot; )&amp; 
+CASE((TEXT (Office__c )),&quot;&quot;,&quot;&quot;,TEXT (Office__c )+&quot;, &quot; )&amp; 
+CASE((TEXT (Stairs__c )),&quot;&quot;, &quot;&quot;,TEXT (Stairs__c )+&quot;, &quot; )&amp; 
+CASE((TEXT (Rec_rm_Great_rm__c )),&quot;&quot;, &quot;&quot;,TEXT (Rec_rm_Great_rm__c )+&quot;, &quot; )&amp; 
+CASE((TEXT (Loft__c )),&quot;&quot;,&quot;&quot;, TEXT (Loft__c )+&quot;, &quot; )&amp; 
+CASE((TEXT ( Liv_Din_rm__c )),&quot;&quot;,&quot;&quot;, TEXT (Liv_Din_rm__c )+&quot;, &quot; )&amp; 
+
+CASE((Other__c ),&quot;&quot;,&quot;&quot;, Other__c ), 
+NULL)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>SCC Line Item Description</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

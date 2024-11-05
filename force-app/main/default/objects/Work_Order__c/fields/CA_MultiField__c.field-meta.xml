@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CA_MultiField__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(NOT(ISBLANK( Site_Mgn__c )), Site_Mgn__c, NULL) &amp; &quot; &quot; &amp; 
+IF(NOT(ISBLANK( Team_Members_3__c )), Team_Members_3__c, NULL) &amp; &quot; &quot; &amp; 
+IF(NOT(ISBLANK(HT__c )),&quot; HT&quot; &amp; &quot; &quot; &amp; HT__c &amp;&quot;,&quot;, NULL) &amp; &quot; &quot; &amp; 
+IF(NOT(ISBLANK(CA__c)), &quot; CA&quot; &amp; &quot; &quot; &amp; CA__c &amp;&quot;,&quot;, NULL) &amp; &quot; &quot; &amp; 
+IF(NOT(ISBLANK(Time_Frame__c)), &quot; Time Frame&quot; &amp; &quot; &quot; &amp; Time_Frame__c &amp;&quot;,&quot; , NULL) &amp; &quot; &quot; &amp; 
+IF(NOT(ISBLANK( LB_Combo1__c)), LB_Combo1__c &amp;&quot;,&quot; , NULL) &amp; &quot; &quot; &amp; 
+IF(NOT(ISBLANK( TEXT(Key__c))), TEXT(Key__c) &amp;&quot;,&quot; , NULL) &amp; &quot; &quot; &amp; 
+IF(NOT(ISBLANK( Account_Name__c )), Account_Name__r.Name  &amp;&quot;,&quot; , NULL) &amp; &quot; &quot; &amp; 
+IF(NOT(ISBLANK(Man_Hrs__c)),&quot; Est. Hrs&quot; &amp; &quot; &quot; &amp; Man_Hrs__c &amp;&quot;,&quot;, NULL) &amp; &quot; &quot; &amp; 
+IF(NOT(ISBLANK( Property_Address__c)),&quot; Address&quot; &amp; &quot; &quot; &amp; Property_Address__c &amp;&quot;,&quot;, NULL) &amp; &quot; &quot; &amp; 
+IF(NOT(ISBLANK( Unit_Number__c )), &quot; Unit&quot; &amp; &quot; &quot; &amp; Unit_Number__c &amp; &quot;,&quot;, NULL) &amp; &quot; &quot; &amp; 
+IF(NOT(ISBLANK(Property_City__c)),&quot;&quot; &amp; &quot; &quot; &amp; Property_City__c , NULL)</formula>
+    <label>Calendar Field</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

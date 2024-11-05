@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssignmentRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignmentRule>
+        <fullName>Web Leads</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <assignedTo>jeff@scc.com</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Web_Source__c</field>
+                <operation>equals</operation>
+                <value>Smart Carpet Cleaning Cincinnati East</value>
+            </criteriaItems>
+        </ruleEntry>
+    </assignmentRule>
+    <assignmentRule>
+        <fullName>Website Leads</fullName>
+        <active>false</active>
+    </assignmentRule>
+</AssignmentRules>

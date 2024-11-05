@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Van assignment --></label>
+    <name>Van_assignment__c</name>
+    <picklistValues>
+        <masterLabel>Team Van</masterLabel>
+        <translation><!-- Team Van --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Van 1</masterLabel>
+        <translation><!-- Van 1 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Van 2</masterLabel>
+        <translation><!-- Van 2 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Van 3</masterLabel>
+        <translation><!-- Van 3 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Van 4</masterLabel>
+        <translation><!-- Van 4 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Van 5</masterLabel>
+        <translation><!-- Van 5 --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

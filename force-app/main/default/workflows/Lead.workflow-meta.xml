@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Email_Alert_when_New_lead_is_created_to_Dan</fullName>
+        <description>Email Alert when New lead is created to Dan</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>leov@scc.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Franchises/Email_to_Dan_when_New_Lead_created</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_to_5th_Avenue_Lead</fullName>
+        <description>Email to 5th Avenue Lead</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>franchise@smartcarpetcare.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Franchises/Franchise_First_Contact_Attempt_with_Scheduling_Link</template>
+    </alerts>
+    <alerts>
+        <fullName>Feedback_form_email_alert</fullName>
+        <description>Feedback form email alert</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Franchises/Feedbackform</template>
+    </alerts>
+    <alerts>
+        <fullName>Feedback_form_is_submitted</fullName>
+        <ccEmails>daniel.bgoodman@smartcarpetfranchise.com</ccEmails>
+        <description>Feedback form is submitted</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>leov@scc.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>franchise@smartcarpetcare.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Franchises/Lead_Checkbox_true_email_template</template>
+    </alerts>
+    <alerts>
+        <fullName>Inform_Robert_and_Gabby_about_Franchise_lead</fullName>
+        <description>Inform Robert and Gabby about Franchise lead</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>leov@scc.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Franchises/Franchise_Lead_Creation</template>
+    </alerts>
+    <alerts>
+        <fullName>Lead_Status_Changed_Email_Alert</fullName>
+        <description>Lead Status Changed Email Alert Attempt 1</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Franchises/Auto_Email_Attempt_1</template>
+    </alerts>
+    <alerts>
+        <fullName>Lead_Status_Changed_Email_Alert_ActiveCandidate</fullName>
+        <description>Lead Status Changed Email Alert Active Candidate</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Franchises/Auto_Email_Active_Candidate</template>
+    </alerts>
+    <alerts>
+        <fullName>Lead_Status_Changed_Email_Alert_Attempt2</fullName>
+        <description>Lead Status Changed Email Alert Attempt 2</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Franchises/Auto_Email_Attempt_2</template>
+    </alerts>
+    <alerts>
+        <fullName>Lead_Status_Changed_Email_Alert_NewLead</fullName>
+        <description>Lead Status Changed Email Alert New Lead</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>dan.kramig@smartcarpetfranchise.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Franchises/Auto_Email_New_Lead</template>
+    </alerts>
+    <alerts>
+        <fullName>Lead_Status_Changed_Email_Alert_NotReached</fullName>
+        <description>Lead Status Changed Email Alert Not Reached</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Franchises/Auto_Email_Not_Reached</template>
+    </alerts>
+    <alerts>
+        <fullName>Lead_creation_email_notification</fullName>
+        <description>Lead creation email notification</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Owner_SMS_alert__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>admin@smartcarpetcare.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Internal_Operations/Request_a_Quote_Submission</template>
+    </alerts>
+    <alerts>
+        <fullName>Lead_creation_email_notification_for_a_demo</fullName>
+        <description>Lead creation email notification for a demo</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>admin@scc.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>rv@smartcarpetcare.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>Internal_Operations/Request_a_demo_Submission</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_thank_you_email_to_franchise_with_pdf</fullName>
+        <description>Send thank you email to franchise with pdf</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>Franchises/Thank_you_Franchise</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Account_Name_with_contact</fullName>
+        <description>Update Leads &quot;Account Name&quot; with &quot;Main Contact&quot;, Now updated to Concatenate First name and last name</description>
+        <field>Company</field>
+        <formula>First_Name_Hidden__c + &quot; &quot; +LastName</formula>
+        <name>Account Name with contact</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Account_Type_Residential</fullName>
+        <field>Account_Type__c</field>
+        <literalValue>Residential</literalValue>
+        <name>Account Type Residential</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Clear_FirstName</fullName>
+        <description>Clear First Name which is set from Web to lead form</description>
+        <field>Company</field>
+        <formula>&quot;&quot;</formula>
+        <name>Clear FirstName</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>FirstName_and_LastName_to_Company</fullName>
+        <description>Concatenate Firstname and last name to company (Account Name)</description>
+        <field>Company</field>
+        <formula>FirstName+ &quot; &quot; +LastName</formula>
+        <name>FirstName and LastName to Company</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>First_Name_to_Main_contact</fullName>
+        <description>Set the webtoLead first name to LastName in salesforce</description>
+        <field>LastName</field>
+        <formula>First_Name_Hidden__c</formula>
+        <name>First Name to Main contact</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Lead_Account_Tagging_Commercial</fullName>
+        <field>Account_Type__c</field>
+        <literalValue>Commercial</literalValue>
+        <name>Lead Account Type Tagging Commercial</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Lead_Owner_to_Dan</fullName>
+        <field>OwnerId</field>
+        <lookupValue>leov@scc.com</lookupValue>
+        <lookupValueType>User</lookupValueType>
+        <name>Lead Owner to Dan</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MALatitude_c_Purge</fullName>
+        <field>MALatitude__c</field>
+        <name>Lead.MALatitude_c_Purge</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MALongitude_c_Purge</fullName>
+        <field>MALongitude__c</field>
+        <name>Lead.MALongitude_c_Purge</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update</fullName>
+        <field>Comment_Added_Date_Time__c</field>
+        <formula>LastModifiedDate</formula>
+        <name>Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Comments</fullName>
+        <description>map both the “How did you hear about us” AND “Friend or other” to the comments field in residential leads.</description>
+        <field>V1_Assessment__c</field>
+        <formula>&apos;Heard from: &apos; &amp; TEXT(How_did_you_hear_about_us__c) &amp; &apos;/ Friend or other: &apos; &amp; PRIORVALUE(V1_Assessment__c)</formula>
+        <name>Update Comments</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Description3</fullName>
+        <field>Description3__c</field>
+        <formula>Description</formula>
+        <name>Update Description3</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Description_2</fullName>
+        <field>Description2__c</field>
+        <formula>Description</formula>
+        <name>Update Description 2</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Lead_Email_Hidden</fullName>
+        <field>Email_leadhidden__c</field>
+        <formula>Email</formula>
+        <name>Update Lead Email Hidden</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Lead_Last_Name_Hidden</fullName>
+        <field>Last_Name_Hidden__c</field>
+        <formula>LastName</formula>
+        <name>Update Lead Last Name Hidden</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Office_Phone_2</fullName>
+        <field>Main_Office_Phone2__c</field>
+        <formula>Main_Office_Number__c</formula>
+        <name>Update Office Phone 2</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Stairs_Picklist_Value</fullName>
+        <field>Stairs__c</field>
+        <literalValue>2 flight stairs</literalValue>
+        <name>Update Stairs Picklist Value</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Change Lead owner to Dan</fullName>
+        <actions>
+            <name>Lead_Owner_to_Dan</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Franchise</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Comment added leads</fullName>
+        <actions>
+            <name>Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <formula>ISCHANGED( V1_Assessment__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Feedback form rule</fullName>
+        <actions>
+            <name>Feedback_form_email_alert</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Lead.Status</field>
+            <operation>equals</operation>
+            <value>Active_Candidate</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Franchise</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.Updated_by_Franchise_Contact__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Inform about Franchise lead creation</fullName>
+        <actions>
+            <name>Inform_Robert_and_Gabby_about_Franchise_lead</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>FirstName_and_LastName_to_Company</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.LeadSource</field>
+            <operation>equals</operation>
+            <value>Franchise Website</value>
+        </criteriaItems>
+        <description>This will send email notification to Gabby and Robert about Franchise Lead creation and Add FirstName and Last to Company(Account Name)</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Inform about lead creation</fullName>
+        <actions>
+            <name>Account_Name_with_contact</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>First_Name_to_Main_contact</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Comments</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.LeadSource</field>
+            <operation>equals</operation>
+            <value>Website</value>
+        </criteriaItems>
+        <description>This will send email notification to users</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Last Name Hidden %28Leads%29</fullName>
+        <actions>
+            <name>Update_Lead_Last_Name_Hidden</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>NOT(ISBLANK( LastName ))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lead Account Type Tagging</fullName>
+        <actions>
+            <name>Account_Type_Residential</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <formula>OR(TEXT(Industry) = &quot;Owner Occupied&quot;, TEXT(Industry) = &quot;Renter&quot;, TEXT(Industry) = &quot;Other&quot;)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lead Account Type Tagging Commercial</fullName>
+        <actions>
+            <name>Lead_Account_Tagging_Commercial</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <formula>OR(NOT(TEXT(Industry) = &quot;Owner Occupied&quot;), NOT(TEXT(Industry) = &quot;Renter&quot;), NOT(TEXT(Industry) = &quot;Other&quot;))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Lead Demo notification</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Lead.Demo_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <offsetFromField>Lead.Demo_Date__c</offsetFromField>
+            <timeLength>2</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Lead Email Hidden</fullName>
+        <actions>
+            <name>Update_Lead_Email_Hidden</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>NOT(ISBLANK( Email ))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Request a demo</fullName>
+        <actions>
+            <name>Lead_creation_email_notification_for_a_demo</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.LeadSource</field>
+            <operation>equals</operation>
+            <value>Website</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.Demo__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead.NeedDemo__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </criteriaItems>
+        <description>This will notify gabby and robert that a demo request is created from website.</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Send thank you email to franchise with pdf</fullName>
+        <actions>
+            <name>Send_thank_you_email_to_franchise_with_pdf</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Lead.LeadSource</field>
+            <operation>equals</operation>
+            <value>Franchise Website</value>
+        </criteriaItems>
+        <description>Send thank you email to franchise with pdf if Email is provided</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Maine office Phone 2</fullName>
+        <actions>
+            <name>Update_Office_Phone_2</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.Main_Office_Number__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Opportunity Description</fullName>
+        <actions>
+            <name>Update_Description3</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Description_2</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>!ISBLANK(Description)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Stairs Picklist Value</fullName>
+        <actions>
+            <name>Update_Stairs_Picklist_Value</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>TEXT(Stairs__c) == &apos;2 flights stairs&apos;</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>a0K1a000000iYtZEAU_Purge</fullName>
+        <actions>
+            <name>MALatitude_c_Purge</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>MALongitude_c_Purge</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Lead.a0K1a000000iYtZEAU_Purge</description>
+        <formula>OR(ISCHANGED(Street),ISCHANGED(City),ISCHANGED(State),ISCHANGED(PostalCode),ISCHANGED(Country))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

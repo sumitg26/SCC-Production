@@ -1,0 +1,134 @@
+<apex:page controller="CreateInvoiceController" sidebar="false" showHeader="false" renderAs="pdf" applyHtmlTag="false" applyBodyTag="false">
+    <head>
+        <style>
+            @page {
+                margin:26mm;
+                <apex:outputPanel layout="none">
+                    background: url("{!$Resource.Watermark}") no-repeat center;
+                </apex:outputPanel>
+            }
+            
+        </style>
+    </head>
+    <apex:form >
+        <apex:pageBlock >
+            <apex:image value="{!URLFOR($Resource.SmartCarpetCareLogo)}" width="41%" height="40%"/>
+                <div style="{!IF((usertype=='Standard'), 'display:block', 'display:none')}" >
+                    <p style="margin-left:25px">Smart Carpet Care, LLC&nbsp;&bull;&nbsp;{!$Organization.Street}&nbsp;&bull;&nbsp;{!$Organization.City}&nbsp;&bull;&nbsp;{!$Organization.PostalCode}<br/>
+                    T (970) 674-3355 &nbsp;&bull;&nbsp; Email: <a href="mailto:admin@SmartCarpetCare.com" style="color:blue">admin@SmartCarpetCare.com</a></p>
+                </div>
+                
+                <div style="{!IF((usertype=='PowerPartner'), 'display:block', 'display:none')}" >
+                    <p style="margin-left:25px">{!$User.Entity_Name__c}&nbsp;&bull;&nbsp;{!$User.Account_Billing_Street__c}&nbsp;&bull;&nbsp;{!$User.Account_Billing_City__c}&nbsp;&bull;&nbsp;{!$User.Account_Postal_Code__c}<br/>
+                    T {!$User.Phone} &nbsp;&bull;&nbsp; Email: <a href="mailto:{!$User.Email}" style="color:blue">{!$User.Email}</a></p>
+                </div>
+                    <apex:pageBlockTable value="{!w}" var="work" width="100%" style="font-size:14px;margin-left:25px" >
+                        <apex:column headerValue="Billing Address:" width="34%">
+                            {!work.Account__c}<br/>
+                            {!work.Unit_Number_Formula__c}
+                            {!work.Account_Billing_Street__c}<br/>
+                            {!work.Account_Billing_City__c}&nbsp;
+                            {!work.Account_Billing_State__c}&nbsp;
+                            {!work.Account_Billing_Zip_Code__c}
+                        </apex:column>
+                        <apex:column headerValue="Job Address:" width="33%">
+                            Unit#:
+                            {!work.Unit_Number__c}<br/>
+                            {!work.Property_Address__c}<br/>
+                            {!work.Property_City__c}&nbsp;
+                            {!work.Property_State__c}&nbsp;
+                            {!work.Property_Zip_Code__c}
+                        </apex:column> 
+                        <apex:column width="33%">
+                            <apex:facet name="header">
+                                Invoice # {!woName}
+                            </apex:facet>
+                            PO# {!work.Purchase_Order__c}<br/>
+                            Start Date/Time:<br/>
+                            <apex:outputText value="{!dateTimeValue}"/>
+                        </apex:column>    
+                    </apex:pageBlockTable><br/><br/>
+              
+            <apex:outputPanel >
+                    <table style="width:100%;border-collapse:collapse;font-style:Times New Roman;font-size:13px;" cellpadding="8">
+                            <tr >
+                                <th scope="col" style="border-top:1px solid black;border-bottom:1px solid black;border-left:1px solid black;width:40%;">Description</th>
+                                <th scope="col" style="border-top:1px solid black;border-bottom:1px solid black;border-left:1px solid black;width:25%;">Areas</th>
+                                <th scope="col" style="border-top:1px solid black;border-bottom:1px solid black;border-left:1px solid black;width:25%;">Comments</th>
+                                <th scope="col" style="border-top:1px solid black;border-bottom:1px solid black;border-left:1px solid black;border-right:1px solid black; solid black;width:10%;">Total</th>
+                            </tr>
+                            <apex:repeat value="{!witemsList}" var="wo">
+                                <tr>
+                                    <td style="border-bottom:1px solid black;border-left:1px solid black;">
+                                        {!wo.Service__r.Name}<br/>
+                                        {!wo.Line_Item_Description__c}
+                                    </td>
+                                    <td style="border-bottom:1px solid black;border-left:1px solid black;">
+                                        {!wo.Comments__c}
+                                    </td>
+                                    <td style="border-bottom:1px solid black;border-left:1px solid black;">
+                                        {!wo.Comment__c}
+                                    </td>
+                                    <td style="border-bottom:1px solid black;border-right:1px solid black;border-left:1px solid black">${!wo.Price__c}</td>
+                                </tr>
+                                </apex:repeat>
+                                <tr >
+                                    <th scope="row" style="border-bottom:1px solid black;border-left:1px solid black;font-weight:200">Subtotals</th>
+                                    <td style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                    <td style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                    <td style="border-bottom:1px solid black;border-right:1px solid black;border-left:1px solid black">${!subtotal}</td>
+                                </tr>
+                                
+                                <tr>
+                                    <th scope="row" style="border-bottom:1px solid black;border-left:1px solid black;font-weight:200">Discount</th>
+                                    <td style="border-bottom:1px solid black;border-left:1px solid black;">{!discount}</td>
+                                    <td style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                    <td style="border-bottom:1px solid black;border-right:1px solid black;border-left:1px solid black">${!dis_Amount}</td>
+                                </tr>
+                        
+                                <tr>
+                                    <th scope="row" style="border-bottom:1px solid black;border-left:1px solid black;font-weight:200">Tax %</th>
+                                    <td style="border-bottom:1px solid black;border-left:1px solid black;">{!tax}%</td>
+                                    <td style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                    <td style="border-bottom:1px solid black;border-right:1px solid black;border-left:1px solid black">${!taxAmount}</td>
+                                </tr>
+                                
+                                <tr>
+                                    <th scope="row" style="border-bottom:1px solid black;border-left:1px solid black;">
+                                        <div style="color:blue">BALANCE DUE</div>
+                                        Payable to:&nbsp;&nbsp;
+                                        <div style="{!IF((usertype=='Standard'), 'display:block', 'display:none')}" >
+                                             Smart Carpet Care, LLC
+                                        </div>
+                                        <div style="{!IF((usertype=='PowerPartner'), 'display:block', 'display:none')}">
+                                            {!$User.Entity_Name__c}
+                                        </div>
+                                        </th>
+                                    <td style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                    <td style="border-bottom:1px solid black;border-left:1px solid black;"></td>
+                                    <td style="border-bottom:1px solid black;border-right:1px solid black;border-left:1px solid black">${!balanceDue}</td>
+                                </tr>
+                        </table></apex:outputPanel><br/>
+                    <apex:outputPanel rendered="{!ContentDis.size>0}">
+                      Links to Photos:<br/>
+                      <apex:repeat value="{!ContentDis}" var="cd">
+                          <apex:outputLink target="_blank" value="{!cd.DistributionPublicUrl}">
+                              {!cd.Name}<br/>
+                          </apex:outputLink>
+                      </apex:repeat>
+                    </apex:outputPanel>
+                    <br/>
+                    <apex:pageBlockTable value="{!w}" var="work" width="100%" style="font-size:14px;">
+                        <apex:column headerValue="Invoice Notes" value="{!work.Additional_Invoice_Notes__c}" width="100%"/>
+                    </apex:pageBlockTable>
+                    <br/>
+                    <apex:pageBlockTable value="{!w}" var="work" width="100%" style="font-size:14px;">
+                        <apex:column headerValue="" value="{!work.Invoice_Notes__c}" width="100%"/>
+                    </apex:pageBlockTable>
+                    <br/>
+                  <p style="font-style:DejaVuSerifCondensed;font-size:12px;"><strong>Terms and Conditions: </strong>Due and payable in 30 days. 1.5% per month (18% APR) service charge may be applied on all past due balances. SMART will return free of charge within 2 weeks of services rendered for any work you find unacceptable. If there is no visible improvement, or we remove soil or spots deposited after service was performed, a service fee will apply. SMART will charge a service fee for all second visits that occur over 2 weeks after service is performed.</p>
+         <!--  <p align = "center" style="font-style:DejaVuSerifCondensed;font-size:12px;"> <strong> Each franchise independently owned and operated.</strong></p> -->
+       
+        </apex:pageBlock>
+    </apex:form>        
+</apex:page>

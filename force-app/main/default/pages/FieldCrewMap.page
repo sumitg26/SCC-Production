@@ -1,0 +1,10 @@
+<apex:page standardController="Work_Order__c" title="Crew Locations">
+    <apex:pageBlock >
+        <apex:pageBlockSection >
+            <apex:map rendered="{!NOT(OR(ISBLANK(Work_Order__c.Field_Crew_Start_Location__Latitude__s),ISBLANK(Work_Order__c.Field_Crew_Start_Location__Longitude__s)))}" width="400px" height="200px" mapType="roadmap" zoomLevel="16" center="{latitude:{!Work_Order__c.Field_Crew_Start_Location__Latitude__s},longitude:{!Work_Order__c.Field_Crew_Start_Location__Longitude__s}}">                
+                <apex:mapMarker icon="{!URLFOR($Resource.MapStartMarker) }" title="CheckIn" position="{latitude:{!Work_Order__c.Field_Crew_Start_Location__Latitude__s},longitude:{!Work_Order__c.Field_Crew_Start_Location__Longitude__s}}"/>
+                <apex:mapMarker icon="{!URLFOR($Resource.MapStopMarker) }" title="CheckOut" position="{latitude:{!Work_Order__c.Field_Crew_End_Location__Latitude__s},longitude:{!Work_Order__c.Field_Crew_End_Location__Longitude__s}}"/>
+            </apex:map>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

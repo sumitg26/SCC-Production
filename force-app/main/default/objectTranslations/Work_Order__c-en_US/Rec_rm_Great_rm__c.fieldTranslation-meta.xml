@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Very large living or family room, or a very large basement room or area. --></help>
+    <label><!-- Rec rm/Great rm --></label>
+    <name>Rec_rm_Great_rm__c</name>
+    <picklistValues>
+        <masterLabel>Rec rm/Great rm</masterLabel>
+        <translation><!-- Rec rm/Great rm --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

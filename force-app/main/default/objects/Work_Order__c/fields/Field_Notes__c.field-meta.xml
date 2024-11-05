@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Field_Notes__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Relevant info for Field Crew that will apply to all the customers work orders.  Examples:  Unique pricing policy, key pick up instructions, how to navigate at property, when to call for up-charges</inlineHelpText>
+    <label>Field Notes</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

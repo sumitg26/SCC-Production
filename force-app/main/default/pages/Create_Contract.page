@@ -1,0 +1,42 @@
+<apex:page standardController="Account" lightningStylesheets="true" extensions="CreateContractController"  sidebar="false" showHeader="false" title="Send Contract">
+    <style>
+        .bPageBlock .detailList .labelCol {
+          width: 1%;
+        }
+    </style>
+   
+    <apex:sectionHeader title="Account" subtitle="Send Contract"/>
+    <apex:form id="allPanel">
+    <apex:outputPanel id="out">
+        <apex:messages id="msg" style="font-weight:600"/>
+    </apex:outputPanel>
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Select Contact" collapsible="false">
+             
+             <!-- <c:MultiselectPicklist leftLabel="Available Contacts" leftOption="{!Contacts}" rightLabel="Selected Contacts" rightOption="{!selectedContacts}"
+              size="10" width="150px">
+              </c:MultiselectPicklist> --> 
+              <apex:selectList value="{!selectedContacts}" multiselect="true" size="5" >
+                  <apex:selectOptions value="{!Contacts}" /> 
+              </apex:selectList> 
+            </apex:pageBlockSection>   
+            
+           <apex:pageBlockSection title="Select Smart Agreement Template" collapsible="false">                 
+               <apex:selectList value="{!selectedTemplate}" size="1" multiselect="false">
+                    <apex:selectOptions value="{!Templates}"/>
+                    <apex:actionSupport event="onchange" action="{!onChangeTemplate}" reRender="Preview,out"/>
+                </apex:selectList>  
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Agreement Preview" collapsible="false" columns="1">                   
+                <apex:outputPanel id="Preview">
+                    <apex:outputText value="{!updatedTemplateLine}" escape="false" style="text-align:justify;"/>
+                </apex:outputPanel>
+            </apex:pageBlockSection>
+            
+            <center>
+                <apex:commandButton value="Send Contract" action="{!sendContract}"  reRender="out" />
+                <apex:commandButton value="Cancel" action="{!SendContractCancel}" />
+            </center>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,602 @@
+<apex:page Controller="LeadUpdate" title="Confidential Questionnaire" standardStylesheets="false" lightningStylesheets="true" action="{!InitPage}" docType="html-5.0"   applyHtmlTag="true" applyBodyTag="true" showHeader="false">
+    
+    <style>
+        .labelclass {
+        fontfamily-default: "Source Sans Pro", sans-serif";
+        font-weight: 700;
+        fontWeight-normal: 400;
+        fontWeight-semiBold: 600;
+        fontWeight-bold: 700;
+        fontSize-small: 15px;
+        fontSize-default: 17px;
+        fontSize-extraSmall: 14px;
+        text-align: center;
+        
+        }
+        .form {
+        display: block;
+        width: 100%;
+        font-size: 15px;
+        color: #555;
+        background-color: #fffff;
+        background-image: none;
+        border: 1px solid #ccc;
+        line-height: 1.8;
+        background-image: none;
+        border: 1px solid #ccc;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        box-shadow: none;
+        border-color: #c0c0c0;
+        text-align: center;
+        
+        }
+        .btn
+        background-position: center;
+        background: white;
+        border-radius: 0;
+        border: 1px solid #702f8a;
+        color: red;
+        cursor: pointer;
+        text-align: center;
+        
+        }
+        .required {
+        box-shadow: none;
+        outline: none;
+        text-align: center;
+        }
+        input {
+        border 1px solid black;
+        text-align: center;
+        }
+        <!--input:invalid {
+boredr: 1px solid red;
+text-align: center;
+}-->
+        #thankspage {
+        display: none;
+        }
+        .centertable{
+        float:right;
+        text-align: center;
+        }
+        .header{
+        width: 100%;
+        max-width: 100%;
+        padding-right: 30px;
+        padding-left: 30px;
+        background-color: #026694;
+        }
+        .addresscss{
+        font-style:Bold;
+        }
+        .btnClass{
+        padding-left: 600px;
+        
+        }
+        .redText{
+        padding-left: 600px;
+        }
+        
+    </style>
+    
+    <style>
+        
+        .Street{ color: red; }
+    </style>  
+    
+    <apex:form id="feedbackForm" style="border-style:white;border-width:2px;
+                      background: #FDFEFE;align:center; "  >
+        <apex:slds />
+        <div class="slds-align_absolute-center">
+            <apex:pageBlock id="feedback" rendered="{!feedback='False'}">   
+                
+                <div class= "header" style="font-size:50px;font-family: sans-serif;color: aliceblue;">    
+                    <img src="https://smartcarpetcleaning.com/wp-content/uploads/2016/12/smart-logo.png" width="20%" height="30%"/>
+                    Confidential Questionnaire
+                </div>
+                <br/>
+                <div class="slds-form" role="list">
+                    <article class="slds-card">
+                        <div class="slds-card__header slds-grid">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                
+                                <span class="slds-icon_container slds-icon-standard-account" title="Info">
+                                    <span class="slds-assistive-text">Info</span>
+                                </span>
+                                
+                                <div class="slds-media__body">
+                                    <h2 class="slds-card__header-title">
+                                        <a href="#" class="slds-card__header-link slds-truncate" title="Info">
+                                            <span>Info</span>
+                                        </a>
+                                    </h2>
+                                    <br/>
+                                    <div class="slds-form__row">
+                                        <div class="slds-form__item" role="listitem">
+                                            <div class="slds-form-element slds-form-element_horizontal slds-is-editing" style="padding-right: 50%;">
+                                                <label class="slds-form-element__label" for="horizontal-form-element-id-1">First and Last name</label>
+                                                <div class="slds-form-element__control">
+                                                    <apex:outputText id="horizontal-form-element-id-1"  value="{!ld.Company}" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </header>
+                        </div>
+                    </article>
+                    
+                    
+                    
+                    
+                    <article class="slds-card">
+                        <div class="slds-card__header slds-grid">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                
+                                <span class="slds-icon_container slds-icon-standard-account" title="Address Details">
+                                    <span class="slds-assistive-text">Address Details</span>
+                                </span>
+                                
+                                <div class="slds-media__body">
+                                    <h2 class="slds-card__header-title">
+                                        
+                                        <span>Address Details</span>
+                                        
+                                    </h2>
+                                    <br/>
+                                    <div class="slds-form" role="list">
+                                        <div class="slds-form__row">
+                                            <div class="slds-form__item" role="listitem">
+                                                <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                                    <label class="slds-form-element__label" for="horizontal-form-element-id-002">
+                                                        <abbr class="slds-required" title="required">* </abbr>Street</label>
+                                                    <div class="slds-form-element__control">
+                                                        <apex:inputfield type="text" ignoreEditPermissionForRendering="true" id="horizontal-form-element-id-002" styleclass="slds-input" value="{!ld.street}" required="true" />
+                                                    </div>
+                                                    
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="slds-form__item" role="listitem">
+                                                <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                                    <label class="slds-form-element__label" for="horizontal-form-element-id-003">
+                                                        <abbr class="slds-required" title="required">* </abbr>City</label>
+                                                    <div class="slds-form-element__control">
+                                                        <apex:inputfield type="text" ignoreEditPermissionForRendering="true" id="horizontal-form-element-id-003" styleclass="slds-input" style="text-align-last: left" value="{!ld.city}" required="true" />
+                                                    </div>
+                                                </div> </div>
+                                        </div> </div>
+                                    <div class="slds-form"  role="list">
+                                        <div class="slds-form__row" >
+                                            <div class="slds-form__item" role="listitem">
+                                                <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                                    <label class="slds-form-element__label" for="horizontal-form-element-id-004">
+                                                        <abbr class="slds-required" title="required">* </abbr>State</label>
+                                                    <div class="slds-form-element__control">
+                                                        <apex:inputfield type="text" ignoreEditPermissionForRendering="true" id="horizontal-form-element-id-004" styleclass="slds-input" style="text-align-last: left" value="{!ld.state}" required="true"/>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="slds-form__item" role="listitem">
+                                                <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                                    <label class="slds-form-element__label" for="horizontal-form-element-id-005">
+                                                        <abbr class="slds-required" title="required">* </abbr>Country</label>
+                                                    <div class="slds-form-element__control">
+                                                        <apex:inputfield type="text" ignoreEditPermissionForRendering="true" id="horizontal-form-element-id-005" styleclass="slds-input" style="text-align-last: left" value="{!ld.country}" required="true" />
+                                                    </div>
+                                                </div> </div>
+                                            
+                                        </div> </div>
+                                    
+                                    <div class="slds-form slds-m-left_x-small" role="list">
+                                        <div class="slds-form__row " >
+                                            <div class="slds-form__item" role="listitem" style="padding-right: 53%;">
+                                                <div class="slds-form-element slds-form-element_horizontal slds-is-editing ">
+                                                    <label class="slds-form-element__label" for="horizontal-form-element-id-006">
+                                                        <abbr class="slds-required"  title="required">* </abbr>Postal Code</label>
+                                                    <div class="slds-form-element__control">
+                                                        <apex:inputfield type="text" ignoreEditPermissionForRendering="true" id="horizontal-form-element-id-006" styleclass="slds-input" style="text-align-last: left" value="{!ld.postalcode}" required="true"/>
+                                                    </div>
+                                                </div> </div>
+                                            
+                                        </div> </div>
+                                </div>
+                            </header>
+                        </div>
+                    </article>   
+                    <article class="slds-card">
+                        <div class="slds-card__header slds-grid">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                
+                                <span class="slds-icon_container slds-icon-standard-account" title="Contact Details">
+                                    <span class="slds-assistive-text">Contact Details</span>
+                                </span>
+                                
+                                <div class="slds-media__body">
+                                    <h2 class="slds-card__header-title">
+                                        
+                                        <span>Contact Details</span>
+                                        
+                                    </h2>
+                                    <br/>
+                                    <div class="slds-form__row">
+                                        <div class="slds-form__item" role="listitem">
+                                            <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                                <label class="slds-form-element__label" for="horizontal-form-element-id-007"><abbr class="slds-required" title="required">* </abbr>Phone</label>
+                                                <div class="slds-form-element__control">
+                                                    
+                                                    <apex:inputfield type="text" ignoreEditPermissionForRendering="true" id="horizontal-form-element-id-007" styleclass="slds-input" style="text-align-last: left" value="{!ld.phone}" required="true" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                         <div class="slds-form__item" role="listitem">
+                                            <div class="slds-form-element slds-form-element_horizontal  slds-is-editing">
+                                                <label class="slds-form-element__label" for="horizontal-form-element-id-0010">Spouse/Partner Name</label>
+                                                <div class="slds-form-element__control">
+                                                    <apex:inputfield type="text" ignoreEditPermissionForRendering="true" id="horizontal-form-element-id-0010" styleclass="slds-input" style="text-align-last: left" value="{!ld.Spouse_Partner_Name__c}" required="true" />
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        </div>
+                                        <div class="slds-form__row">
+                                            <div class="slds-form__item" role="listitem">
+                                            <div class="slds-form-element slds-form-element_horizontal slds-is-editing slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open">
+                                                <label class="slds-form-element__label" for="horizontal-form-element-id-008"><abbr class="slds-required" title="required">* </abbr>DOB</label>
+                                                <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_right">
+                                                    <apex:inputfield type="date" ignoreEditPermissionForRendering="true" id="horizontal-form-element-id-008" styleclass="slds-input" style="text-align-last: left" value="{!ld.DOB__c}" required="true" />
+                                                    <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right" title="Select a date">
+                                                        <svg class="slds-button__icon" aria-hidden="true">
+                                                        </svg>
+                                                        <span class="slds-assistive-text">Select a date</span>
+                                                    </button>
+                                                </div>
+                                            </div>                      
+                                        
+                                        <div class="slds-form-element slds-form-element_horizontal slds-is-editing slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open">
+                                            <label class="slds-form-element__label" for="horizontal-form-element-id-0011"> Spouse/Partner DOB</label>
+                                            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_right">
+                                                <apex:inputfield type="date" ignoreEditPermissionForRendering="true" id="horizontal-form-element-id-0011" styleclass="slds-input" style="text-align-last: left" value="{!ld.Spouse_Partner_DOB__c}" />
+                                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right" title="Select a date">
+                                                    <svg class="slds-button__icon" aria-hidden="true">
+                                                    </svg>
+                                                    <span class="slds-assistive-text">Select a date</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="slds-form__row">
+                                        <div class="slds-form__item" role="listitem" >
+                                            <div class="slds-form-element slds-form-element_horizontal slds-has-error slds-is-editing">
+                                                <label class="slds-form-element__label" for="horizontal-form-element-id-009">Email</label>
+                                                <div class="slds-form-element__control">
+                                                    <apex:outputText id="horizontal-form-element-id-009"   value="{!ld.email}" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <div class="slds-form__item" role="listitem">
+                                            <div class="slds-form-element slds-form-element_horizontal  slds-is-editing">
+                                                <label class="slds-form-element__label" for="horizontal-form-element-id-0030">Spouse/Partner Email Id</label>
+                                                <div class="slds-form-element__control">
+                                                    <apex:inputfield type="text" ignoreEditPermissionForRendering="true" id="horizontal-form-element-id-0030" styleclass="slds-input" style="text-align-last: left" value="{!ld.Spouse_Email_ID__c}" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                            
+                                </div>
+                            </header>
+                        </div>
+                    </article> 
+                    
+                    <article class="slds-card">
+                        <div class="slds-card__header slds-grid">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                
+                                <span class="slds-icon_container slds-icon-standard-account" title="Asset Details">
+                                    <span class="slds-assistive-text">Asset Details</span>
+                                </span>
+                                
+                                <div class="slds-media__body">
+                                    <h2 class="slds-card__header-title">
+                                        
+                                        <span>Asset Details</span>
+                                        
+                                    </h2>
+                                    <br/>
+                                    <div class="slds-form__row">
+                                        <div class="slds-form__item" role="listitem">
+                                            <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                                <label class="slds-form-element__label" for="horizontal-form-element-id-0012">
+                                                    <abbr class="slds-required" title="required">* </abbr>Estimated Credit Score</label>
+                                                <div class="slds-form-element__control">
+                                                    <apex:inputfield type="number" ignoreEditPermissionForRendering="true" id="horizontal-form-element-id-0012" styleclass="slds-input" style="text-align-last: left" value="{!ld.Estimated_Credit_Score__c}"  required="true"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slds-form__item" role="listitem">
+                                            <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                                <label class="slds-form-element__label" for="horizontal-form-element-id-0013">
+                                                    <abbr class="slds-required" title="required">* </abbr>Household Yearly Income</label>
+                                                <div class="slds-form-element__control">
+                                                    <apex:inputfield type="text" ignoreEditPermissionForRendering="true" id="horizontal-form-element-id-0013" styleclass="slds-input" style="text-align-last: left"  value="{!ld.Household_Yearly_Income__c}" onchange="handleOnChange(1);"   required="true" />
+                                                </div>
+                                            </div> </div>
+                                        
+                                    </div>
+                                    <div class="slds-form" role="list">
+                                        <div class="slds-form__row">
+                                            <div class="slds-form__item" role="listitem">
+                                                <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                                    <label class="slds-form-element__label" for="horizontal-form-element-id-0014">
+                                                        <abbr class="slds-required" title="required">* </abbr>Liquid Assets</label>
+                                                    <div class="slds-form-element__control">
+                                                        <apex:inputfield type="text" ignoreEditPermissionForRendering="true" id="horizontal-form-element-id-0014" styleclass="slds-input" style="text-align-last: left"  value="{!ld.Liquid_Assets__c}" onchange="handleOnChange(2);"  required="true" />
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="slds-form__item" role="listitem">
+                                                <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                                    <label class="slds-form-element__label" for="horizontal-form-element-id-0015">
+                                                        <abbr class="slds-required" title="required">* </abbr>Retirement Funds Estimate</label>
+                                                    <div class="slds-form-element__control">
+                                                        <apex:inputfield type="text" ignoreEditPermissionForRendering="true" id="horizontal-form-element-id-0015" styleclass="slds-input" style="text-align-last: left"  value="{!ld.Retirement_Funds_Estimate__c}" onchange="handleOnChange(3);"   required="true"/>
+                                                    </div>
+                                                </div> </div>
+                                        </div> </div>
+                                    <div class="slds-form" role="list">
+                                        <div class="slds-form__row">
+                                            
+                                            <div class="slds-form__item" role="listitem" style="padding-right: 53%;">
+                                                <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                                    <label class="slds-form-element__label" for="horizontal-form-element-id-0016">Additional Financial Comments</label>
+                                                    <div class="slds-form-element__control">
+                                                        <apex:inputfield type="text" ignoreEditPermissionForRendering="true" id="horizontal-form-element-id-0016" styleclass="slds-input" style="text-align-last: left"  value="{!ld.Additional_Financial_Comments__c}" />
+                                                    </div>
+                                                </div> </div>      
+                                        </div> </div>
+                                </div>
+                            </header>
+                        </div>
+                    </article> 
+                    <article class="slds-card">
+                        <div class="slds-card__header slds-grid">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                
+                                <span class="slds-icon_container slds-icon-standard-account" title="Desired Territories">
+                                    <span class="slds-assistive-text">Desired Territories</span>
+                                </span>
+                                
+                                <div class="slds-media__body">
+                                    <h2 class="slds-card__header-title">
+                                        
+                                        <span>Desired Territories</span>
+                                        
+                                    </h2>
+                                    <br/>
+                                    <div class="slds-form__row" >
+                                        <div class="slds-form__item" role="listitem" >
+                                            <div class="slds-form-element slds-form-element_horizontal slds-is-editing" style="padding-right: 2%;" >
+                                                <label class="slds-form-element__label"  for="horizontal-form-element-id-0019"><abbr class="slds-required" title="required">* </abbr>First Priority Territory</label>
+                                                <div class="slds-form-element__control">
+                                                    <apex:inputField ignoreEditPermissionForRendering="true" id="horizontal-form-element-id-0019"  styleclass="slds-textarea" value="{!ld.First_Priority_Territory__c}" required="true"/>
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element slds-form-element_horizontal slds-is-editing" >
+                                                <label class="slds-form-element__label" for="horizontal-form-element-id-0020">Second Priority Territory</label>
+                                                <div class="slds-form-element__control">
+                                                    <apex:inputField ignoreEditPermissionForRendering="true" id="horizontal-form-element-id-0020" styleclass="slds-textarea" value="{!ld.Second_Priority_Territory__c}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>   
+                                    <div class="slds-form__row">
+                                        <div class="slds-form__item" role="listitem" style="padding-right: 53%;">
+                                            <div class="slds-form-element slds-form-element_horizontal slds-is-editing ">
+                                                <label class="slds-form-element__label" for="horizontal-form-element-id-0021">Third Priority Territory</label>
+                                                <div class="slds-form-element__control">
+                                                    <apex:inputField ignoreEditPermissionForRendering="true" id="horizontal-form-element-id-0021"  styleclass="slds-textarea" value="{!ld.Third_Priority_Territory__c}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </div>
+                            </header>
+                        </div>
+                    </article>
+                    <article class="slds-card">
+                        <div class="slds-card__header slds-grid">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                
+                                <span class="slds-icon_container slds-icon-standard-account" title="Business Startup Details">
+                                    <span class="slds-assistive-text">Business Startup Details</span>
+                                </span>
+                                <br/>
+                                <div class="slds-media__body">
+                                    <h2 class="slds-card__header-title">
+                                        
+                                        <span>Business Startup Details</span>
+                                        
+                                    </h2>
+                                    <br/>
+                                    <div class="slds-form__row">
+                                        <div class="slds-form__item" role="listitem">
+                                            <div class="slds-form-element slds-form-element_horizontal slds-is-editing" style="padding-right: 2%;">
+                                                <label class="slds-form-element__label" for="horizontal-form-element-id-0017"> <abbr class="slds-required" title="required">* </abbr>How Do You Plan on Funding Your Business</label>
+                                                <div class="slds-form-element__control">
+                                                    <apex:inputfield id="horizontal-form-element-id-0017" ignoreEditPermissionForRendering="true" styleclass="slds-input" value="{!ld.How_Do_You_Plan_on_Funding_Your_Business__c}" required="true"/>
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element slds-form-element_horizontal slds-is-editing ">
+                                                <label class="slds-form-element__label" for="horizontal-form-element-id-0018">When are you looking to start?</label>
+                                                <div class="slds-form-element__control">
+                                                    <apex:inputField ignoreEditPermissionForRendering="true" id="horizontal-form-element-id-0018" styleclass="slds-textarea" value="{!ld.Looking_to_Start__c}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-form__row">
+                                        <div class="slds-form__item" role="listitem">
+                                            <div class="slds-form-element slds-form-element_horizontal slds-is-editing" style="padding-right: 2%;">
+                                                <label class="slds-form-element__label" for="horizontal-form-element-id-0026"> <abbr class="slds-required" title="required">* </abbr>Will You Operate the Business Full Time?</label>
+                                                <div class="slds-form-element__control">
+                                                    <apex:inputfield id="horizontal-form-element-id-0026" ignoreEditPermissionForRendering="true"  styleclass="slds-input" value="{!ld.Will_You_Operate_the_Business_Full_Time__c}" required="true"/>
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                                <label class="slds-form-element__label" for="horizontal-form-element-id-0027">Will you have any other business partners?</label>
+                                                <div class="slds-form-element__control">
+                                                    <apex:inputField ignoreEditPermissionForRendering="true" id="horizontal-form-element-id-0027" styleclass="slds-textarea" value="{!ld.Other_Business_Partners__c}" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-form__row">
+                                        <div class="slds-form__item" role="listitem">
+                                            <div class="slds-form-element slds-form-element_horizontal slds-is-editing" style="padding-right: 2%;">
+                                                <label class="slds-form-element__label" for="horizontal-form-element-id-0028"> <abbr class="slds-required" title="required">* </abbr>Do you currently own another business?</label>
+                                                <div class="slds-form-element__control">
+                                                    <apex:inputfield id="horizontal-form-element-id-0028" ignoreEditPermissionForRendering="true" styleclass="slds-input" value="{!ld.Own_Another_Business__c}" required="true"/>
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element slds-form-element_horizontal slds-is-editing ">
+                                                <label class="slds-form-element__label" for="horizontal-form-element-id-0029">How Did You Hear About Smart Franchise?</label>
+                                                <div class="slds-form-element__control">
+                                                    <apex:inputField ignoreEditPermissionForRendering="true" id="horizontal-form-element-id-0029" styleclass="slds-textarea" value="{!ld.How_Did_You_Hear_About_Smart_Franchise__c}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>              
+                                </div>
+                            </header>
+                        </div>
+                    </article>
+                    
+                    <article class="slds-card">
+                        <div class="slds-card__header slds-grid">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                
+                                <span class="slds-icon_container slds-icon-standard-account" title="Job Background">
+                                    <span class="slds-assistive-text">Job Background</span>
+                                </span>
+                                
+                                <div class="slds-media__body">
+                                    <h2 class="slds-card__header-title">
+                                        
+                                        <span>Job Background</span>
+                                        
+                                    </h2>
+                                    <br/>
+                                    <div class="slds-form__row">
+                                        <div class="slds-form__item" role="listitem">
+                                            <div class="slds-form-element slds-form-element_horizontal slds-is-editing" style="padding-right: 2%;">
+                                                <label class="slds-form-element__label" for="horizontal-form-element-id-0022"><abbr class="slds-required" title="required">* </abbr>Current/Most Recent Job Title</label>
+                                                <div class="slds-form-element__control">
+                                                    <apex:inputField ignoreEditPermissionForRendering="true" id="horizontal-form-element-id-0022" styleclass="slds-textarea" value="{!ld.Current_Most_Recent_Job_Title__c}" required="true"/>
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                                <label class="slds-form-element__label" for="horizontal-form-element-id-0023"> <abbr class="slds-required" title="required">* </abbr>Are you a veteran?</label>
+                                                <div class="slds-form-element__control">
+                                                    <apex:inputfield id="horizontal-form-element-id-0023" ignoreEditPermissionForRendering="true" styleclass="slds-input" value="{!ld.Veteran__c}" required="true" />
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="slds-form__row">
+                                        <div class="slds-form__item" role="listitem">
+                                            <div class="slds-form-element slds-form-element_horizontal slds-is-editing" style="padding-right: 2%;">
+                                                <label class="slds-form-element__label" for="horizontal-form-element-id-0024"><abbr class="slds-required" title="required">* </abbr>Have you ever filed Bankruptcy? If Yes, When?</label>
+                                                <div class="slds-form-element__control">
+                                                    <apex:inputField ignoreEditPermissionForRendering="true" id="horizontal-form-element-id-0024" styleclass="slds-textarea" value="{!ld.Have_You_Ever_Filed_Bankruptcy__c}" required="true"/>
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                                <label class="slds-form-element__label" for="horizontal-form-element-id-0025"> <abbr class="slds-required" title="required">* </abbr>Have you ever been convicted of a felony?</label>
+                                                <div class="slds-form-element__control">
+                                                    <apex:inputfield id="horizontal-form-element-id-0025" ignoreEditPermissionForRendering="true" styleclass="slds-input" value="{!ld.Felony_Conviction__c}" required="true"/>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="slds-form__row" >
+                                        <div class="slds-form__item" role="listitem" >
+                                            <div class="slds-form-element slds-form-element_horizontal slds-is-editing" style="padding-right: 2%;" >
+                                                <label class="slds-form-element__label"  for="horizontal-form-element-id-0051"><abbr class="slds-required" title="required">* </abbr>How many hours per week do you use a computer?</label>
+                                                <div class="slds-form-element__control">
+                                                    <apex:inputField ignoreEditPermissionForRendering="true" id="horizontal-form-element-id-0051"  styleclass="slds-textarea" value="{!ld.How_Many_Hrs_Week_Do_You_Use_a_Computer__c}" required="true"/>
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element slds-form-element_horizontal slds-is-editing" >
+                                                <label class="slds-form-element__label" for="horizontal-form-element-id-0052"><abbr class="slds-required" title="required">* </abbr>Have you ever used a CRM System to track clients?</label>
+                                                <div class="slds-form-element__control">
+                                                    <apex:inputField ignoreEditPermissionForRendering="true" id="horizontal-form-element-id-0052" styleclass="slds-textarea" value="{!ld.Have_You_Ever_Used_CRM_System_for_Client__c}" required="true"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </header>
+                        </div>
+                    </article>
+                    
+                    
+                </div>
+                
+                <br/>
+                <apex:outputPanel styleClass="btnClass" style="padding-left:509px;" >
+                    <apex:commandButton styleclass="slds-button slds-button_outline-brand"  value="SUBMIT" action="{!UpdateRecord}"  id="start_button" />
+                </apex:outputPanel>
+                
+            </apex:pageBlock>
+            
+            <apex:outputText rendered="{!feedback='True'}" style="font-weight:bold;font-size:large">
+                <p align="center">
+                    <br/><strong style="font-size:1.5vw;background: #FDFEFE">THANK YOU, YOU HAVE ALREADY SUBMITTED THE FORM </strong>
+                    <strong></strong>
+                </p></apex:outputText>
+            
+        </div>  
+    </apex:form>
+     <script>
+        function containsOnlyNumbers(str) {
+            return /^\d+$/.test(str);
+        }
+
+        function handleOnChange(val) {
+            let inputValue='';
+            if(val==1){
+                //HoueHold Yearly Income
+                inputValue=document.getElementById('j_id0:feedbackForm:feedback:horizontal-form-element-id-0013').value;
+                if(containsOnlyNumbers(inputValue)==false){
+                  document.getElementById('j_id0:feedbackForm:feedback:horizontal-form-element-id-0013').value='';
+                  alert('InAppropriate value for Household Yearly Income');
+                }
+                
+            }
+            if(val==2){
+                //Liquid Assets j_id0:feedbackForm:feedback:horizontal-form-element-id-0014
+                inputValue=document.getElementById('j_id0:feedbackForm:feedback:horizontal-form-element-id-0014').value;
+                if(containsOnlyNumbers(inputValue)==false){
+                  document.getElementById('j_id0:feedbackForm:feedback:horizontal-form-element-id-0014').value='';
+                  alert('InAppropriate value for Liquid Assets');
+                }
+                
+            }
+            if(val==3){
+                //Retirement Fund Estimate j_id0:feedbackForm:feedback:horizontal-form-element-id-0015
+                inputValue=document.getElementById('j_id0:feedbackForm:feedback:horizontal-form-element-id-0015').value;
+                if(containsOnlyNumbers(inputValue)==false){
+                  document.getElementById('j_id0:feedbackForm:feedback:horizontal-form-element-id-0015').value='';
+                  alert('InAppropriate value for Retirement Fund Estimate');
+                }
+            }
+        }
+    </script>
+</apex:page>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Status --></label>
+    <name>Status__c</name>
+    <picklistValues>
+        <masterLabel>Cancelled</masterLabel>
+        <translation><!-- Cancelled --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Completed</masterLabel>
+        <translation><!-- Completed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Invoice Paid</masterLabel>
+        <translation><!-- Invoice Paid --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Invoiced</masterLabel>
+        <translation><!-- Invoiced --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending</masterLabel>
+        <translation><!-- Pending --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending IC</masterLabel>
+        <translation><!-- Pending IC --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending ICC</masterLabel>
+        <translation><!-- Pending ICC --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Scheduled</masterLabel>
+        <translation><!-- Scheduled --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

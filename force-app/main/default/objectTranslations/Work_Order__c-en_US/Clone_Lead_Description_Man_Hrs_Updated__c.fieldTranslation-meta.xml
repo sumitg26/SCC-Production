@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Fill in the fields Commercial Man Hrs, Lead Description in Accounts with the Start Date for the IC, and then Clone the IC --></help>
+    <label><!-- Clone/Lead Description/Man Hrs Updated --></label>
+    <name>Clone_Lead_Description_Man_Hrs_Updated__c</name>
+</CustomFieldTranslation>

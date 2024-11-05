@@ -1,0 +1,754 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Customer_Community_Email_Alert_WO_Created</fullName>
+        <description>Customer Community Email Alert WO Created</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>rv@smartcarpetcare.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>smartaccountmgmt@smartcarpetcare.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Internal_Operations/WO_Creation_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>Customer_Community_Text_Alert_WO_Created</fullName>
+        <ccEmails>9709780793@vtext.com</ccEmails>
+        <ccEmails>9706743355@vtext.com</ccEmails>
+        <description>Customer Community Text Alert_WO_Created</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>admin@scc.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>smartaccountmgmt@smartcarpetcare.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Internal_Operations/WO_Creation_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>Customer_Community_Text_Completion_Alert</fullName>
+        <description>Customer Community Text Completion Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Text_Completion_2_Notification__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Text_Completion_Notification__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>smartaccountmgmt@smartcarpetcare.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Internal_Operations/Carpet_Cleaning_Completion_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_WO_Confirmation_Email</fullName>
+        <ccEmails>admin@smartcarpetcare.com</ccEmails>
+        <description>Send WO Confirmation Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>WO_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Internal_Operations/WO_Confirmation_Email</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Actual_Start_Time</fullName>
+        <field>Date_Stamp_Start_Time__c</field>
+        <formula>NOW()</formula>
+        <name>Actual Start Time</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Billing_Address</fullName>
+        <field>Billing_Address__c</field>
+        <formula>Account_Billing_City__c</formula>
+        <name>Billing Address</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Billing_City</fullName>
+        <field>Billing_City__c</field>
+        <formula>Account_Billing_City__c</formula>
+        <name>Billing City</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Billing_City2</fullName>
+        <field>Property_City__c</field>
+        <formula>Billing_City__c</formula>
+        <name>Billing City</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Copy_Unit_Number</fullName>
+        <field>Unit_Number__c</field>
+        <formula>Account_Name__r.Unit_Number_txt__c</formula>
+        <name>Copy Unit Number</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>End_time</fullName>
+        <field>End_Time__c</field>
+        <formula>Account_Name__r.End_Time__c</formula>
+        <name>End time</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Property_Address</fullName>
+        <field>Property_Address__c</field>
+        <formula>Billing_Address__c</formula>
+        <name>Property Address</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Property_Address2</fullName>
+        <field>Property_Address__c</field>
+        <formula>Account_Billing_Street__c</formula>
+        <name>Property Address</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Property_City</fullName>
+        <field>Property_City__c</field>
+        <formula>Account_Billing_City__c</formula>
+        <name>Property City</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Property_State</fullName>
+        <field>Property_State__c</field>
+        <formula>Billing_State__c</formula>
+        <name>Property State</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Property_State2</fullName>
+        <field>Property_State__c</field>
+        <formula>Account_Billing_State__c</formula>
+        <name>Property State</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Property_Zip</fullName>
+        <field>Property_Zip_Code__c</field>
+        <formula>Billing_Zip_Code__c</formula>
+        <name>Property Zip</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Property_Zip2</fullName>
+        <field>Property_Zip_Code__c</field>
+        <formula>Account_Billing_Zip_Code__c</formula>
+        <name>Property Zip</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Status_Pending</fullName>
+        <field>Status__c</field>
+        <literalValue>Pending</literalValue>
+        <name>Set Status Pending</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Test_SFDC</fullName>
+        <field>Field_Notes__c</field>
+        <formula>Account_Name__r.Field_Notes__c</formula>
+        <name>Test SFDC</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Time_Stamp_Actual_End_Time</fullName>
+        <field>Date_Stamp_End_Time__c</field>
+        <formula>NOW()</formula>
+        <name>Time Stamp Actual End Time</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Unit</fullName>
+        <field>Unit_Number__c</field>
+        <formula>Unit_Number__c</formula>
+        <name>Unit</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Unit_Number</fullName>
+        <field>Unit_Number__c</field>
+        <formula>Account_Name__r.Unit_Number__c</formula>
+        <name>Unit Number</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update</fullName>
+        <field>Requested_By__c</field>
+        <formula>&quot;Robert&quot;</formula>
+        <name>Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Account_Email</fullName>
+        <field>WO_Email__c</field>
+        <formula>Account_Name__r.Email__c</formula>
+        <name>Update Account Email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Additional_Notes_on_Work_Order</fullName>
+        <field>Additional_Notes__c</field>
+        <formula>Account_Name__r.Additional_Notes__c</formula>
+        <name>Update Additional Notes on Work Order</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Cellphone</fullName>
+        <field>Cell_Phone_P__c</field>
+        <formula>Account_Name__r.Cell_Phone__c</formula>
+        <name>Update Cellphone</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Field_Crew_End_Time</fullName>
+        <field>Field_Crew_End_Time__c</field>
+        <formula>Now()</formula>
+        <name>Update Field Crew End Time</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Lead_Description</fullName>
+        <description>Update Lead Description</description>
+        <field>Lead_Description__c</field>
+        <formula>Account_Name__r.Description4__c</formula>
+        <name>Update Lead Description</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Main_Office_Phone_Number</fullName>
+        <field>Main_Office_Phone_P__c</field>
+        <formula>Account_Name__r.Main_Office_Phone__c</formula>
+        <name>Update Main Office Phone Number</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Otherphone</fullName>
+        <field>Other_Phone_P__c</field>
+        <formula>Account_Name__r.Other_Phone__c</formula>
+        <name>Update Otherphone</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Phone</fullName>
+        <field>Phone_p__c</field>
+        <formula>Account_Name__r.Phone</formula>
+        <name>Update Phone</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Requester</fullName>
+        <field>Requested_By__c</field>
+        <formula>&quot;Robert&quot;</formula>
+        <name>Update Requester</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Txt_Notification_2_field</fullName>
+        <field>Text_Completion_2_Notification__c</field>
+        <formula>Account_Name__r.X2_Text_Msg_To__c</formula>
+        <name>Update Txt Notification 2 field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>address_2</fullName>
+        <field>Property_City__c</field>
+        <formula>Account_Name__r.Property_City__c</formula>
+        <name>address 2</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>address_3</fullName>
+        <field>Property_State__c</field>
+        <formula>Account_Name__r.Property_State__c</formula>
+        <name>address 3</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>address_4</fullName>
+        <field>Property_Zip_Code__c</field>
+        <formula>Account_Name__r.Property_Zip_Code__c</formula>
+        <name>address 4</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>copy_billing_info</fullName>
+        <field>Copy_Billing_Information__c</field>
+        <literalValue>1</literalValue>
+        <name>copy billing info</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>number</fullName>
+        <field>Unit_Number__c</field>
+        <formula>Account_Name__r.Unit_Number__c</formula>
+        <name>number</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>unite_number1</fullName>
+        <field>Unit_Number__c</field>
+        <formula>Account_Name__r.Unit_Number_txt__c</formula>
+        <name>unite number</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>update_the_address</fullName>
+        <field>Property_Address__c</field>
+        <formula>Account_Name__r.Property_Address__c</formula>
+        <name>update the address</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>update_the_email_field_on_WO</fullName>
+        <field>Text_Completion_Notification__c</field>
+        <formula>Account_Name__r.Text_Msg_To__c</formula>
+        <name>update the email field on WO</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>update_the_end_date</fullName>
+        <field>End_Time__c</field>
+        <formula>Account_Name__r.End_Time__c</formula>
+        <name>update the end date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Capture the Text Email Notification 2</fullName>
+        <actions>
+            <name>Update_Txt_Notification_2_field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>True</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Capture the email</fullName>
+        <actions>
+            <name>Update_Account_Email</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>update_the_email_field_on_WO</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>True</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Carpet Cleaning completion email</fullName>
+        <actions>
+            <name>Customer_Community_Text_Completion_Alert</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Work_Order__c.Field_Crew_End_Time__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Clone  IC</fullName>
+        <actions>
+            <name>Clone_IC</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Work_Order__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Invoiced</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Work_Order__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Commercial IC</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Copy Billing Address</fullName>
+        <actions>
+            <name>Property_Address2</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Property_City</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Property_State2</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Property_Zip2</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>unite_number1</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Work_Order__c.Copy_Billing_Information__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Copy from Accounts to Work Orders</fullName>
+        <actions>
+            <name>Update_Additional_Notes_on_Work_Order</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Lead_Description</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Copy from Accounts to Work Orders</description>
+        <formula>AND(RecordType.DeveloperName = &quot;Residential&quot;, !ISBLANK( Account_Name__r.Additional_Notes__c ))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Create Task</fullName>
+        <actions>
+            <name>New_Tenants_Alert</name>
+            <type>Task</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Work_Order__c.New_Tenant_Follow_Up_Call__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>SFDC AutoFIll</fullName>
+        <actions>
+            <name>Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Work_Order__c.SFDC_Field__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Send WO Confirmation Email</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Work_Order__c.Send_WO_Confirmation_Email__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Work_Order__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Scheduled</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_WO_Confirmation_Email</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Work_Order__c.Start_Time__c</offsetFromField>
+            <timeLength>-1</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Set Community User Work Orders To Pending</fullName>
+        <actions>
+            <name>Set_Status_Pending</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>Owner:User.ProfileId = &apos;00e1a000000MtJb&apos;</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Test12345</fullName>
+        <actions>
+            <name>Test_SFDC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>True</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Time Stamp Actual End Time</fullName>
+        <actions>
+            <name>Time_Stamp_Actual_End_Time</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISCHANGED( Field_Crew_End_Time__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Timestamp for actual start time</fullName>
+        <actions>
+            <name>Actual_Start_Time</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISCHANGED( Field_Crew_Start_Time__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Field Crew End Time</fullName>
+        <actions>
+            <name>Update_Field_Crew_End_Time</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Work_Order__c.Field_Crew_End_Time__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Work_Order__c.Requested_By__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Phone Numbers</fullName>
+        <actions>
+            <name>Update_Cellphone</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Main_Office_Phone_Number</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Otherphone</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Phone</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>OR(ISBLANK(Phone_p__c) ,  ISBLANK(  Other_Phone_P__c ) , ISBLANK( Main_Office_Phone_P__c ) ,  ISBLANK(  Cell_Phone_P__c ) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>WO Created by Portal User</fullName>
+        <actions>
+            <name>Customer_Community_Text_Alert_WO_Created</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Sends notification when a Work Order is created by a portal user</description>
+        <formula>CreatedBy.Profile.Id  = &apos;00e1a000000MtJb&apos;</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Work Order Creation is Yes SFDC</fullName>
+        <actions>
+            <name>copy_billing_info</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Work_Order__c.Copy_Billing_Information__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>date discount</fullName>
+        <active>false</active>
+        <formula>True</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>update address</fullName>
+        <actions>
+            <name>address_2</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>address_3</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>address_4</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>number</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>update_the_address</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>update_the_end_date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISPICKVAL(Account_Name__r.Work_Order_Status__c, &quot;Yes&quot;)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <tasks>
+        <fullName>Clone_IC</fullName>
+        <assignedTo>admin@scc.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Clone this IC for next scheduled clean, also add latest cleaning date into account record.</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Clone IC</subject>
+    </tasks>
+    <tasks>
+        <fullName>New_Tenants_Alert</fullName>
+        <assignedTo>admin@scc.com</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>2</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <offsetFromField>Work_Order__c.Completion_Date__c</offsetFromField>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Completed</status>
+        <subject>New Tenants Alert</subject>
+    </tasks>
+</Workflow>

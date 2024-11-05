@@ -1,0 +1,11 @@
+<apex:page standardController="Lead" extensions="leadControllerExtension" standardStylesheets="false"  lightningStylesheets="true" action="{!deleteLeads}"  >
+    <apex:form >
+        <apex:slds />
+        <apex:outputPanel >
+            <apex:pageMessages id="showmsg"></apex:pageMessages>
+           <center>
+                <apex:commandButton styleClass="slds-button slds-button_neutral" action="{!leadRecordView}" value="Go Back"/>
+         </center>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

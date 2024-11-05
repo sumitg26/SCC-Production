@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SFDC_SCC_Line_Item_Description__c</fullName>
+    <externalId>false</externalId>
+    <formula>if(NOT(ISPICKVAL( Unit_Type__c, &quot;&quot;)),text(Unit_Type__c) &amp; &quot;, &quot; ,null) &amp;
+if(NOT(ISPICKVAL( Number_of_bedrooms__c , &quot;&quot;)),text(Number_of_bedrooms__c) &amp; &quot;, &quot; ,null)&amp;
+if(NOT(ISPICKVAL(  MBD__c , &quot;&quot;)),text(MBD__c) &amp; &quot;, &quot; ,null) &amp;
+if(NOT(ISPICKVAL(  Living_rm__c , &quot;&quot;)),text(Living_rm__c) &amp; &quot;, &quot; ,null) &amp;
+if(NOT(ISPICKVAL(  Dining_rm__c , &quot;&quot;)),text(Dining_rm__c ) &amp; &quot;, &quot; ,null) &amp;
+if(NOT(ISPICKVAL(  Hall__c, &quot;&quot;)),text(Hall__c) &amp; &quot;, &quot; ,null) &amp;
+if(NOT(ISPICKVAL(  Liv_Din_rm__c , &quot;&quot;)),text(Liv_Din_rm__c ) &amp; &quot;, &quot; ,null) &amp;
+if(NOT(ISPICKVAL(  Family_rm__c , &quot;&quot;)),text(Family_rm__c ) &amp; &quot;, &quot; ,null) &amp;
+if(NOT(ISPICKVAL(  Office__c , &quot;&quot;)),text(Office__c ) &amp; &quot;, &quot; ,null) &amp;
+if(NOT(ISPICKVAL(  Stairs__c , &quot;&quot;)),text(Stairs__c ) &amp; &quot;, &quot; ,null) &amp;
+if(NOT(ISPICKVAL( Rec_rm_Great_rm__c , &quot;&quot;)),text(Rec_rm_Great_rm__c ) &amp; &quot;, &quot; ,null) &amp;
+if(NOT(ISPICKVAL(  Loft__c , &quot;&quot;)),text(Loft__c) &amp; &quot;, &quot; ,null) &amp;
+if(NOT(ISPICKVAL( Walk_In_Closet__c , &quot;&quot;)),text(Walk_In_Closet__c) &amp; &quot;, &quot; ,null) &amp;
+
+
+IF(INCLUDES(Rugs__c, &quot;3X5&quot;),  &quot;3X5;&quot;,  NULL) &amp;
+IF(INCLUDES(Rugs__c, &quot;5X7&quot;), &quot;5X7;&quot;, NULL) &amp;
+IF(INCLUDES(Rugs__c, &quot;8X10&quot;),  &quot;8X10;&quot;,  NULL) &amp;
+IF(INCLUDES(Rugs__c, &quot;9X12&quot;), &quot;9X12;&quot;, NULL) &amp;
+if(NOT(ISBLANK(Other__c)), Other__c  &amp; &quot;, &quot; ,null)</formula>
+    <label>SFDC SCC Line Item Description</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

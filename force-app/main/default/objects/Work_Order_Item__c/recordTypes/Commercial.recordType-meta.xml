@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Commercial</fullName>
+    <active>false</active>
+    <label>Commercial</label>
+    <picklistValues>
+        <picklist>Services__c</picklist>
+        <values>
+            <fullName>Black Light Inspection with Brief Report</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Black Light Inspection with Full Report %2B Photos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bright Color%2FEarthtone treatment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commercial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>High Soil%2FSpot Levels</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Minimum Service Charge</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OCA Broad Based</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OCA Targeted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Smart Carpet Cleaning</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

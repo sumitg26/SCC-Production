@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Services__c</fullName>
+    <externalId>false</externalId>
+    <label>Services</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Black Light Inspection with Brief Report</fullName>
+                <default>false</default>
+                <label>Black Light Inspection with Brief Report</label>
+            </value>
+            <value>
+                <fullName>Black Light Inspection with Full Report + Photos</fullName>
+                <default>false</default>
+                <label>Black Light Inspection with Full Report + Photos</label>
+            </value>
+            <value>
+                <fullName>Commercial</fullName>
+                <default>false</default>
+                <label>Commercial</label>
+            </value>
+            <value>
+                <fullName>High Soil/Spot Levels</fullName>
+                <default>false</default>
+                <label>High Soil/Spot Levels</label>
+            </value>
+            <value>
+                <fullName>Minimum Service Charge</fullName>
+                <default>false</default>
+                <label>Minimum Service Charge</label>
+            </value>
+            <value>
+                <fullName>OCA Broad Based</fullName>
+                <default>false</default>
+                <label>OCA Broad Based</label>
+            </value>
+            <value>
+                <fullName>OCA Targeted</fullName>
+                <default>false</default>
+                <label>OCA Targeted</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Bright Color/Earthtone treatment</fullName>
+                <default>false</default>
+                <label>Bright Color/Earthtone treatment</label>
+            </value>
+            <value>
+                <fullName>Smart Carpet Cleaning</fullName>
+                <default>false</default>
+                <label>Smart Carpet Cleaning</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

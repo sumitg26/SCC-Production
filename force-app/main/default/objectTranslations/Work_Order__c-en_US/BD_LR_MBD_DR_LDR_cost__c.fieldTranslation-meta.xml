@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- BD LR MBD DR LDR cost --></label>
+    <name>BD_LR_MBD_DR_LDR_cost__c</name>
+</CustomFieldTranslation>

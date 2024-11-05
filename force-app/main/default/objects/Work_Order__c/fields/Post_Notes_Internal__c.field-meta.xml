@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Post_Notes_Internal__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Include click on times for operators, anything CYA, including banding, and if you used heat transfer (include # of attempts &amp; duration of longest attempt), and any customer communications</inlineHelpText>
+    <label>Post Notes Internal</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>2</visibleLines>
+</CustomField>

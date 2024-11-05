@@ -1,0 +1,71 @@
+<apex:page standardController="Work_Order__c" extensions="CreateInvoiceController" sidebar="false" showHeader="false" title="Create Invoice">
+    <style>
+        .bPageBlock .detailList .labelCol {
+          width: 1%;
+        }
+    </style>
+   <apex:outputPanel id="head">
+   <apex:sectionHeader title="Work Orders" subtitle="{!if(ShowEmailTemplate,'Send Email','Create Invoice')}" />
+    </apex:outputPanel>
+    
+    <apex:form id="allPanel">
+    <apex:outputPanel id="out">
+        <apex:messages id="msg" style="font-weight:600"/>
+    </apex:outputPanel>
+        <apex:pageBlock rendered="{!(!ShowEmailTemplate && w[0].Invoice_Frequency__c != null)}">
+            <apex:pageBlockSection title="Select Contact" collapsible="false">
+              
+              <c:MultiselectPicklist leftLabel="Available Contacts" leftOption="{!Contacts}" rightLabel="Selected Contacts" rightOption="{!selectedContacts}"
+              size="10" width="150px">
+              </c:MultiselectPicklist>  
+               
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Select Work Order Item" collapsible="false" rendered="{!isMonthly}">
+                <apex:outputText rendered="{!selectwitemsList == null || selectwitemsList.size=0}">
+                    No Work Order Item record found..
+                </apex:outputText>
+                <apex:pageBlockTable value="{!selectwitemsList}" var="woItems" rendered="{!selectwitemsList != null && selectwitemsList.size>0}">
+                    <apex:column headerValue="Select">
+                        <apex:inputCheckbox value="{!woItems.selected}"></apex:inputCheckbox>
+                    </apex:column>
+                    <apex:column value="{!woItems.woi.Name}"/>
+                    <apex:column value="{!woItems.woi.Services__c}"/>
+                    <apex:column value="{!woItems.woi.Comment__c}"/>
+                    <apex:column value="{!woItems.woi.Price__c}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Select Template" collapsible="false">                 
+                <apex:selectList value="{!selectedTemplate}" size="1" multiselect="false">
+                    <apex:selectOptions value="{!Templates}"/>
+                    <apex:actionSupport event="onchange" action="{!onChangeTemplate}" reRender="invoiceOption,otherOption,out"/>
+                </apex:selectList>  
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Choose a Delivery Method" collapsible="false">                   
+                <apex:outputPanel id="otherOption">
+                    <apex:selectRadio value="{!selectedMethod}">
+                        <apex:selectOption itemLabel="Email" itemValue="Email"/>
+                        <apex:selectOption itemLabel="Attach" itemValue="Attach" rendered="{!otherRadio}"/>
+                        <apex:actionSupport event="onchange" action="{!onChangeRadio}" reRender="section"/>
+                    </apex:selectRadio>
+                </apex:outputPanel>
+            </apex:pageBlockSection>
+            
+             <apex:pageBlockSection title="Enable to attach Invoice" collapsible="false">
+                <apex:outputPanel id="section" layout="none">
+                    <apex:outputPanel rendered="{!IF(check == true,true,false)}" >
+                        <apex:inputCheckbox value="{!attachment}" id="checkbox" selected="true"/>
+                        <apex:outputLabel value="Attach to Work Order" for="checkbox"/>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+            </apex:pageBlockSection>
+            
+            <center>
+                <apex:commandButton value="Run" action="{!saveAttachement}" reRender="out"  />
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </center>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

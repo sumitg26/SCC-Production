@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#026694</headerColor>
+        <logo>SCC_Logo</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>true</shouldOverrideOrgTheme>
+    </brand>
+    <description>Smart Carpet App with Lightning Support</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <label>Smart Carpet Cleaning</label>
+    <navType>Standard</navType>
+    <setupExperience>all</setupExperience>
+    <tabs>standard-home</tabs>
+    <tabs>Calendar</tabs>
+    <tabs>standard-Lead</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>Work_Order__c</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
+    <tabs>Purchase_Orders__c</tabs>
+    <tabs>standard-File</tabs>
+    <tabs>standard-Product2</tabs>
+    <tabs>Time_Tracker__c</tabs>
+    <uiType>Lightning</uiType>
+</CustomApplication>

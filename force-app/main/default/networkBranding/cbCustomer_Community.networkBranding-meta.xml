@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NetworkBranding xmlns="http://soap.sforce.com/2006/04/metadata">
+    <loginFooterText>Smart Carpet Care LLC</loginFooterText>
+    <loginLogo>Communities_Shared_Document_Folder/servlet_jpeg.jpeg</loginLogo>
+    <loginLogoName>servlet.jpeg</loginLogoName>
+    <network>Customer Community</network>
+    <pageHeader>SharedDocuments/Smart_Soaked_Logo2.png</pageHeader>
+    <primaryColor>#2A61F3</primaryColor>
+    <primaryComplementColor>#FFFFFF</primaryComplementColor>
+    <quaternaryColor>#DCDCDC</quaternaryColor>
+    <quaternaryComplementColor>#222222</quaternaryComplementColor>
+    <secondaryColor>#C1C1C1</secondaryColor>
+    <tertiaryColor>#CACACA</tertiaryColor>
+    <tertiaryComplementColor>#222222</tertiaryComplementColor>
+    <zeronaryColor>#FFFFFF</zeronaryColor>
+    <zeronaryComplementColor>#FFFFFF</zeronaryComplementColor>
+</NetworkBranding>
